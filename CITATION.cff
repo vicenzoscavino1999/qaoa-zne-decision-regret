@@ -1,11 +1,14 @@
 cff-version: 1.2.0
-message: "Please cite this reproducibility package when using its code or data. Version-specific archival identifiers will be added when assigned."
+message: "Please cite this versioned reproducibility package when using its code or data."
 title: "Decision-aware validation of zero-noise extrapolation in QAOA optimization landscapes: reproducibility package"
 authors:
   - family-names: "Scavino Alfaro"
     given-names: "Vicenzo"
     orcid: "https://orcid.org/0009-0000-2472-9785"
 version: "1.0.0"
+doi: "10.5281/zenodo.23607395"
+repository-code: "https://github.com/vicenzoscavino1999/qaoa-zne-decision-regret"
+date-released: "2026-10-23"
 # Licenses apply to different files: MIT for code; CC-BY-4.0 for data/docs.
 # See LICENSE_BUNDLE.md. The optional CFF license field cannot express this split.
 keywords:

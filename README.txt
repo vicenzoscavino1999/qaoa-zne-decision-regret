@@ -3,8 +3,10 @@ Decision-aware validation of zero-noise extrapolation in QAOA optimization lands
 Vicenzo Scavino Alfaro
 
 STATUS AND SCOPE
-This package accompanies the study named above. Its repository URL and archival
-DOI will be added when assigned; this local copy does not establish publication.
+This package accompanies the study named above.
+Repository: https://github.com/vicenzoscavino1999/qaoa-zne-decision-regret
+Archived version 1.0.0: https://doi.org/10.5281/zenodo.23607395
+Release date: 2026-10-23
 The single current manuscript is MANUSCRITO_ACTUAL/manuscrito.pdf (27 pages, six appendices,
 34 cited works); editable sources are in MANUSCRITO_ACTUAL/fuentes/.
 
@@ -104,8 +106,8 @@ FILES AND PROVENANCE
   reports, including the historical seed limitation; not new release validation.
 - manuscript_qst/tables: three historical auxiliary DATA tables only. No older
   manuscript or separate supplement is presented as current.
-- CITATION.cff and .zenodo.json: citation and deposit metadata. Unassigned
-  repository URL, DOI and publication date are omitted.
+- CITATION.cff and .zenodo.json: version-specific citation and deposit metadata,
+  including the repository URL, archival DOI and release date.
 - .gitattributes: disables line-ending conversion so Git preserves frozen bytes.
 - .gitignore: excludes local execution artifacts without ignoring packaged data.
 
@@ -117,11 +119,9 @@ checks the frozen lock, creates a new manifest, and fixes ZIP timestamps/order.
 Identical input bytes and the same Python/zlib produce repeatable ZIP bytes;
 cross-toolchain compression identity is not promised.
 
-BEFORE PUBLICATION
-Obtain the repository URL and reserve a version-specific DOI in a Zenodo draft.
-Insert those identifiers in the citation/deposit metadata, this guide, and the
-manuscript Data availability paragraph. Compile the manuscript, rebuild the
-archive and check the exact final files before publishing version 1.0.0. Do not
-reuse the DOI of a different article. Author review and completion of the cover
-letter remain separate from these reproduction checks.
+CITATION AND VERSION
+Cite version 1.0.0 using DOI 10.5281/zenodo.23607395. CITATION.cff provides structured
+citation metadata. The Git tag v1.0.0 identifies the same source snapshot.
+The original confirmation protocol and its locked scientific files are retained
+unchanged. Later changes should receive a new version and an updated manifest.
 Code and data/document licenses are summarized in LICENSE_BUNDLE.md.

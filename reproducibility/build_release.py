@@ -99,7 +99,7 @@ def main():
     for source, target in [('gitattributes.txt', '.gitattributes'), ('gitignore.txt', '.gitignore')]:
         shutil.copyfile(root/'reproducibility/release_assets'/source, dest/target)
     payload=sorted(p for p in dest.rglob('*') if p.is_file())
-    manifest={'version':VERSION,'scope':'Unified manuscript, numerical reanalysis, complete targeted-confirmation data, control and allocation sensitivity. Historical noisy C/D landscapes are excluded; twelve historical ideal arrays are included. Public deposition pending.',
+    manifest={'version':VERSION,'scope':'Unified manuscript, numerical reanalysis, complete targeted-confirmation data, control and allocation sensitivity. Historical noisy C/D landscapes are excluded; twelve historical ideal arrays are included. Version-specific archival identifiers are recorded in CITATION.cff.',
               'sha256':{p.relative_to(dest).as_posix():sha(p) for p in payload}}
     (dest/'REVIEW_BUNDLE_MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
     archive.parent.mkdir(parents=True,exist_ok=True)

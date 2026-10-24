@@ -18,5 +18,15 @@
     "decision regret",
     "reproducibility"
   ],
-  "notes": "Code is licensed under MIT. Data, documentation and manuscript materials are licensed under CC-BY-4.0, subject to third-party notices; see LICENSE_BUNDLE.md. Frozen source modules are retained for provenance and hash verification, including modules outside the experiments exercised by this release."
+  "notes": "Code is licensed under MIT. Data, documentation and manuscript materials are licensed under CC-BY-4.0, subject to third-party notices; see LICENSE_BUNDLE.md. Frozen source modules are retained for provenance and hash verification, including modules outside the experiments exercised by this release.",
+  "doi": "10.5281/zenodo.23607395",
+  "publication_date": "2026-10-23",
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/vicenzoscavino1999/qaoa-zne-decision-regret/tree/v1.0.0",
+      "relation": "isIdenticalTo",
+      "resource_type": "dataset"
+    }
+  ]
 }
