@@ -1,0 +1,4 @@
+instance,slice_role,zne_order,r_mse_median,d_R_median,both_seeds,d_R_lt_0_seeds
+H7,Sparse / low-degree,quadratic,0.2979369316554902,0.0083725085513766,24/30,6/30
+H9,Intermediate,quadratic,0.6482483134099103,0.009742490394573,22/30,8/30
+H11,Dense / high-connectivity,quadratic,0.6634330019305231,0.0039168935449477,19/30,11/30

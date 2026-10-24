@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "scope": "Synthetic helpers only; no campaign endpoints/probabilities read",
+  "auditor_sha256": "d429ce515c7ff69ba5375b4c23923e84e27d9afab98f9af9754da1f68f2895b7",
+  "future_aer_cases": {
+    "graphs": [
+      "H1",
+      "H3",
+      "H8"
+    ],
+    "pairs_theta_scale": [
+      [
+        167,
+        1
+      ],
+      [
+        8017,
+        "maximum scheduled scale"
+      ]
+    ]
+  },
+  "parser_modes_verified": [
+    "--self-test",
+    "--audit",
+    "--verify-only"
+  ]
+}

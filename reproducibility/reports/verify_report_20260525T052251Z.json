@@ -1,0 +1,24 @@
+{
+  "mode": "paper-mapping",
+  "overall": "PASS",
+  "results": {
+    "paper_mapping": {
+      "checked_dependencies": 12,
+      "checked_generators": 12,
+      "checked_outputs": 16,
+      "missing": [],
+      "phase_ef_absent": true,
+      "severity": "BLOCK",
+      "status": "PASS"
+    },
+    "scope_guard": {
+      "match_count": 0,
+      "matches": [],
+      "phase_ef_absent": true,
+      "severity": "BLOCK",
+      "status": "PASS"
+    }
+  },
+  "timestamp_utc": "2026-05-25T05:22:51Z",
+  "verify_version": "0.4.0-ws6-ci"
+}

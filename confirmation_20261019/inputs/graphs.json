@@ -1,0 +1,209 @@
+{
+  "H1": {
+    "candidate_id": "S1_C000001",
+    "degree_max": 3,
+    "degree_mean": 2.5,
+    "degree_min": 2,
+    "degree_std": 0.5,
+    "density": 0.8333333333333334,
+    "edges": [
+      [
+        0,
+        1,
+        1.0
+      ],
+      [
+        0,
+        2,
+        1.0
+      ],
+      [
+        0,
+        3,
+        1.0
+      ],
+      [
+        1,
+        2,
+        1.0
+      ],
+      [
+        2,
+        3,
+        1.0
+      ]
+    ],
+    "graph_signature": "1bd813aade5a6a573f23a3e662fae0ab7dcb33e3c884219889833aa9f537d5aa",
+    "grid_label": "grid_pass",
+    "grid_metrics": {
+      "J10_120_vs_240": 0.9212808539026017,
+      "Spearman_120_vs_240": 0.9971681741524813,
+      "gradient_alignment_120_vs_240": 0.9999988711396982,
+      "localized_480_pass": "",
+      "localized_480_triggered": false,
+      "normalized_regret_error": 0.0,
+      "production_array": "data/raw/phase_d_grid_adequacy/S1_C000001/C_ideal_grid_120.npy",
+      "production_array_sha256": "5c97aff19946cb0a6872c058a9f032c46aad453514b35a4de8ae323081fa124c",
+      "reference_array": "data/raw/phase_d_grid_adequacy/S1_C000001/C_ideal_grid_240.npy",
+      "reference_array_sha256": "46d69da30039b7c1216ada4c0b63745f4199916e5f80aeea7ce959494e6eea46"
+    },
+    "n_edges": 5,
+    "n_nodes": 4,
+    "replacement_used": false,
+    "replaces_candidate_id": "",
+    "reserve_rank": "",
+    "selected_label": "H1",
+    "source_candidate_status": "selected",
+    "stratum_id": "S1",
+    "stratum_name": "continuity-like sparse",
+    "stratum_queue_rank": "1",
+    "weight_max": 1.0,
+    "weight_mean": 1.0,
+    "weight_min": 1.0,
+    "weight_std": 0.0,
+    "weighted_flag": false
+  },
+  "H3": {
+    "candidate_id": "S3_C000001",
+    "degree_max": 3,
+    "degree_mean": 1.6,
+    "degree_min": 1,
+    "degree_std": 0.8,
+    "density": 0.4,
+    "edges": [
+      [
+        0,
+        1,
+        1.0
+      ],
+      [
+        1,
+        2,
+        1.0
+      ],
+      [
+        2,
+        3,
+        1.0
+      ],
+      [
+        2,
+        4,
+        1.0
+      ]
+    ],
+    "graph_signature": "d90a06296e0517b75afbc1d5fa20040079189df4028875533a0ac35641a01fa9",
+    "grid_label": "grid_pass",
+    "grid_metrics": {
+      "J10_120_vs_240": 0.9482496194824962,
+      "Spearman_120_vs_240": 0.9989206997096417,
+      "gradient_alignment_120_vs_240": 0.9999997624155154,
+      "localized_480_pass": "",
+      "localized_480_triggered": false,
+      "normalized_regret_error": 0.0,
+      "production_array": "data/raw/phase_d_grid_adequacy/S3_C000001/C_ideal_grid_120.npy",
+      "production_array_sha256": "457e449c14e591ab05e810bb74f4ff708013d9b16afe6817a0078d71586a79df",
+      "reference_array": "data/raw/phase_d_grid_adequacy/S3_C000001/C_ideal_grid_240.npy",
+      "reference_array_sha256": "8ad9f806d3a8acf7a0aefad0355513b02273375af030a7d01e6f3c297ab4c295"
+    },
+    "n_edges": 4,
+    "n_nodes": 5,
+    "replacement_used": false,
+    "replaces_candidate_id": "",
+    "reserve_rank": "",
+    "selected_label": "H3",
+    "source_candidate_status": "selected",
+    "stratum_id": "S3",
+    "stratum_name": "Erdos-Renyi",
+    "stratum_queue_rank": "1",
+    "weight_max": 1.0,
+    "weight_mean": 1.0,
+    "weight_min": 1.0,
+    "weight_std": 0.0,
+    "weighted_flag": false
+  },
+  "H8": {
+    "candidate_id": "S2_C000002",
+    "degree_max": 3,
+    "degree_mean": 3.0,
+    "degree_min": 3,
+    "degree_std": 0.0,
+    "density": 0.6,
+    "edges": [
+      [
+        0,
+        1,
+        1.0
+      ],
+      [
+        0,
+        3,
+        1.0
+      ],
+      [
+        0,
+        4,
+        1.0
+      ],
+      [
+        1,
+        2,
+        1.0
+      ],
+      [
+        1,
+        5,
+        1.0
+      ],
+      [
+        2,
+        4,
+        1.0
+      ],
+      [
+        2,
+        5,
+        1.0
+      ],
+      [
+        3,
+        4,
+        1.0
+      ],
+      [
+        3,
+        5,
+        1.0
+      ]
+    ],
+    "graph_signature": "c6ef6062b6e7a60b201238efe16f11e23a45356b151c18ac7d1d663ed864d0e9",
+    "grid_label": "grid_pass",
+    "grid_metrics": {
+      "J10_120_vs_240": 0.9264214046822743,
+      "Spearman_120_vs_240": 0.9978245238490708,
+      "gradient_alignment_120_vs_240": 0.9999994469161263,
+      "localized_480_pass": "",
+      "localized_480_triggered": false,
+      "normalized_regret_error": 9.486536546046352e-05,
+      "production_array": "data/raw/phase_d_grid_adequacy/S2_C000002/C_ideal_grid_120.npy",
+      "production_array_sha256": "86fb265d99812ad78295c997ee3eb4eb1fa957d4f4673683195a499230cb7812",
+      "reference_array": "data/raw/phase_d_grid_adequacy/S2_C000002/C_ideal_grid_240.npy",
+      "reference_array_sha256": "c119367593fc6779d5b79e5ce3b22f9f1cb1d19ae78a61d0cdf850c12c6bce20"
+    },
+    "n_edges": 9,
+    "n_nodes": 6,
+    "replacement_used": false,
+    "replaces_candidate_id": "",
+    "reserve_rank": "",
+    "selected_label": "H8",
+    "source_candidate_status": "selected",
+    "stratum_id": "S2",
+    "stratum_name": "regular / near-regular",
+    "stratum_queue_rank": "2",
+    "weight_max": 1.0,
+    "weight_mean": 1.0,
+    "weight_min": 1.0,
+    "weight_std": 0.0,
+    "weighted_flag": false
+  }
+}

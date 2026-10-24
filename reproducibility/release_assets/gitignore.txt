@@ -1,0 +1,19 @@
+# Keep execution environments and generated build files outside the release.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+.env.*
+.DS_Store
+Thumbs.db
+*.aux
+*.blg
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.fls
+*.fdb_latexmk
+# Data, results and the supplied main.bbl are intentionally tracked.

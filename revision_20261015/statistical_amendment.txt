@@ -1,0 +1,66 @@
+FOLLOW-UP AUDIT - READ FIRST (15 OCTOBER 2026)
+The second mathematical/code review found collisions in historical 31-bit
+pseudorandom seeds. The 4 Holm / 4 BY / 12 BH D counts remain numerically
+reproducible, but are model-based diagnostics, not certified significance for
+the archived generator. This qualification supersedes earlier inferential wording.
+Read followup_review/INFORME_REFERENCIAS_MATEMATICA.txt and the two reviewer reports.
+No primary campaign was rerun. A prospective sampling utility is provided and
+synthetically tested; it has not replaced archived data or production pipelines.
+The main text now cites 24 references and the supplement cites 8.
+
+Statistical revision, 15 October 2026 (post-analysis amendment)
+
+This revision does not replace or relabel the frozen Phase C/D protocol. All
+original arrays and analysis outputs remain unchanged. The earlier audit has
+already revealed the approximate sensitivity counts; this is explicitly a
+post-analysis correction, not a newly preregistered confirmatory experiment.
+
+For each fixed graph/noise/budget/order cell, the sampling unit is one of the
+30 independent pseudorandom finite-shot repetitions. Retain all repetitions,
+including zero differences. For X=r_MSE and Y=d_R, test H_X: P(X>0)<=1/2 and
+H_Y: P(Y>0)<=1/2 by exact upper binomial tails at 1/2. Under either component
+null, the conjunction p=max(p_X,p_Y) is super-uniform; no within-pair
+independence assumption is needed. This tests two marginal majority claims,
+not that both events coincide in a majority of repetitions. The joint-positive
+frequency is reported descriptively. No symmetric difference distribution or
+bootstrap-null calibration is assumed. Ties count as non-positive, not dropped.
+
+Main revised inference: Holm familywise error control at alpha=.05 across
+all 540 Phase D cells. The 33 cells excluded by the original detection-floor
+rule remain in the family with p=1. The other 135 Phase C cells form a separate
+discovery family (Holm .05 reported separately, not pooled). A data-dependent
+mask that only increases p-values preserves their validity. No additional
+nominal/median/bootstrap filters are applied to the revised rejection sets.
+
+BY .05 is a dependence-robust FDR sensitivity for D; BH .05 is conditional on
+independence/appropriate positive dependence, which is not established for the
+shared noisy-reference design. C uses .10 for these historical-continuity FDR
+sensitivities. Do not label a further outcome-filtered subset FDR-controlled.
+The median 10% MSE threshold and tau_R remain descriptive effect-size checks.
+
+Report original bootstrap/BH classifications alongside revised results.
+Compute exact conditional empirical-bootstrap median tails only to isolate
+the 10,000-resample numerical-resolution defect; these tails are not exact
+frequentist p-values. Preserve original bootstrap exclusions by assigning1.
+The original 11/12 instance stress-positive summary is descriptive for the
+six-stratum design. Its homogeneous-binomial p-value is not used to infer a
+population-average frequency across heterogeneous strata.
+
+Primary result families and alpha choices above are fixed for this revision.
+No new quantum simulations are needed. Source CSV hashes, full cell tables,
+method checks, and both positive and negative results must be retained.
+
+Numerical correction identified during independent review, same revision:
+The initial strict-sign calculation retained five D cells. In two of them,
+some strictly positive regret differences were 2e-16 to 1e-15, reflecting
+floating-point splitting of symmetry-equivalent optima. One cell's rejection
+depended on these differences. The main revised regret endpoint is therefore
+P(d_R > 1e-12) > 1/2 in normalized units, keeping all 30 observations and
+counting values at or below tolerance as non-positive. This tolerance exceeds
+observed numerical discrepancies and is not a practically important effect
+threshold. It is an explicit post-analysis numerical correction, not a
+predeclared property of the original campaign or an independent replication.
+Report strict zero-threshold results and sensitivity at 1e-14, 1e-10, 1e-6
+as well as the 1e-12 main choice. Original arrays/metrics are unchanged.
+The original MSE 10% criterion remains descriptive; a directional rejection
+does not imply that criterion is met, and none implies practical importance.

@@ -1,0 +1,10 @@
+{
+  "versions": [
+    {
+      "version": "1.0.0",
+      "date": "2026-05-24",
+      "commit": "PENDING_UNTIL_CLEAN_SCOPE_COMMIT",
+      "changes": "Initial reference manifest for Phase A-D plus Phase D auxiliary diagnostics."
+    }
+  ]
+}

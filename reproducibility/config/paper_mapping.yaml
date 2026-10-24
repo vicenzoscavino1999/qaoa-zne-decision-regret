@@ -1,0 +1,121 @@
+version: 1
+status: initial_submission_minimum
+scope: through_phase_d_with_auxiliary_diagnostics
+manuscript: manuscript_qst/main.tex
+
+figures:
+  - id: Figure 0
+    label: fig:decision_failure_concept
+    description: Conceptual decision-level failure schematic.
+    output: manuscript_qst/figures/figure0_decision_failure_concept.png
+    generator: manual_static_asset
+    data_dependency: not_applicable
+    verification: existence_and_file_size
+    scope: conceptual
+    regeneration_level: audit
+
+  - id: Figure 1
+    label: fig:cell_classification
+    description: Independent replication cell classification across the 540-cell family.
+    output: manuscript_qst/figures/figure1_cell_classification.png
+    generator: scripts/41_phase_d_paper_outputs.py
+    data_dependencies:
+      - results/phase_d/global_D1_D2_D3_D4/classification_matrix.csv
+      - results/phase_d/global_D1_D2_D3_D4/fdr_global_540_summary.json
+    verification: existence + reference-hash dependencies
+    scope: primary_phase_d
+    regeneration_level: audit
+
+  - id: Figure 2
+    label: fig:scatter
+    description: Median MSE improvement versus median normalized regret shift by cell.
+    output: manuscript_qst/figures/figure2_improvement_regret_scatter.png
+    generator: scripts/41_phase_d_paper_outputs.py
+    data_dependency: results/phase_d/global_D1_D2_D3_D4/classification_matrix.csv
+    verification: existence + reference-hash dependency
+    scope: primary_phase_d
+    regeneration_level: audit
+
+  - id: Figure 3
+    label: fig:instance_noise_heatmap
+    description: BH-retained discordant cells by replication instance and noise rate.
+    output: manuscript_qst/figures/figure3_instance_noise_heatmap.png
+    generator: scripts/41_phase_d_paper_outputs.py
+    data_dependency: results/phase_d/global_D1_D2_D3_D4/classification_matrix.csv
+    verification: existence + reference-hash dependency
+    scope: primary_phase_d
+    regeneration_level: audit
+
+  - id: Figure 6
+    label: fig:atlas
+    description: Topographic residual atlas for six BH-retained discordant cells.
+    output: manuscript_qst/figures/figure6_topographic_signal_atlas.png
+    generators:
+      - scripts/41_phase_d_paper_outputs.py
+      - scripts/99_phase_d_3d_visual_diagnostics.py
+    data_dependencies:
+      - results/phase_d/global_D1_D2_D3_D4/classification_matrix.csv
+      - results/figures/independent_replication_topographic_signal_atlas.png
+    verification: existence + selected dependency checks
+    scope: phase_d_auxiliary_visual
+    regeneration_level: audit
+
+tables:
+  - id: Table 1
+    description: Cell-level classification in the independent replication family.
+    source: manuscript_qst/tables/table1_cell_classification.csv
+    generator: scripts/41_phase_d_paper_outputs.py
+    data_dependency: results/phase_d/global_D1_D2_D3_D4/fdr_global_540_summary.json
+    verification: existence + reference-hash dependency
+    scope: primary_phase_d
+    regeneration_level: audit
+
+  - id: Table 2
+    description: Instance-level independent replication endpoint.
+    source: manuscript_qst/tables/table2_instance_endpoint.csv
+    generator: scripts/41_phase_d_paper_outputs.py
+    data_dependency: results/phase_d/global_D1_D2_D3_D4/instance_primary_endpoint.json
+    verification: existence + reference-hash dependency
+    scope: primary_phase_d
+    regeneration_level: audit
+
+  - id: Table 3
+    description: Pooled-by-instance exploratory diagnostic table.
+    source: manuscript_qst/tables/table3_pooled_by_instance.csv
+    generator: scripts/41_phase_d_paper_outputs.py
+    data_dependency: results/phase_d/global_D1_D2_D3_D4/classification_matrix.csv
+    verification: existence + selected dependency checks
+    scope: exploratory_pooled_c_d
+    regeneration_level: audit
+
+supplements:
+  - id: Depth-two directional diagnostics
+    description: Supplementary depth-two diagnostics and stability tables.
+    outputs:
+      - manuscript_qst/tables/table_depth2_exploratory.csv
+      - manuscript_qst/tables/table_depth2_anchor_sensitivity.csv
+      - manuscript_qst/figures/figure10_depth2_residual_atlas.png
+      - manuscript_qst/figures/figure11_depth2_decision_map.png
+    generators:
+      - scripts/92_phase_d_depth2_export_manuscript_tables.py
+      - scripts/93_phase_d_depth2_residual_atlas.py
+      - scripts/94_phase_d_depth2_decision_map.py
+    data_dependency: results/phase_d/depth2_directional_check/
+    verification: existence_only_for_initial_mapping
+    scope: auxiliary_exploratory
+    regeneration_level: audit
+
+  - id: Noise composition and COBYLA boundary diagnostics
+    description: Supplementary noise-composition and COBYLA endpoint boundary diagnostics.
+    outputs:
+      - manuscript_qst/tables/table_noise_composition_sensitivity.csv
+      - manuscript_qst/tables/table_cobyla_endpoint_consistency.csv
+      - manuscript_qst/figures/figure12_noise_composition_boundary.png
+      - manuscript_qst/figures/figure13_cobyla_endpoint_boundary.png
+    generator: scripts/98_phase_d_auxiliary_boundary_figures.py
+    data_dependencies:
+      - results/phase_d/thermal_readout_robustness/
+      - results/phase_d/cobyla_endpoint_consistency/
+    verification: existence_only_for_initial_mapping
+    scope: auxiliary_boundary
+    regeneration_level: audit

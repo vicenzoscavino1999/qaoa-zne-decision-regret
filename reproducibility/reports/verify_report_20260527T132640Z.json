@@ -1,0 +1,22 @@
+{
+  "mode": "numerical-subset",
+  "overall": "PASS",
+  "results": {
+    "numerical_subset": {
+      "returncode": 0,
+      "severity": "BLOCK",
+      "status": "PASS",
+      "stderr_tail": "",
+      "stdout_tail": "phase_a_verification_matches=true\nphase_c_verification_matches=true\nphase_d_verification_matches=true\nverification_seeds_recorded=true\nverification_tolerances_recorded=true\noverall_pass=true\n"
+    },
+    "scope_guard": {
+      "match_count": 0,
+      "matches": [],
+      "phase_ef_absent": true,
+      "severity": "BLOCK",
+      "status": "PASS"
+    }
+  },
+  "timestamp_utc": "2026-05-27T13:26:40Z",
+  "verify_version": "0.5.0-fdr-audit"
+}

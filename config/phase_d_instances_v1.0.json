@@ -1,0 +1,2731 @@
+{
+  "config_version": "phase_d_instances_v1_0_candidate_pre_freeze",
+  "created_at_utc": "2026-05-14T11:33:12Z",
+  "generator_seed": 20260513,
+  "grid_adequacy_status": "pass_with_mechanical_replacement",
+  "hashes": {
+    "candidate_queue_hash": "4207ef7e4fd8fa00132fd8e601d7bf37eb7327e5e3dc222b4f0708c139ff1004",
+    "generator_config_hash": "52111d363ce7f438b258888b66fb37a8729940ac947b6aa46e6bbcda347f6cb4",
+    "grid_adequacy_summary_hash": "available_in_phase_d_scope_snapshot_after_summary_write",
+    "stratum_queues_hash": "c8408a9ce776643ce948159241fdd8af29856f2f0e6e4b594c913bc44e68ccdb"
+  },
+  "replacement_events": [
+    {
+      "failed_candidate_id": "S6_C000001",
+      "replacement_candidate_id": "S6_C000003",
+      "replacement_grid_label": "grid_pass",
+      "reserve_rank": "1",
+      "selected_label": "H6",
+      "stratum_id": "S6"
+    }
+  ],
+  "reserve_instances_by_stratum": {
+    "S1": [
+      {
+        "candidate_id": "S1_C000004",
+        "edges": [
+          [
+            0,
+            1,
+            1.0
+          ],
+          [
+            0,
+            2,
+            1.0
+          ],
+          [
+            1,
+            2,
+            1.0
+          ],
+          [
+            1,
+            3,
+            1.0
+          ],
+          [
+            2,
+            3,
+            1.0
+          ]
+        ],
+        "graph_signature": "9a2fbff19c9666ad4c66155bfeea28961f43129a3e7489d1f6a7fcb37f2b3f6f",
+        "n_nodes": 4,
+        "reserve_rank": 1,
+        "stratum_queue_rank": 3
+      },
+      {
+        "candidate_id": "S1_C000005",
+        "edges": [
+          [
+            0,
+            1,
+            0.56
+          ],
+          [
+            0,
+            3,
+            1.26
+          ],
+          [
+            1,
+            2,
+            1.16
+          ],
+          [
+            1,
+            3,
+            0.57
+          ],
+          [
+            2,
+            3,
+            0.99
+          ]
+        ],
+        "graph_signature": "8d1edd042237073bd64e0af17f9d4e817288552ea55b096e11a36eb34147bdf7",
+        "n_nodes": 4,
+        "reserve_rank": 2,
+        "stratum_queue_rank": 4
+      }
+    ],
+    "S2": [
+      {
+        "candidate_id": "S2_C000005",
+        "edges": [
+          [
+            0,
+            1,
+            1.0
+          ],
+          [
+            0,
+            3,
+            1.0
+          ],
+          [
+            0,
+            4,
+            1.0
+          ],
+          [
+            1,
+            2,
+            1.0
+          ],
+          [
+            1,
+            5,
+            1.0
+          ],
+          [
+            2,
+            3,
+            1.0
+          ],
+          [
+            2,
+            4,
+            1.0
+          ],
+          [
+            3,
+            5,
+            1.0
+          ],
+          [
+            4,
+            5,
+            1.0
+          ]
+        ],
+        "graph_signature": "4c9a0aa5bdaa0da7fab9b3dbcb452266baa7ec52f20c338a23bf720d5e5e0301",
+        "n_nodes": 6,
+        "reserve_rank": 1,
+        "stratum_queue_rank": 3
+      },
+      {
+        "candidate_id": "S2_C000006",
+        "edges": [
+          [
+            0,
+            2,
+            1.0
+          ],
+          [
+            0,
+            4,
+            1.0
+          ],
+          [
+            0,
+            5,
+            1.0
+          ],
+          [
+            1,
+            2,
+            1.0
+          ],
+          [
+            1,
+            4,
+            1.0
+          ],
+          [
+            1,
+            5,
+            1.0
+          ],
+          [
+            2,
+            3,
+            1.0
+          ],
+          [
+            3,
+            4,
+            1.0
+          ],
+          [
+            3,
+            5,
+            1.0
+          ]
+        ],
+        "graph_signature": "461ca837980e45d41c979f0545650e016239a2728292fd53e4fb72a837b53e46",
+        "n_nodes": 6,
+        "reserve_rank": 2,
+        "stratum_queue_rank": 4
+      }
+    ],
+    "S3": [
+      {
+        "candidate_id": "S3_C000004",
+        "edges": [
+          [
+            0,
+            2,
+            1.0
+          ],
+          [
+            0,
+            3,
+            1.0
+          ],
+          [
+            0,
+            4,
+            1.0
+          ],
+          [
+            0,
+            5,
+            1.0
+          ],
+          [
+            1,
+            3,
+            1.0
+          ],
+          [
+            1,
+            5,
+            1.0
+          ],
+          [
+            2,
+            3,
+            1.0
+          ],
+          [
+            3,
+            4,
+            1.0
+          ],
+          [
+            4,
+            5,
+            1.0
+          ]
+        ],
+        "graph_signature": "3c7397b889fea2ce43fdbb71a87b23031024379c421004b4b0a59457901df717",
+        "n_nodes": 6,
+        "reserve_rank": 1,
+        "stratum_queue_rank": 3
+      },
+      {
+        "candidate_id": "S3_C000005",
+        "edges": [
+          [
+            0,
+            2,
+            1.0
+          ],
+          [
+            1,
+            2,
+            1.0
+          ],
+          [
+            2,
+            3,
+            1.0
+          ]
+        ],
+        "graph_signature": "48f3d116e516f5b4e840c26dd9ac0eaadd8ffe9c7f040058324d1d915ca59657",
+        "n_nodes": 4,
+        "reserve_rank": 2,
+        "stratum_queue_rank": 4
+      }
+    ],
+    "S4": [
+      {
+        "candidate_id": "S4_C000004",
+        "edges": [
+          [
+            0,
+            1,
+            0.59
+          ],
+          [
+            0,
+            2,
+            1.27
+          ],
+          [
+            0,
+            3,
+            1.33
+          ],
+          [
+            1,
+            3,
+            1.49
+          ],
+          [
+            1,
+            4,
+            0.96
+          ],
+          [
+            1,
+            5,
+            0.84
+          ],
+          [
+            2,
+            3,
+            0.57
+          ],
+          [
+            2,
+            4,
+            0.54
+          ],
+          [
+            3,
+            5,
+            0.67
+          ],
+          [
+            4,
+            5,
+            1.25
+          ]
+        ],
+        "graph_signature": "fc60b1ce650153a4990c1ce24653e27f5fec1c33caf969c344f697cc0b3f47e5",
+        "n_nodes": 6,
+        "reserve_rank": 1,
+        "stratum_queue_rank": 3
+      },
+      {
+        "candidate_id": "S4_C000005",
+        "edges": [
+          [
+            0,
+            2,
+            0.57
+          ],
+          [
+            0,
+            3,
+            0.51
+          ],
+          [
+            1,
+            2,
+            0.66
+          ],
+          [
+            1,
+            4,
+            1.17
+          ],
+          [
+            2,
+            3,
+            0.79
+          ],
+          [
+            2,
+            4,
+            0.92
+          ],
+          [
+            3,
+            4,
+            1.24
+          ]
+        ],
+        "graph_signature": "9d900f0eb5774ed3952621b6c1d465750d13a8daf066899a0ce4b0cd612d929b",
+        "n_nodes": 5,
+        "reserve_rank": 2,
+        "stratum_queue_rank": 4
+      }
+    ],
+    "S5": [
+      {
+        "candidate_id": "S5_C000003",
+        "edges": [
+          [
+            0,
+            1,
+            0.91
+          ],
+          [
+            0,
+            2,
+            1.39
+          ],
+          [
+            0,
+            3,
+            1.14
+          ],
+          [
+            0,
+            4,
+            1.05
+          ],
+          [
+            0,
+            5,
+            0.87
+          ],
+          [
+            1,
+            2,
+            1.04
+          ],
+          [
+            1,
+            3,
+            1.01
+          ],
+          [
+            1,
+            4,
+            0.64
+          ],
+          [
+            1,
+            5,
+            0.75
+          ],
+          [
+            2,
+            3,
+            0.86
+          ],
+          [
+            2,
+            4,
+            0.78
+          ],
+          [
+            3,
+            4,
+            0.61
+          ],
+          [
+            4,
+            5,
+            0.63
+          ]
+        ],
+        "graph_signature": "803e774d94bd8127a091f561c74ebc5a10619d88b3a5100ef70350294dc35f53",
+        "n_nodes": 6,
+        "reserve_rank": 1,
+        "stratum_queue_rank": 3
+      },
+      {
+        "candidate_id": "S5_C000004",
+        "edges": [
+          [
+            0,
+            2,
+            0.63
+          ],
+          [
+            0,
+            3,
+            1.28
+          ],
+          [
+            0,
+            4,
+            0.68
+          ],
+          [
+            0,
+            5,
+            1.37
+          ],
+          [
+            1,
+            3,
+            1.37
+          ],
+          [
+            1,
+            4,
+            0.55
+          ],
+          [
+            1,
+            5,
+            0.85
+          ],
+          [
+            2,
+            3,
+            1.12
+          ],
+          [
+            2,
+            4,
+            1.11
+          ],
+          [
+            3,
+            4,
+            0.88
+          ],
+          [
+            3,
+            5,
+            1.06
+          ],
+          [
+            4,
+            5,
+            1.31
+          ]
+        ],
+        "graph_signature": "1918fad19b6ff4ee949c8a89be09fefd7d707f536adf1fbafec1e7063fbc8055",
+        "n_nodes": 6,
+        "reserve_rank": 2,
+        "stratum_queue_rank": 4
+      }
+    ],
+    "S6": [
+      {
+        "candidate_id": "S6_C000003",
+        "edges": [
+          [
+            0,
+            1,
+            1.0
+          ],
+          [
+            0,
+            2,
+            1.0
+          ],
+          [
+            1,
+            2,
+            1.0
+          ],
+          [
+            1,
+            3,
+            1.0
+          ],
+          [
+            2,
+            3,
+            1.0
+          ],
+          [
+            3,
+            4,
+            1.0
+          ]
+        ],
+        "graph_signature": "5adfa5c584a3db7619e6fe88d8148d3770edee30de1691b934042f1effbfbd91",
+        "n_nodes": 5,
+        "reserve_rank": 1,
+        "stratum_queue_rank": 3
+      },
+      {
+        "candidate_id": "S6_C000004",
+        "edges": [
+          [
+            0,
+            1,
+            1.26
+          ],
+          [
+            0,
+            3,
+            0.72
+          ],
+          [
+            1,
+            2,
+            1.34
+          ],
+          [
+            1,
+            4,
+            1.07
+          ],
+          [
+            2,
+            5,
+            1.03
+          ],
+          [
+            3,
+            4,
+            1.33
+          ],
+          [
+            4,
+            5,
+            0.9
+          ]
+        ],
+        "graph_signature": "e619ffeb3817ade5845ba1c452bdd5b7ba022c416d2007eadb3435dae6c9f540",
+        "n_nodes": 6,
+        "reserve_rank": 2,
+        "stratum_queue_rank": 4
+      }
+    ]
+  },
+  "scope": "Phase D final H1-H12 instances and same-stratum reserves after ideal-only grid adequacy",
+  "selected_instances_H1_to_H12": {
+    "H1": {
+      "candidate_id": "S1_C000001",
+      "degree_max": 3,
+      "degree_mean": 2.5,
+      "degree_min": 2,
+      "degree_std": 0.5,
+      "density": 0.8333333333333334,
+      "edges": [
+        [
+          0,
+          1,
+          1.0
+        ],
+        [
+          0,
+          2,
+          1.0
+        ],
+        [
+          0,
+          3,
+          1.0
+        ],
+        [
+          1,
+          2,
+          1.0
+        ],
+        [
+          2,
+          3,
+          1.0
+        ]
+      ],
+      "graph_signature": "1bd813aade5a6a573f23a3e662fae0ab7dcb33e3c884219889833aa9f537d5aa",
+      "grid_label": "grid_pass",
+      "grid_metrics": {
+        "J10_120_vs_240": 0.9212808539026017,
+        "Spearman_120_vs_240": 0.9971681741524813,
+        "gradient_alignment_120_vs_240": 0.9999988711396982,
+        "localized_480_pass": "",
+        "localized_480_triggered": false,
+        "normalized_regret_error": 0.0,
+        "production_array": "data/raw/phase_d_grid_adequacy/S1_C000001/C_ideal_grid_120.npy",
+        "production_array_sha256": "5c97aff19946cb0a6872c058a9f032c46aad453514b35a4de8ae323081fa124c",
+        "reference_array": "data/raw/phase_d_grid_adequacy/S1_C000001/C_ideal_grid_240.npy",
+        "reference_array_sha256": "46d69da30039b7c1216ada4c0b63745f4199916e5f80aeea7ce959494e6eea46"
+      },
+      "n_edges": 5,
+      "n_nodes": 4,
+      "replacement_used": false,
+      "replaces_candidate_id": "",
+      "reserve_rank": "",
+      "selected_label": "H1",
+      "source_candidate_status": "selected",
+      "stratum_id": "S1",
+      "stratum_name": "continuity-like sparse",
+      "stratum_queue_rank": "1",
+      "weight_max": 1.0,
+      "weight_mean": 1.0,
+      "weight_min": 1.0,
+      "weight_std": 0.0,
+      "weighted_flag": false
+    },
+    "H10": {
+      "candidate_id": "S4_C000003",
+      "degree_max": 5,
+      "degree_mean": 4.0,
+      "degree_min": 3,
+      "degree_std": 0.5773502691896257,
+      "density": 0.8,
+      "edges": [
+        [
+          0,
+          1,
+          0.92
+        ],
+        [
+          0,
+          3,
+          1.31
+        ],
+        [
+          0,
+          4,
+          0.8
+        ],
+        [
+          0,
+          5,
+          1.07
+        ],
+        [
+          1,
+          2,
+          0.77
+        ],
+        [
+          1,
+          4,
+          1.22
+        ],
+        [
+          1,
+          5,
+          1.38
+        ],
+        [
+          2,
+          3,
+          1.48
+        ],
+        [
+          2,
+          4,
+          0.64
+        ],
+        [
+          2,
+          5,
+          1.01
+        ],
+        [
+          3,
+          5,
+          1.3
+        ],
+        [
+          4,
+          5,
+          0.61
+        ]
+      ],
+      "graph_signature": "f5d3ae22e8a2f9ac4877d7fbf3988d91811dc6732c9e8653a48e5dce00b10f5b",
+      "grid_label": "grid_borderline_acceptable",
+      "grid_metrics": {
+        "J10_120_vs_240": 0.9219219219219219,
+        "Spearman_120_vs_240": 0.996541486938377,
+        "gradient_alignment_120_vs_240": 0.9881189853727451,
+        "localized_480_pass": true,
+        "localized_480_triggered": true,
+        "normalized_regret_error": 0.00044113812767197406,
+        "production_array": "data/raw/phase_d_grid_adequacy/S4_C000003/C_ideal_grid_120.npy",
+        "production_array_sha256": "3967e8014427912ff68d8b98b1cade8b94e4a7309048465a7f5e2e09b4179126",
+        "reference_array": "data/raw/phase_d_grid_adequacy/S4_C000003/C_ideal_grid_240.npy",
+        "reference_array_sha256": "7b161867adfbe447b5ce83392a551f312cba83824729870c164179700132422e"
+      },
+      "n_edges": 12,
+      "n_nodes": 6,
+      "replacement_used": false,
+      "replaces_candidate_id": "",
+      "reserve_rank": "",
+      "selected_label": "H10",
+      "source_candidate_status": "selected",
+      "stratum_id": "S4",
+      "stratum_name": "weighted heterogeneous",
+      "stratum_queue_rank": "2",
+      "weight_max": 1.48,
+      "weight_mean": 1.0425,
+      "weight_min": 0.61,
+      "weight_std": 0.284842792899288,
+      "weighted_flag": true
+    },
+    "H11": {
+      "candidate_id": "S5_C000002",
+      "degree_max": 5,
+      "degree_mean": 4.333333333333333,
+      "degree_min": 3,
+      "degree_std": 0.7453559924999299,
+      "density": 0.8666666666666667,
+      "edges": [
+        [
+          0,
+          1,
+          1.26
+        ],
+        [
+          0,
+          2,
+          1.43
+        ],
+        [
+          0,
+          3,
+          0.52
+        ],
+        [
+          0,
+          4,
+          0.52
+        ],
+        [
+          0,
+          5,
+          0.63
+        ],
+        [
+          1,
+          2,
+          1.45
+        ],
+        [
+          1,
+          3,
+          1.43
+        ],
+        [
+          1,
+          4,
+          1.43
+        ],
+        [
+          1,
+          5,
+          1.05
+        ],
+        [
+          2,
+          3,
+          0.69
+        ],
+        [
+          2,
+          4,
+          1.23
+        ],
+        [
+          2,
+          5,
+          0.51
+        ],
+        [
+          3,
+          4,
+          1.17
+        ]
+      ],
+      "graph_signature": "632d5019cff3c96df19dae6c6519185169a834de960f68f5e908fc14be960421",
+      "grid_label": "grid_pass",
+      "grid_metrics": {
+        "J10_120_vs_240": 0.9117158977763027,
+        "Spearman_120_vs_240": 0.9959951514065213,
+        "gradient_alignment_120_vs_240": 0.9909164246158148,
+        "localized_480_pass": "",
+        "localized_480_triggered": false,
+        "normalized_regret_error": 0.0002191471144041898,
+        "production_array": "data/raw/phase_d_grid_adequacy/S5_C000002/C_ideal_grid_120.npy",
+        "production_array_sha256": "3d1280e45b59db3162789c84a253caad10d341637fb843a267a4b58b48dba2ff",
+        "reference_array": "data/raw/phase_d_grid_adequacy/S5_C000002/C_ideal_grid_240.npy",
+        "reference_array_sha256": "629197912773eb11eaeeec54ffa511cbcef0b1810f543e12e1ac85f12db3b1ab"
+      },
+      "n_edges": 13,
+      "n_nodes": 6,
+      "replacement_used": false,
+      "replaces_candidate_id": "",
+      "reserve_rank": "",
+      "selected_label": "H11",
+      "source_candidate_status": "selected",
+      "stratum_id": "S5",
+      "stratum_name": "dense / near-complete positive-weight",
+      "stratum_queue_rank": "2",
+      "weight_max": 1.45,
+      "weight_mean": 1.0246153846153847,
+      "weight_min": 0.51,
+      "weight_std": 0.3757170659012809,
+      "weighted_flag": true
+    },
+    "H12": {
+      "candidate_id": "S6_C000002",
+      "degree_max": 3,
+      "degree_mean": 2.4,
+      "degree_min": 1,
+      "degree_std": 0.8,
+      "density": 0.6,
+      "edges": [
+        [
+          0,
+          1,
+          0.72
+        ],
+        [
+          1,
+          2,
+          1.46
+        ],
+        [
+          1,
+          3,
+          1.14
+        ],
+        [
+          2,
+          3,
+          0.61
+        ],
+        [
+          2,
+          4,
+          1.26
+        ],
+        [
+          3,
+          4,
+          0.72
+        ]
+      ],
+      "graph_signature": "4329f9ab2d06c256575e91bc0ab51a9735877d961c2ba095778e64d426912506",
+      "grid_label": "grid_pass",
+      "grid_metrics": {
+        "J10_120_vs_240": 0.9283562102443924,
+        "Spearman_120_vs_240": 0.997942590860481,
+        "gradient_alignment_120_vs_240": 0.9917597934342647,
+        "localized_480_pass": "",
+        "localized_480_triggered": false,
+        "normalized_regret_error": 0.0,
+        "production_array": "data/raw/phase_d_grid_adequacy/S6_C000002/C_ideal_grid_120.npy",
+        "production_array_sha256": "0310e72721c467ac47f38f19ebc600db3b2e43a80d0ff72038958d5835d11e0f",
+        "reference_array": "data/raw/phase_d_grid_adequacy/S6_C000002/C_ideal_grid_240.npy",
+        "reference_array_sha256": "13f46fd01f899c0564e0aac881dc8983f25a2c682579a82fa31f592517709e1f"
+      },
+      "n_edges": 6,
+      "n_nodes": 5,
+      "replacement_used": false,
+      "replaces_candidate_id": "",
+      "reserve_rank": "",
+      "selected_label": "H12",
+      "source_candidate_status": "selected",
+      "stratum_id": "S6",
+      "stratum_name": "hardware-friendly / control",
+      "stratum_queue_rank": "2",
+      "weight_max": 1.46,
+      "weight_mean": 0.9849999999999999,
+      "weight_min": 0.61,
+      "weight_std": 0.317896733756944,
+      "weighted_flag": true
+    },
+    "H2": {
+      "candidate_id": "S2_C000001",
+      "degree_max": 3,
+      "degree_mean": 3.0,
+      "degree_min": 3,
+      "degree_std": 0.0,
+      "density": 1.0,
+      "edges": [
+        [
+          0,
+          1,
+          1.0
+        ],
+        [
+          0,
+          2,
+          1.0
+        ],
+        [
+          0,
+          3,
+          1.0
+        ],
+        [
+          1,
+          2,
+          1.0
+        ],
+        [
+          1,
+          3,
+          1.0
+        ],
+        [
+          2,
+          3,
+          1.0
+        ]
+      ],
+      "graph_signature": "6479c0c968f738a784577bbe2f52008bc69292fad8ace4f37a3a7e5f202aaddb",
+      "grid_label": "grid_pass",
+      "grid_metrics": {
+        "J10_120_vs_240": 0.9219219219219219,
+        "Spearman_120_vs_240": 0.9975964857253284,
+        "gradient_alignment_120_vs_240": 0.9999987024966528,
+        "localized_480_pass": "",
+        "localized_480_triggered": false,
+        "normalized_regret_error": 0.00016835702979139746,
+        "production_array": "data/raw/phase_d_grid_adequacy/S2_C000001/C_ideal_grid_120.npy",
+        "production_array_sha256": "e484e7cb56df70d25011117d7c310ae302ba01913f5972067625f31c66d503ef",
+        "reference_array": "data/raw/phase_d_grid_adequacy/S2_C000001/C_ideal_grid_240.npy",
+        "reference_array_sha256": "b58735cb0816dd310e65e2727a0cec9fa080fb5717f945d313041da18efe3abf"
+      },
+      "n_edges": 6,
+      "n_nodes": 4,
+      "replacement_used": false,
+      "replaces_candidate_id": "",
+      "reserve_rank": "",
+      "selected_label": "H2",
+      "source_candidate_status": "selected",
+      "stratum_id": "S2",
+      "stratum_name": "regular / near-regular",
+      "stratum_queue_rank": "1",
+      "weight_max": 1.0,
+      "weight_mean": 1.0,
+      "weight_min": 1.0,
+      "weight_std": 0.0,
+      "weighted_flag": false
+    },
+    "H3": {
+      "candidate_id": "S3_C000001",
+      "degree_max": 3,
+      "degree_mean": 1.6,
+      "degree_min": 1,
+      "degree_std": 0.8,
+      "density": 0.4,
+      "edges": [
+        [
+          0,
+          1,
+          1.0
+        ],
+        [
+          1,
+          2,
+          1.0
+        ],
+        [
+          2,
+          3,
+          1.0
+        ],
+        [
+          2,
+          4,
+          1.0
+        ]
+      ],
+      "graph_signature": "d90a06296e0517b75afbc1d5fa20040079189df4028875533a0ac35641a01fa9",
+      "grid_label": "grid_pass",
+      "grid_metrics": {
+        "J10_120_vs_240": 0.9482496194824962,
+        "Spearman_120_vs_240": 0.9989206997096417,
+        "gradient_alignment_120_vs_240": 0.9999997624155154,
+        "localized_480_pass": "",
+        "localized_480_triggered": false,
+        "normalized_regret_error": 0.0,
+        "production_array": "data/raw/phase_d_grid_adequacy/S3_C000001/C_ideal_grid_120.npy",
+        "production_array_sha256": "457e449c14e591ab05e810bb74f4ff708013d9b16afe6817a0078d71586a79df",
+        "reference_array": "data/raw/phase_d_grid_adequacy/S3_C000001/C_ideal_grid_240.npy",
+        "reference_array_sha256": "8ad9f806d3a8acf7a0aefad0355513b02273375af030a7d01e6f3c297ab4c295"
+      },
+      "n_edges": 4,
+      "n_nodes": 5,
+      "replacement_used": false,
+      "replaces_candidate_id": "",
+      "reserve_rank": "",
+      "selected_label": "H3",
+      "source_candidate_status": "selected",
+      "stratum_id": "S3",
+      "stratum_name": "Erdos-Renyi",
+      "stratum_queue_rank": "1",
+      "weight_max": 1.0,
+      "weight_mean": 1.0,
+      "weight_min": 1.0,
+      "weight_std": 0.0,
+      "weighted_flag": false
+    },
+    "H4": {
+      "candidate_id": "S4_C000002",
+      "degree_max": 3,
+      "degree_mean": 2.3333333333333335,
+      "degree_min": 1,
+      "degree_std": 0.7453559924999298,
+      "density": 0.4666666666666667,
+      "edges": [
+        [
+          0,
+          1,
+          1.14
+        ],
+        [
+          0,
+          2,
+          0.64
+        ],
+        [
+          0,
+          3,
+          1.39
+        ],
+        [
+          1,
+          3,
+          0.84
+        ],
+        [
+          1,
+          5,
+          0.51
+        ],
+        [
+          2,
+          4,
+          0.71
+        ],
+        [
+          3,
+          4,
+          1.48
+        ]
+      ],
+      "graph_signature": "a53bbaa98c5c0e7c45cb4d5b85b06db1a5f41dcf4a78761a3592eb3ea81b4858",
+      "grid_label": "grid_pass",
+      "grid_metrics": {
+        "J10_120_vs_240": 0.9413549039433772,
+        "Spearman_120_vs_240": 0.997856917152838,
+        "gradient_alignment_120_vs_240": 0.9946946783883047,
+        "localized_480_pass": "",
+        "localized_480_triggered": false,
+        "normalized_regret_error": 0.00035909802187465066,
+        "production_array": "data/raw/phase_d_grid_adequacy/S4_C000002/C_ideal_grid_120.npy",
+        "production_array_sha256": "3a57b61e7a2d982aef0f751187f65647f35d7d9b4f65617d36393ef4470410cc",
+        "reference_array": "data/raw/phase_d_grid_adequacy/S4_C000002/C_ideal_grid_240.npy",
+        "reference_array_sha256": "91307770260b445a6b5ae55f315ce7e18efb3727d689a60e223d7360d4ef2004"
+      },
+      "n_edges": 7,
+      "n_nodes": 6,
+      "replacement_used": false,
+      "replaces_candidate_id": "",
+      "reserve_rank": "",
+      "selected_label": "H4",
+      "source_candidate_status": "selected",
+      "stratum_id": "S4",
+      "stratum_name": "weighted heterogeneous",
+      "stratum_queue_rank": "1",
+      "weight_max": 1.48,
+      "weight_mean": 0.9585714285714284,
+      "weight_min": 0.51,
+      "weight_std": 0.35243757588821195,
+      "weighted_flag": true
+    },
+    "H5": {
+      "candidate_id": "S5_C000001",
+      "degree_max": 5,
+      "degree_mean": 4.0,
+      "degree_min": 2,
+      "degree_std": 1.0,
+      "density": 0.8,
+      "edges": [
+        [
+          0,
+          1,
+          1.48
+        ],
+        [
+          0,
+          2,
+          0.62
+        ],
+        [
+          0,
+          3,
+          1.28
+        ],
+        [
+          0,
+          4,
+          0.83
+        ],
+        [
+          0,
+          5,
+          0.51
+        ],
+        [
+          1,
+          2,
+          1.35
+        ],
+        [
+          1,
+          3,
+          1.46
+        ],
+        [
+          1,
+          4,
+          1.08
+        ],
+        [
+          2,
+          3,
+          0.69
+        ],
+        [
+          2,
+          4,
+          1.28
+        ],
+        [
+          2,
+          5,
+          0.65
+        ],
+        [
+          3,
+          4,
+          0.58
+        ]
+      ],
+      "graph_signature": "cd89a7bb4e04be81f6c589938db5cca009ec3edcec97e3604433cf64a94a4c75",
+      "grid_label": "grid_pass",
+      "grid_metrics": {
+        "J10_120_vs_240": 0.9212808539026017,
+        "Spearman_120_vs_240": 0.9956266855196442,
+        "gradient_alignment_120_vs_240": 0.9979094812573853,
+        "localized_480_pass": "",
+        "localized_480_triggered": false,
+        "normalized_regret_error": 0.0004305120914381997,
+        "production_array": "data/raw/phase_d_grid_adequacy/S5_C000001/C_ideal_grid_120.npy",
+        "production_array_sha256": "93ede82b86dc9610a6d1cba9b487d0caabeed5a27d21f1a423c5a2e26055fa6d",
+        "reference_array": "data/raw/phase_d_grid_adequacy/S5_C000001/C_ideal_grid_240.npy",
+        "reference_array_sha256": "9b297a3c6cf1092feebe8064bc67a4728d360b7cdc3d8815ec8538a985d9569e"
+      },
+      "n_edges": 12,
+      "n_nodes": 6,
+      "replacement_used": false,
+      "replaces_candidate_id": "",
+      "reserve_rank": "",
+      "selected_label": "H5",
+      "source_candidate_status": "selected",
+      "stratum_id": "S5",
+      "stratum_name": "dense / near-complete positive-weight",
+      "stratum_queue_rank": "1",
+      "weight_max": 1.48,
+      "weight_mean": 0.9841666666666665,
+      "weight_min": 0.51,
+      "weight_std": 0.3574320059660143,
+      "weighted_flag": true
+    },
+    "H6": {
+      "candidate_id": "S6_C000003",
+      "degree_max": 3,
+      "degree_mean": 2.4,
+      "degree_min": 1,
+      "degree_std": 0.8,
+      "density": 0.6,
+      "edges": [
+        [
+          0,
+          1,
+          1.0
+        ],
+        [
+          0,
+          2,
+          1.0
+        ],
+        [
+          1,
+          2,
+          1.0
+        ],
+        [
+          1,
+          3,
+          1.0
+        ],
+        [
+          2,
+          3,
+          1.0
+        ],
+        [
+          3,
+          4,
+          1.0
+        ]
+      ],
+      "graph_signature": "5adfa5c584a3db7619e6fe88d8148d3770edee30de1691b934042f1effbfbd91",
+      "grid_label": "grid_pass",
+      "grid_metrics": {
+        "J10_120_vs_240": 0.9296482412060302,
+        "Spearman_120_vs_240": 0.998446755733659,
+        "gradient_alignment_120_vs_240": 0.9999986253197184,
+        "localized_480_pass": "",
+        "localized_480_triggered": false,
+        "normalized_regret_error": 0.000927475746809553,
+        "production_array": "data/raw/phase_d_grid_adequacy/S6_C000003/C_ideal_grid_120.npy",
+        "production_array_sha256": "d226a6a814061eb27bc1ae5c68a7580caaf9a1321850736cb61399e11fe608db",
+        "reference_array": "data/raw/phase_d_grid_adequacy/S6_C000003/C_ideal_grid_240.npy",
+        "reference_array_sha256": "b6d892c2ed24a2f36c7d02eb9afaee0cffeabcfd745ef9535a7efe7877686e11"
+      },
+      "n_edges": 6,
+      "n_nodes": 5,
+      "replacement_used": true,
+      "replaces_candidate_id": "S6_C000001",
+      "reserve_rank": "1",
+      "selected_label": "H6",
+      "source_candidate_status": "reserve",
+      "stratum_id": "S6",
+      "stratum_name": "hardware-friendly / control",
+      "stratum_queue_rank": "3",
+      "weight_max": 1.0,
+      "weight_mean": 1.0,
+      "weight_min": 1.0,
+      "weight_std": 0.0,
+      "weighted_flag": false
+    },
+    "H7": {
+      "candidate_id": "S1_C000002",
+      "degree_max": 3,
+      "degree_mean": 1.6,
+      "degree_min": 1,
+      "degree_std": 0.8,
+      "density": 0.4,
+      "edges": [
+        [
+          0,
+          1,
+          1.3
+        ],
+        [
+          0,
+          2,
+          1.41
+        ],
+        [
+          0,
+          4,
+          1.22
+        ],
+        [
+          1,
+          3,
+          0.54
+        ]
+      ],
+      "graph_signature": "a3a025573ded2038e9d91e9ace66b5384aad1b5a1e83e56ffae6a59c7334baca",
+      "grid_label": "grid_pass",
+      "grid_metrics": {
+        "J10_120_vs_240": 0.94561729437595,
+        "Spearman_120_vs_240": 0.9985541182675034,
+        "gradient_alignment_120_vs_240": 0.9906648575738178,
+        "localized_480_pass": "",
+        "localized_480_triggered": false,
+        "normalized_regret_error": 3.1263818733630685e-05,
+        "production_array": "data/raw/phase_d_grid_adequacy/S1_C000002/C_ideal_grid_120.npy",
+        "production_array_sha256": "a71900303ec1df719ba5bef21108c4d30a940050f073eb7c967f8f6e7ea8464f",
+        "reference_array": "data/raw/phase_d_grid_adequacy/S1_C000002/C_ideal_grid_240.npy",
+        "reference_array_sha256": "7dcad051ecde1d1ca44e0bc3e2a01df347bb36bc409f92dba988b22692c2abf9"
+      },
+      "n_edges": 4,
+      "n_nodes": 5,
+      "replacement_used": false,
+      "replaces_candidate_id": "",
+      "reserve_rank": "",
+      "selected_label": "H7",
+      "source_candidate_status": "selected",
+      "stratum_id": "S1",
+      "stratum_name": "continuity-like sparse",
+      "stratum_queue_rank": "2",
+      "weight_max": 1.41,
+      "weight_mean": 1.1175,
+      "weight_min": 0.54,
+      "weight_std": 0.3401745875282279,
+      "weighted_flag": true
+    },
+    "H8": {
+      "candidate_id": "S2_C000002",
+      "degree_max": 3,
+      "degree_mean": 3.0,
+      "degree_min": 3,
+      "degree_std": 0.0,
+      "density": 0.6,
+      "edges": [
+        [
+          0,
+          1,
+          1.0
+        ],
+        [
+          0,
+          3,
+          1.0
+        ],
+        [
+          0,
+          4,
+          1.0
+        ],
+        [
+          1,
+          2,
+          1.0
+        ],
+        [
+          1,
+          5,
+          1.0
+        ],
+        [
+          2,
+          4,
+          1.0
+        ],
+        [
+          2,
+          5,
+          1.0
+        ],
+        [
+          3,
+          4,
+          1.0
+        ],
+        [
+          3,
+          5,
+          1.0
+        ]
+      ],
+      "graph_signature": "c6ef6062b6e7a60b201238efe16f11e23a45356b151c18ac7d1d663ed864d0e9",
+      "grid_label": "grid_pass",
+      "grid_metrics": {
+        "J10_120_vs_240": 0.9264214046822743,
+        "Spearman_120_vs_240": 0.9978245238490708,
+        "gradient_alignment_120_vs_240": 0.9999994469161263,
+        "localized_480_pass": "",
+        "localized_480_triggered": false,
+        "normalized_regret_error": 9.486536546046352e-05,
+        "production_array": "data/raw/phase_d_grid_adequacy/S2_C000002/C_ideal_grid_120.npy",
+        "production_array_sha256": "86fb265d99812ad78295c997ee3eb4eb1fa957d4f4673683195a499230cb7812",
+        "reference_array": "data/raw/phase_d_grid_adequacy/S2_C000002/C_ideal_grid_240.npy",
+        "reference_array_sha256": "c119367593fc6779d5b79e5ce3b22f9f1cb1d19ae78a61d0cdf850c12c6bce20"
+      },
+      "n_edges": 9,
+      "n_nodes": 6,
+      "replacement_used": false,
+      "replaces_candidate_id": "",
+      "reserve_rank": "",
+      "selected_label": "H8",
+      "source_candidate_status": "selected",
+      "stratum_id": "S2",
+      "stratum_name": "regular / near-regular",
+      "stratum_queue_rank": "2",
+      "weight_max": 1.0,
+      "weight_mean": 1.0,
+      "weight_min": 1.0,
+      "weight_std": 0.0,
+      "weighted_flag": false
+    },
+    "H9": {
+      "candidate_id": "S3_C000002",
+      "degree_max": 3,
+      "degree_mean": 2.4,
+      "degree_min": 2,
+      "degree_std": 0.4898979485566356,
+      "density": 0.6,
+      "edges": [
+        [
+          0,
+          2,
+          1.0
+        ],
+        [
+          0,
+          4,
+          1.0
+        ],
+        [
+          1,
+          3,
+          1.0
+        ],
+        [
+          1,
+          4,
+          1.0
+        ],
+        [
+          2,
+          3,
+          1.0
+        ],
+        [
+          3,
+          4,
+          1.0
+        ]
+      ],
+      "graph_signature": "b0c11b444e47659da5cbf07f1be466c5e07f36b19bdcc01ab5ac0484b4a0785a",
+      "grid_label": "grid_pass",
+      "grid_metrics": {
+        "J10_120_vs_240": 0.9354838709677419,
+        "Spearman_120_vs_240": 0.9968322855200061,
+        "gradient_alignment_120_vs_240": 0.9998187501945351,
+        "localized_480_pass": "",
+        "localized_480_triggered": false,
+        "normalized_regret_error": 0.0009291490711653178,
+        "production_array": "data/raw/phase_d_grid_adequacy/S3_C000002/C_ideal_grid_120.npy",
+        "production_array_sha256": "5ae1dedc2177e48022a342a885c2fd0ace14c671aef567885487b7f112cfd251",
+        "reference_array": "data/raw/phase_d_grid_adequacy/S3_C000002/C_ideal_grid_240.npy",
+        "reference_array_sha256": "20db2c3bf2af853c4fba052cc7e8b8936c103abe7e03d0392084da73ed67ca3c"
+      },
+      "n_edges": 6,
+      "n_nodes": 5,
+      "replacement_used": false,
+      "replaces_candidate_id": "",
+      "reserve_rank": "",
+      "selected_label": "H9",
+      "source_candidate_status": "selected",
+      "stratum_id": "S3",
+      "stratum_name": "Erdos-Renyi",
+      "stratum_queue_rank": "2",
+      "weight_max": 1.0,
+      "weight_mean": 1.0,
+      "weight_min": 1.0,
+      "weight_std": 0.0,
+      "weighted_flag": false
+    }
+  },
+  "source_files": {
+    "candidate_queue": "results/phase_d/planning/phase_d_candidate_queue.csv",
+    "generator_config": "results/phase_d/planning/phase_d_generator_config.json",
+    "grid_adequacy_summary": "results/phase_d/planning/phase_d_grid_adequacy_summary.json",
+    "selected_instances_final": "results/phase_d/planning/phase_d_selected_instances_final.json",
+    "stratum_queues": "results/phase_d/planning/phase_d_stratum_queues.json"
+  },
+  "stratum_queues": {
+    "S1": {
+      "valid_candidates": [
+        {
+          "candidate_id": "S1_C000001",
+          "edges": [
+            [
+              0,
+              1,
+              1.0
+            ],
+            [
+              0,
+              2,
+              1.0
+            ],
+            [
+              0,
+              3,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              2,
+              3,
+              1.0
+            ]
+          ],
+          "graph_signature": "1bd813aade5a6a573f23a3e662fae0ab7dcb33e3c884219889833aa9f537d5aa",
+          "reserve_rank": null,
+          "selected_label": "H1",
+          "stratum_queue_rank": 1
+        },
+        {
+          "candidate_id": "S1_C000002",
+          "edges": [
+            [
+              0,
+              1,
+              1.3
+            ],
+            [
+              0,
+              2,
+              1.41
+            ],
+            [
+              0,
+              4,
+              1.22
+            ],
+            [
+              1,
+              3,
+              0.54
+            ]
+          ],
+          "graph_signature": "a3a025573ded2038e9d91e9ace66b5384aad1b5a1e83e56ffae6a59c7334baca",
+          "reserve_rank": null,
+          "selected_label": "H7",
+          "stratum_queue_rank": 2
+        },
+        {
+          "candidate_id": "S1_C000004",
+          "edges": [
+            [
+              0,
+              1,
+              1.0
+            ],
+            [
+              0,
+              2,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              1,
+              3,
+              1.0
+            ],
+            [
+              2,
+              3,
+              1.0
+            ]
+          ],
+          "graph_signature": "9a2fbff19c9666ad4c66155bfeea28961f43129a3e7489d1f6a7fcb37f2b3f6f",
+          "reserve_rank": 1,
+          "selected_label": "",
+          "stratum_queue_rank": 3
+        },
+        {
+          "candidate_id": "S1_C000005",
+          "edges": [
+            [
+              0,
+              1,
+              0.56
+            ],
+            [
+              0,
+              3,
+              1.26
+            ],
+            [
+              1,
+              2,
+              1.16
+            ],
+            [
+              1,
+              3,
+              0.57
+            ],
+            [
+              2,
+              3,
+              0.99
+            ]
+          ],
+          "graph_signature": "8d1edd042237073bd64e0af17f9d4e817288552ea55b096e11a36eb34147bdf7",
+          "reserve_rank": 2,
+          "selected_label": "",
+          "stratum_queue_rank": 4
+        }
+      ]
+    },
+    "S2": {
+      "valid_candidates": [
+        {
+          "candidate_id": "S2_C000001",
+          "edges": [
+            [
+              0,
+              1,
+              1.0
+            ],
+            [
+              0,
+              2,
+              1.0
+            ],
+            [
+              0,
+              3,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              1,
+              3,
+              1.0
+            ],
+            [
+              2,
+              3,
+              1.0
+            ]
+          ],
+          "graph_signature": "6479c0c968f738a784577bbe2f52008bc69292fad8ace4f37a3a7e5f202aaddb",
+          "reserve_rank": null,
+          "selected_label": "H2",
+          "stratum_queue_rank": 1
+        },
+        {
+          "candidate_id": "S2_C000002",
+          "edges": [
+            [
+              0,
+              1,
+              1.0
+            ],
+            [
+              0,
+              3,
+              1.0
+            ],
+            [
+              0,
+              4,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              1,
+              5,
+              1.0
+            ],
+            [
+              2,
+              4,
+              1.0
+            ],
+            [
+              2,
+              5,
+              1.0
+            ],
+            [
+              3,
+              4,
+              1.0
+            ],
+            [
+              3,
+              5,
+              1.0
+            ]
+          ],
+          "graph_signature": "c6ef6062b6e7a60b201238efe16f11e23a45356b151c18ac7d1d663ed864d0e9",
+          "reserve_rank": null,
+          "selected_label": "H8",
+          "stratum_queue_rank": 2
+        },
+        {
+          "candidate_id": "S2_C000005",
+          "edges": [
+            [
+              0,
+              1,
+              1.0
+            ],
+            [
+              0,
+              3,
+              1.0
+            ],
+            [
+              0,
+              4,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              1,
+              5,
+              1.0
+            ],
+            [
+              2,
+              3,
+              1.0
+            ],
+            [
+              2,
+              4,
+              1.0
+            ],
+            [
+              3,
+              5,
+              1.0
+            ],
+            [
+              4,
+              5,
+              1.0
+            ]
+          ],
+          "graph_signature": "4c9a0aa5bdaa0da7fab9b3dbcb452266baa7ec52f20c338a23bf720d5e5e0301",
+          "reserve_rank": 1,
+          "selected_label": "",
+          "stratum_queue_rank": 3
+        },
+        {
+          "candidate_id": "S2_C000006",
+          "edges": [
+            [
+              0,
+              2,
+              1.0
+            ],
+            [
+              0,
+              4,
+              1.0
+            ],
+            [
+              0,
+              5,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              1,
+              4,
+              1.0
+            ],
+            [
+              1,
+              5,
+              1.0
+            ],
+            [
+              2,
+              3,
+              1.0
+            ],
+            [
+              3,
+              4,
+              1.0
+            ],
+            [
+              3,
+              5,
+              1.0
+            ]
+          ],
+          "graph_signature": "461ca837980e45d41c979f0545650e016239a2728292fd53e4fb72a837b53e46",
+          "reserve_rank": 2,
+          "selected_label": "",
+          "stratum_queue_rank": 4
+        }
+      ]
+    },
+    "S3": {
+      "valid_candidates": [
+        {
+          "candidate_id": "S3_C000001",
+          "edges": [
+            [
+              0,
+              1,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              2,
+              3,
+              1.0
+            ],
+            [
+              2,
+              4,
+              1.0
+            ]
+          ],
+          "graph_signature": "d90a06296e0517b75afbc1d5fa20040079189df4028875533a0ac35641a01fa9",
+          "reserve_rank": null,
+          "selected_label": "H3",
+          "stratum_queue_rank": 1
+        },
+        {
+          "candidate_id": "S3_C000002",
+          "edges": [
+            [
+              0,
+              2,
+              1.0
+            ],
+            [
+              0,
+              4,
+              1.0
+            ],
+            [
+              1,
+              3,
+              1.0
+            ],
+            [
+              1,
+              4,
+              1.0
+            ],
+            [
+              2,
+              3,
+              1.0
+            ],
+            [
+              3,
+              4,
+              1.0
+            ]
+          ],
+          "graph_signature": "b0c11b444e47659da5cbf07f1be466c5e07f36b19bdcc01ab5ac0484b4a0785a",
+          "reserve_rank": null,
+          "selected_label": "H9",
+          "stratum_queue_rank": 2
+        },
+        {
+          "candidate_id": "S3_C000004",
+          "edges": [
+            [
+              0,
+              2,
+              1.0
+            ],
+            [
+              0,
+              3,
+              1.0
+            ],
+            [
+              0,
+              4,
+              1.0
+            ],
+            [
+              0,
+              5,
+              1.0
+            ],
+            [
+              1,
+              3,
+              1.0
+            ],
+            [
+              1,
+              5,
+              1.0
+            ],
+            [
+              2,
+              3,
+              1.0
+            ],
+            [
+              3,
+              4,
+              1.0
+            ],
+            [
+              4,
+              5,
+              1.0
+            ]
+          ],
+          "graph_signature": "3c7397b889fea2ce43fdbb71a87b23031024379c421004b4b0a59457901df717",
+          "reserve_rank": 1,
+          "selected_label": "",
+          "stratum_queue_rank": 3
+        },
+        {
+          "candidate_id": "S3_C000005",
+          "edges": [
+            [
+              0,
+              2,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              2,
+              3,
+              1.0
+            ]
+          ],
+          "graph_signature": "48f3d116e516f5b4e840c26dd9ac0eaadd8ffe9c7f040058324d1d915ca59657",
+          "reserve_rank": 2,
+          "selected_label": "",
+          "stratum_queue_rank": 4
+        }
+      ]
+    },
+    "S4": {
+      "valid_candidates": [
+        {
+          "candidate_id": "S4_C000002",
+          "edges": [
+            [
+              0,
+              1,
+              1.14
+            ],
+            [
+              0,
+              2,
+              0.64
+            ],
+            [
+              0,
+              3,
+              1.39
+            ],
+            [
+              1,
+              3,
+              0.84
+            ],
+            [
+              1,
+              5,
+              0.51
+            ],
+            [
+              2,
+              4,
+              0.71
+            ],
+            [
+              3,
+              4,
+              1.48
+            ]
+          ],
+          "graph_signature": "a53bbaa98c5c0e7c45cb4d5b85b06db1a5f41dcf4a78761a3592eb3ea81b4858",
+          "reserve_rank": null,
+          "selected_label": "H4",
+          "stratum_queue_rank": 1
+        },
+        {
+          "candidate_id": "S4_C000003",
+          "edges": [
+            [
+              0,
+              1,
+              0.92
+            ],
+            [
+              0,
+              3,
+              1.31
+            ],
+            [
+              0,
+              4,
+              0.8
+            ],
+            [
+              0,
+              5,
+              1.07
+            ],
+            [
+              1,
+              2,
+              0.77
+            ],
+            [
+              1,
+              4,
+              1.22
+            ],
+            [
+              1,
+              5,
+              1.38
+            ],
+            [
+              2,
+              3,
+              1.48
+            ],
+            [
+              2,
+              4,
+              0.64
+            ],
+            [
+              2,
+              5,
+              1.01
+            ],
+            [
+              3,
+              5,
+              1.3
+            ],
+            [
+              4,
+              5,
+              0.61
+            ]
+          ],
+          "graph_signature": "f5d3ae22e8a2f9ac4877d7fbf3988d91811dc6732c9e8653a48e5dce00b10f5b",
+          "reserve_rank": null,
+          "selected_label": "H10",
+          "stratum_queue_rank": 2
+        },
+        {
+          "candidate_id": "S4_C000004",
+          "edges": [
+            [
+              0,
+              1,
+              0.59
+            ],
+            [
+              0,
+              2,
+              1.27
+            ],
+            [
+              0,
+              3,
+              1.33
+            ],
+            [
+              1,
+              3,
+              1.49
+            ],
+            [
+              1,
+              4,
+              0.96
+            ],
+            [
+              1,
+              5,
+              0.84
+            ],
+            [
+              2,
+              3,
+              0.57
+            ],
+            [
+              2,
+              4,
+              0.54
+            ],
+            [
+              3,
+              5,
+              0.67
+            ],
+            [
+              4,
+              5,
+              1.25
+            ]
+          ],
+          "graph_signature": "fc60b1ce650153a4990c1ce24653e27f5fec1c33caf969c344f697cc0b3f47e5",
+          "reserve_rank": 1,
+          "selected_label": "",
+          "stratum_queue_rank": 3
+        },
+        {
+          "candidate_id": "S4_C000005",
+          "edges": [
+            [
+              0,
+              2,
+              0.57
+            ],
+            [
+              0,
+              3,
+              0.51
+            ],
+            [
+              1,
+              2,
+              0.66
+            ],
+            [
+              1,
+              4,
+              1.17
+            ],
+            [
+              2,
+              3,
+              0.79
+            ],
+            [
+              2,
+              4,
+              0.92
+            ],
+            [
+              3,
+              4,
+              1.24
+            ]
+          ],
+          "graph_signature": "9d900f0eb5774ed3952621b6c1d465750d13a8daf066899a0ce4b0cd612d929b",
+          "reserve_rank": 2,
+          "selected_label": "",
+          "stratum_queue_rank": 4
+        }
+      ]
+    },
+    "S5": {
+      "valid_candidates": [
+        {
+          "candidate_id": "S5_C000001",
+          "edges": [
+            [
+              0,
+              1,
+              1.48
+            ],
+            [
+              0,
+              2,
+              0.62
+            ],
+            [
+              0,
+              3,
+              1.28
+            ],
+            [
+              0,
+              4,
+              0.83
+            ],
+            [
+              0,
+              5,
+              0.51
+            ],
+            [
+              1,
+              2,
+              1.35
+            ],
+            [
+              1,
+              3,
+              1.46
+            ],
+            [
+              1,
+              4,
+              1.08
+            ],
+            [
+              2,
+              3,
+              0.69
+            ],
+            [
+              2,
+              4,
+              1.28
+            ],
+            [
+              2,
+              5,
+              0.65
+            ],
+            [
+              3,
+              4,
+              0.58
+            ]
+          ],
+          "graph_signature": "cd89a7bb4e04be81f6c589938db5cca009ec3edcec97e3604433cf64a94a4c75",
+          "reserve_rank": null,
+          "selected_label": "H5",
+          "stratum_queue_rank": 1
+        },
+        {
+          "candidate_id": "S5_C000002",
+          "edges": [
+            [
+              0,
+              1,
+              1.26
+            ],
+            [
+              0,
+              2,
+              1.43
+            ],
+            [
+              0,
+              3,
+              0.52
+            ],
+            [
+              0,
+              4,
+              0.52
+            ],
+            [
+              0,
+              5,
+              0.63
+            ],
+            [
+              1,
+              2,
+              1.45
+            ],
+            [
+              1,
+              3,
+              1.43
+            ],
+            [
+              1,
+              4,
+              1.43
+            ],
+            [
+              1,
+              5,
+              1.05
+            ],
+            [
+              2,
+              3,
+              0.69
+            ],
+            [
+              2,
+              4,
+              1.23
+            ],
+            [
+              2,
+              5,
+              0.51
+            ],
+            [
+              3,
+              4,
+              1.17
+            ]
+          ],
+          "graph_signature": "632d5019cff3c96df19dae6c6519185169a834de960f68f5e908fc14be960421",
+          "reserve_rank": null,
+          "selected_label": "H11",
+          "stratum_queue_rank": 2
+        },
+        {
+          "candidate_id": "S5_C000003",
+          "edges": [
+            [
+              0,
+              1,
+              0.91
+            ],
+            [
+              0,
+              2,
+              1.39
+            ],
+            [
+              0,
+              3,
+              1.14
+            ],
+            [
+              0,
+              4,
+              1.05
+            ],
+            [
+              0,
+              5,
+              0.87
+            ],
+            [
+              1,
+              2,
+              1.04
+            ],
+            [
+              1,
+              3,
+              1.01
+            ],
+            [
+              1,
+              4,
+              0.64
+            ],
+            [
+              1,
+              5,
+              0.75
+            ],
+            [
+              2,
+              3,
+              0.86
+            ],
+            [
+              2,
+              4,
+              0.78
+            ],
+            [
+              3,
+              4,
+              0.61
+            ],
+            [
+              4,
+              5,
+              0.63
+            ]
+          ],
+          "graph_signature": "803e774d94bd8127a091f561c74ebc5a10619d88b3a5100ef70350294dc35f53",
+          "reserve_rank": 1,
+          "selected_label": "",
+          "stratum_queue_rank": 3
+        },
+        {
+          "candidate_id": "S5_C000004",
+          "edges": [
+            [
+              0,
+              2,
+              0.63
+            ],
+            [
+              0,
+              3,
+              1.28
+            ],
+            [
+              0,
+              4,
+              0.68
+            ],
+            [
+              0,
+              5,
+              1.37
+            ],
+            [
+              1,
+              3,
+              1.37
+            ],
+            [
+              1,
+              4,
+              0.55
+            ],
+            [
+              1,
+              5,
+              0.85
+            ],
+            [
+              2,
+              3,
+              1.12
+            ],
+            [
+              2,
+              4,
+              1.11
+            ],
+            [
+              3,
+              4,
+              0.88
+            ],
+            [
+              3,
+              5,
+              1.06
+            ],
+            [
+              4,
+              5,
+              1.31
+            ]
+          ],
+          "graph_signature": "1918fad19b6ff4ee949c8a89be09fefd7d707f536adf1fbafec1e7063fbc8055",
+          "reserve_rank": 2,
+          "selected_label": "",
+          "stratum_queue_rank": 4
+        }
+      ]
+    },
+    "S6": {
+      "valid_candidates": [
+        {
+          "candidate_id": "S6_C000001",
+          "edges": [
+            [
+              0,
+              1,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              1,
+              3,
+              1.0
+            ],
+            [
+              2,
+              3,
+              1.0
+            ],
+            [
+              3,
+              4,
+              1.0
+            ],
+            [
+              4,
+              5,
+              1.0
+            ]
+          ],
+          "graph_signature": "ddcf084f79d71ae085f21bcf2bd747fc2b6f1209eae56adee8bcb8f9c72450ba",
+          "reserve_rank": null,
+          "selected_label": "H6",
+          "stratum_queue_rank": 1
+        },
+        {
+          "candidate_id": "S6_C000002",
+          "edges": [
+            [
+              0,
+              1,
+              0.72
+            ],
+            [
+              1,
+              2,
+              1.46
+            ],
+            [
+              1,
+              3,
+              1.14
+            ],
+            [
+              2,
+              3,
+              0.61
+            ],
+            [
+              2,
+              4,
+              1.26
+            ],
+            [
+              3,
+              4,
+              0.72
+            ]
+          ],
+          "graph_signature": "4329f9ab2d06c256575e91bc0ab51a9735877d961c2ba095778e64d426912506",
+          "reserve_rank": null,
+          "selected_label": "H12",
+          "stratum_queue_rank": 2
+        },
+        {
+          "candidate_id": "S6_C000003",
+          "edges": [
+            [
+              0,
+              1,
+              1.0
+            ],
+            [
+              0,
+              2,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              1,
+              3,
+              1.0
+            ],
+            [
+              2,
+              3,
+              1.0
+            ],
+            [
+              3,
+              4,
+              1.0
+            ]
+          ],
+          "graph_signature": "5adfa5c584a3db7619e6fe88d8148d3770edee30de1691b934042f1effbfbd91",
+          "reserve_rank": 1,
+          "selected_label": "",
+          "stratum_queue_rank": 3
+        },
+        {
+          "candidate_id": "S6_C000004",
+          "edges": [
+            [
+              0,
+              1,
+              1.26
+            ],
+            [
+              0,
+              3,
+              0.72
+            ],
+            [
+              1,
+              2,
+              1.34
+            ],
+            [
+              1,
+              4,
+              1.07
+            ],
+            [
+              2,
+              5,
+              1.03
+            ],
+            [
+              3,
+              4,
+              1.33
+            ],
+            [
+              4,
+              5,
+              0.9
+            ]
+          ],
+          "graph_signature": "e619ffeb3817ade5845ba1c452bdd5b7ba022c416d2007eadb3435dae6c9f540",
+          "reserve_rank": 2,
+          "selected_label": "",
+          "stratum_queue_rank": 4
+        }
+      ]
+    }
+  },
+  "structural_constraints": {
+    "connected_required": true,
+    "max_edges": 13,
+    "max_n_nodes": 6,
+    "n_nodes": [
+      4,
+      5,
+      6
+    ],
+    "positive_weights_only": true,
+    "unique_graph_signatures_across_valid_queue": true,
+    "weight_range": [
+      0.5,
+      1.5
+    ],
+    "weight_rounding_decimals": 2
+  }
+}

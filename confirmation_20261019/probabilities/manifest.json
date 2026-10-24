@@ -1,0 +1,10 @@
+{
+  "protocol_sha256": "1e3f691b832da693cff97edbb1055ddbbd9a07ba884f1139edf6e2a8c2d7b345",
+  "scope": "exact deterministic probabilities, no shot samples",
+  "seconds_this_execution": 535.7408424000023,
+  "sha256": {
+    "H1.npy": "71712c6ab8794a394f4938208fd2e25224c9c7cd6438aa516824b8dddc34d7be",
+    "H3.npy": "0d713b470ff4f6f6d5a0190f8331a7cbfe46ec8c075d181260d7d24fcb9924fd",
+    "H8.npy": "0ea1c16804de9c8823ecf8fc11b434a1e14c4b1ec3c3b4846e16ea46946aad79"
+  }
+}

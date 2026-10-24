@@ -1,0 +1,64 @@
+REVISIÓN DE INTEGRACIÓN — 2026-10-20
+
+Dictamen: CONFORME. No encontré errores concretos que requieran cambios.
+Esta revisión se limita a las nuevas subsecciones solicitadas:
+  main_body.tex: “Post-analysis sensitivity to shot allocation” (líneas 199–200)
+  supplement_template.tex: “Post-analysis allocation sensitivity” (líneas 149–180)
+No modifiqué los masters ni ejecuté nuevamente el cálculo numérico.
+
+Verificación de cifras
+
+Contrasté las cuatro filas de la tabla con allocation_sensitivity.json,
+mediante comparación automática del formato completo de cada fila:
+presupuesto, ambas varianzas medias y ambos porcentajes de ganancia.
+Todos coinciden con el redondeo publicado:
+
+Condición  B     V usada     V oráculo entero  Ganancia puntual  Ganancia fija
+H1 m=2    1024  .01565629    .01563791           .11738%           .01077%
+H3 m=2    1024  .01219100    .01218560           .04433%           .00005%
+H8 m=3    4096  .02333666    .02325143           .36521%           .17148%
+H8 m=2    4096  .00821450    .00819093           .28689%           .13492%
+
+La frase principal 0.0443%–0.3652% es el rango correctamente redondeado.
+El SI define explícitamente 100*(1-media(V*_int)/media(V_usada)), una
+reducción calculada como razón de medias, y aclara que no es un promedio
+de razones puntuales. La tabla y el texto aplican esa definición.
+
+La mayor razón puntual V_usada/V*_continuo es 1.012725577733617.
+Su correspondiente reducción máxima es
+  100*(1-1/1.012725577733617) = 1.25656722940638%.
+Esto respalda tanto “1.2566%” del SI como “below 1.26%” del principal.
+La mayor reducción de la varianza excedente media respecto del baseline
+es 0.37674869133751615%, coherente con “below 0.38%”. Las cuatro
+varianzas uniformes continuas medias son mayores que las usadas.
+
+Verificación matemática y alcance
+
+La fórmula del óptimo continuo es correcta para muestras independientes
+entre escalas y presupuesto total fijo. Todas las varianzas guardadas son
+positivas, por lo que no hay una excepción de varianza cero que omitir.
+
+El procedimiento entero descrito es el correcto: una medición inicial por
+escala y asignación de los B-k shots restantes por disminución marginal
+q_j/[B_j*(B_j+1)]. Las disminuciones son decrecientes por escala y el
+problema es separable, de modo que greedy da el óptimo global entero
+positivo. Se describe correctamente el certificado de intercambio final.
+Usar el promedio espacial de q_j para una única asignación fija también
+minimiza la varianza media de la condición.
+
+El texto identifica el análisis como posterior al conocimiento de resultados,
+con probabilidades guardadas y sin modificación del protocolo congelado.
+Explica que el oráculo conoce varianzas verdaderas y no paga calibración.
+No afirma que ese oráculo sea un protocolo experimental de igual coste.
+
+Ambas subsecciones evitan inferir invariancia del regret o de los tests a
+partir de momentos: el principal lo niega explícitamente y el SI confirma
+que no se recalcularon selecciones, regret ni rechazos. El alcance se limita
+a las cuatro distribuciones guardadas y los coeficientes fijados.
+No se introduce ninguna afirmación nueva sobre independencia o correlación
+entre puntos de la grilla; solo se invoca independencia entre escalas para
+la fórmula de varianza, que es la hipótesis necesaria para este cálculo.
+
+No se requiere un rerun de muestras para respaldar estas afirmaciones
+limitadas de sensibilidad de varianza. No se evaluó en esta revisión el
+resto del principal, del SI ni la maquetación final del PDF.

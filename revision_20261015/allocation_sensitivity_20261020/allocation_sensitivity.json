@@ -1,0 +1,456 @@
+{
+  "analysis": "Exact saved-probability moments only; no sampling or circuit reruns.",
+  "scope": "Post hoc oracle allocation sensitivity, not new regret or confirmatory outcomes.",
+  "source_sha256": {
+    "confirmation_20261019/probabilities/H1.npy": "71712c6ab8794a394f4938208fd2e25224c9c7cd6438aa516824b8dddc34d7be",
+    "confirmation_20261019/probabilities/H3.npy": "0d713b470ff4f6f6d5a0190f8331a7cbfe46ec8c075d181260d7d24fcb9924fd",
+    "confirmation_20261019/probabilities/H8.npy": "0ea1c16804de9c8823ecf8fc11b434a1e14c4b1ec3c3b4846e16ea46946aad79",
+    "confirmation_20261019/protocol.json": "1e3f691b832da693cff97edbb1055ddbbd9a07ba884f1139edf6e2a8c2d7b345",
+    "confirmation_20261019/inputs/graphs.json": "3f703369cac400e460b41b909a025fc381d21ea1430c441f45231244d8bebe8c",
+    "confirmation_20261019/probabilities/manifest.json": "3ba87fdd33829a815d53514de4bce586412a7be1f2cac0a0d2f278349bc62271",
+    "confirmation_20261019/inputs/H1_ideal.npy": "5c97aff19946cb0a6872c058a9f032c46aad453514b35a4de8ae323081fa124c",
+    "confirmation_20261019/inputs/H3_ideal.npy": "457e449c14e591ab05e810bb74f4ff708013d9b16afe6817a0078d71586a79df",
+    "confirmation_20261019/inputs/H8_ideal.npy": "86fb265d99812ad78295c997ee3eb4eb1fa957d4f4673683195a499230cb7812"
+  },
+  "numpy": "2.2.6",
+  "analysis_script_sha256": "84a5649801f269ab0c16d2588f15b842f63635c36f419be7b6823a52df0e3db7",
+  "cells": [
+    {
+      "id": "H1_q",
+      "B": 1024,
+      "weights": [
+        1.875,
+        -1.25,
+        0.375
+      ],
+      "recorded_allocation": [
+        548,
+        366,
+        110
+      ],
+      "source_inputs": {
+        "protocol": "confirmation_20261019/protocol.json",
+        "graphs": "confirmation_20261019/inputs/graphs.json",
+        "probabilities": "confirmation_20261019/probabilities/H1.npy",
+        "ideal": "confirmation_20261019/inputs/H1_ideal.npy"
+      },
+      "n_grid_points": 14400,
+      "single_shot_variance_by_scale": [
+        {
+          "min": 0.6823764925301276,
+          "q01": 0.756219943296284,
+          "q25": 1.1534289696992372,
+          "median": 1.2799080355728334,
+          "q75": 1.4705952157523159,
+          "q99": 1.9992524063190729,
+          "max": 2.0470302204288857
+        },
+        {
+          "min": 0.9909075191430482,
+          "q01": 1.0202512345528403,
+          "q25": 1.2148903102115058,
+          "median": 1.2571176045982002,
+          "q75": 1.32225242612971,
+          "q99": 1.719532287458869,
+          "max": 1.7426346973694875
+        },
+        {
+          "min": 1.1172908415236562,
+          "q01": 1.1301247135850652,
+          "q25": 1.2303566496944662,
+          "median": 1.2516706886138271,
+          "q75": 1.2829709589802465,
+          "q99": 1.4783381700799274,
+          "max": 1.4921908535704298
+        }
+      ],
+      "single_shot_zero_variance_count": 0,
+      "probability_normalization_max_error": 4.440892098500626e-16,
+      "mean_variance": {
+        "implemented": 0.015656287854230098,
+        "baseline": 0.0012988373784987234,
+        "proportional_continuous": 0.015655914012278793,
+        "uniform_continuous": 0.020124065639053102,
+        "pointwise_neyman_continuous": 0.015637891626362775,
+        "pointwise_neyman_integer_exact": 0.015637910431543472,
+        "fixed_neyman_continuous": 0.015654599327143803,
+        "fixed_neyman_integer_exact": 0.015654601486993696
+      },
+      "pointwise_ratio_implemented_over_continuous_oracle": {
+        "min": 1.0000000391132209,
+        "q01": 1.0000008774896114,
+        "q25": 1.0000974139774326,
+        "median": 1.0005334740815792,
+        "q75": 1.0017167335206125,
+        "q99": 1.0068500577811472,
+        "max": 1.010390021570998
+      },
+      "pointwise_ratio_implemented_over_integer_oracle": {
+        "min": 1.0,
+        "q01": 1.0,
+        "q25": 1.000096145646017,
+        "median": 1.0005325932824296,
+        "q75": 1.0017155299431706,
+        "q99": 1.0068489233117015,
+        "max": 1.0103883138204777
+      },
+      "aggregate_factor_implemented_over_pointwise_continuous_oracle": 1.001176387988027,
+      "aggregate_factor_implemented_over_pointwise_integer_oracle": 1.0011751840354295,
+      "aggregate_factor_implemented_over_fixed_continuous_oracle": 1.000107861405521,
+      "aggregate_factor_implemented_over_fixed_integer_oracle": 1.000107723421628,
+      "fixed_integer_oracle_allocation": [
+        553,
+        363,
+        108
+      ],
+      "aggregate_factor_implemented_over_uniform_continuous": 0.7779883118571846,
+      "fractional_variance_reduction_pointwise_integer_oracle": 0.001173804599003958,
+      "fractional_variance_reduction_fixed_integer_oracle": 0.00010771181854241085,
+      "mean_excess_variance_implemented_over_baseline": 0.014357450475731375,
+      "fractional_reduction_excess_variance_pointwise_integer_oracle": 0.0012799920652827122,
+      "mean_squared_bias": {
+        "zne": 0.002030420825410442,
+        "baseline": 0.029942083170646186
+      },
+      "exact_expected_grid_MSE": {
+        "implemented": 0.017686708679640537,
+        "pointwise_integer_oracle": 0.017668331256953912,
+        "baseline": 0.031240920549144912
+      },
+      "integer_oracle_max_relative_gap_over_continuous": 3.28176959851767e-06,
+      "recorded_rounding_max_relative_abs_variance_change": 0.0002475762771078083,
+      "max_abs_integer_fixed_mean_crosscheck": 2.42861286636753e-17
+    },
+    {
+      "id": "H3_q",
+      "B": 1024,
+      "weights": [
+        1.875,
+        -1.25,
+        0.375
+      ],
+      "recorded_allocation": [
+        548,
+        366,
+        110
+      ],
+      "source_inputs": {
+        "protocol": "confirmation_20261019/protocol.json",
+        "graphs": "confirmation_20261019/inputs/graphs.json",
+        "probabilities": "confirmation_20261019/probabilities/H3.npy",
+        "ideal": "confirmation_20261019/inputs/H3_ideal.npy"
+      },
+      "n_grid_points": 14400,
+      "single_shot_variance_by_scale": [
+        {
+          "min": 0.8091840350266326,
+          "q01": 0.8254401701329419,
+          "q25": 0.9337885992938695,
+          "median": 0.9867125753782642,
+          "q75": 1.013109795191601,
+          "q99": 1.5372280128493359,
+          "max": 1.5845179156811073
+        },
+        {
+          "min": 0.943201391219209,
+          "q01": 0.9466272895155922,
+          "q25": 0.9853829028090026,
+          "median": 0.9986028330570702,
+          "q75": 1.0302004625675418,
+          "q99": 1.2700167015307327,
+          "max": 1.2882649555556884
+        },
+        {
+          "min": 0.9816982167385009,
+          "q01": 0.9830853015586363,
+          "q25": 0.9977048080860573,
+          "median": 1.0,
+          "q75": 1.026016051060484,
+          "q99": 1.138959767867876,
+          "max": 1.1469296328006076
+        }
+      ],
+      "single_shot_zero_variance_count": 0,
+      "probability_normalization_max_error": 2.220446049250313e-16,
+      "mean_variance": {
+        "implemented": 0.012191000403286157,
+        "baseline": 0.0009917508103243183,
+        "proportional_continuous": 0.012191021838613609,
+        "uniform_continuous": 0.015569242960687606,
+        "pointwise_neyman_continuous": 0.012185582142040248,
+        "pointwise_neyman_integer_exact": 0.01218559619326351,
+        "fixed_neyman_continuous": 0.012190971641354794,
+        "fixed_neyman_integer_exact": 0.012190993788561666
+      },
+      "pointwise_ratio_implemented_over_continuous_oracle": {
+        "min": 1.0000000821377713,
+        "q01": 1.0000001087985235,
+        "q25": 1.0000046943236434,
+        "median": 1.0000960853253986,
+        "q75": 1.000494672686465,
+        "q99": 1.003255710323638,
+        "max": 1.0038011355903154
+      },
+      "pointwise_ratio_implemented_over_integer_oracle": {
+        "min": 1.0,
+        "q01": 1.0,
+        "q25": 1.0000034955356603,
+        "median": 1.0000942895793221,
+        "q75": 1.0004934181072507,
+        "q99": 1.003255580550198,
+        "max": 1.0037995199462293
+      },
+      "aggregate_factor_implemented_over_pointwise_continuous_oracle": 1.000444645252295,
+      "aggregate_factor_implemented_over_pointwise_integer_oracle": 1.0004434916385654,
+      "aggregate_factor_implemented_over_fixed_continuous_oracle": 1.0000023592812952,
+      "aggregate_factor_implemented_over_fixed_integer_oracle": 1.0000005425910803,
+      "fixed_integer_oracle_allocation": [
+        547,
+        367,
+        110
+      ],
+      "aggregate_factor_implemented_over_uniform_continuous": 0.783018187465407,
+      "fractional_variance_reduction_pointwise_integer_oracle": 0.0004432950409213321,
+      "fractional_variance_reduction_fixed_integer_oracle": 5.425907859679668e-07,
+      "mean_excess_variance_implemented_over_baseline": 0.011199249592961837,
+      "fractional_reduction_excess_variance_pointwise_integer_oracle": 0.0004825510832479187,
+      "mean_squared_bias": {
+        "zne": 0.00022725898050461886,
+        "baseline": 0.012470623623006294
+      },
+      "exact_expected_grid_MSE": {
+        "implemented": 0.012418259383790774,
+        "pointwise_integer_oracle": 0.012412855173768125,
+        "baseline": 0.01346237443333061
+      },
+      "integer_oracle_max_relative_gap_over_continuous": 3.2183240163963234e-06,
+      "recorded_rounding_max_relative_abs_variance_change": 0.00014578462279324356,
+      "max_abs_integer_fixed_mean_crosscheck": 5.204170427930421e-18
+    },
+    {
+      "id": "H8_c",
+      "B": 4096,
+      "weights": [
+        2.1875,
+        -2.1875,
+        1.3125,
+        -0.3125
+      ],
+      "recorded_allocation": [
+        1493,
+        1493,
+        896,
+        214
+      ],
+      "source_inputs": {
+        "protocol": "confirmation_20261019/protocol.json",
+        "graphs": "confirmation_20261019/inputs/graphs.json",
+        "probabilities": "confirmation_20261019/probabilities/H8.npy",
+        "ideal": "confirmation_20261019/inputs/H8_ideal.npy"
+      },
+      "n_grid_points": 14400,
+      "single_shot_variance_by_scale": [
+        {
+          "min": 1.4591168335721645,
+          "q01": 1.5231367952429187,
+          "q25": 2.2499999999999996,
+          "median": 2.720431582108201,
+          "q75": 3.6334749268223043,
+          "q99": 4.7835128417246695,
+          "max": 4.860737195581426
+        },
+        {
+          "min": 1.8226681383019088,
+          "q01": 1.8531333991407621,
+          "q25": 2.238902504967811,
+          "median": 2.5083484734602175,
+          "q75": 2.9066117026338363,
+          "q99": 3.555176404504377,
+          "max": 3.601241770319764
+        },
+        {
+          "min": 1.9942803954016157,
+          "q01": 2.0103352552749776,
+          "q25": 2.2307414401840955,
+          "median": 2.3811845573816663,
+          "q75": 2.548412887021199,
+          "q99": 2.9599402898527494,
+          "max": 2.987878325940166
+        },
+        {
+          "min": 2.0857575924050433,
+          "q01": 2.095838616226644,
+          "q25": 2.2313292203969923,
+          "median": 2.3139556653566262,
+          "q75": 2.4005229314756353,
+          "q99": 2.653448254411067,
+          "max": 2.6663662638638894
+        }
+      ],
+      "single_shot_zero_variance_count": 0,
+      "probability_normalization_max_error": 4.440892098500626e-16,
+      "mean_variance": {
+        "implemented": 0.023336661481474712,
+        "baseline": 0.0007145686570171244,
+        "proportional_continuous": 0.023336044094897115,
+        "uniform_continuous": 0.0299970377200361,
+        "pointwise_neyman_continuous": 0.023251429250102897,
+        "pointwise_neyman_integer_exact": 0.023251433042805414,
+        "fixed_neyman_continuous": 0.023296641095640155,
+        "fixed_neyman_integer_exact": 0.023296642643805765
+      },
+      "pointwise_ratio_implemented_over_continuous_oracle": {
+        "min": 1.0000001775160439,
+        "q01": 1.0000005433803576,
+        "q25": 1.0001576150588063,
+        "median": 1.0011453997715534,
+        "q75": 1.0052148991995757,
+        "q99": 1.012322413484671,
+        "max": 1.012725577733617
+      },
+      "pointwise_ratio_implemented_over_integer_oracle": {
+        "min": 1.0,
+        "q01": 1.0000003252269607,
+        "q25": 1.0001575154641817,
+        "median": 1.001145291374937,
+        "q75": 1.0052146437569647,
+        "q99": 1.0123223033524087,
+        "max": 1.0127255653114462
+      },
+      "aggregate_factor_implemented_over_pointwise_continuous_oracle": 1.003665677083977,
+      "aggregate_factor_implemented_over_pointwise_integer_oracle": 1.003665513369107,
+      "aggregate_factor_implemented_over_fixed_continuous_oracle": 1.0017178607710124,
+      "aggregate_factor_implemented_over_fixed_integer_oracle": 1.0017177942024014,
+      "fixed_integer_oracle_allocation": [
+        1569,
+        1473,
+        854,
+        200
+      ],
+      "aggregate_factor_implemented_over_uniform_continuous": 0.7779655344396662,
+      "fractional_variance_reduction_pointwise_integer_oracle": 0.00365212645077595,
+      "fractional_variance_reduction_fixed_integer_oracle": 0.0017148484456834812,
+      "mean_excess_variance_implemented_over_baseline": 0.02262209282445759,
+      "fractional_reduction_excess_variance_pointwise_integer_oracle": 0.0037674869133751615,
+      "mean_squared_bias": {
+        "zne": 3.692081384040586e-05,
+        "baseline": 0.03094752998414418
+      },
+      "exact_expected_grid_MSE": {
+        "implemented": 0.02337358229531512,
+        "pointwise_integer_oracle": 0.023288353856645818,
+        "baseline": 0.0316620986411613
+      },
+      "integer_oracle_max_relative_gap_over_continuous": 4.7134328085007837e-07,
+      "recorded_rounding_max_relative_abs_variance_change": 6.935819029085799e-05,
+      "max_abs_integer_fixed_mean_crosscheck": 3.469446951953614e-18
+    },
+    {
+      "id": "H8_q",
+      "B": 4096,
+      "weights": [
+        1.875,
+        -1.25,
+        0.375
+      ],
+      "recorded_allocation": [
+        2194,
+        1463,
+        439
+      ],
+      "source_inputs": {
+        "protocol": "confirmation_20261019/protocol.json",
+        "graphs": "confirmation_20261019/inputs/graphs.json",
+        "probabilities": "confirmation_20261019/probabilities/H8.npy",
+        "ideal": "confirmation_20261019/inputs/H8_ideal.npy"
+      },
+      "n_grid_points": 14400,
+      "single_shot_variance_by_scale": [
+        {
+          "min": 1.4591168335721645,
+          "q01": 1.5231367952429187,
+          "q25": 2.2499999999999996,
+          "median": 2.720431582108201,
+          "q75": 3.6334749268223043,
+          "q99": 4.783512841724669,
+          "max": 4.860737195581426
+        },
+        {
+          "min": 1.8226681383019088,
+          "q01": 1.8531333991407621,
+          "q25": 2.238902504967811,
+          "median": 2.5083484734602175,
+          "q75": 2.9066117026338363,
+          "q99": 3.555176404504377,
+          "max": 3.601241770319764
+        },
+        {
+          "min": 1.9942803954016157,
+          "q01": 2.0103352552749776,
+          "q25": 2.2307414401840955,
+          "median": 2.3811845573816663,
+          "q75": 2.548412887021199,
+          "q99": 2.9599402898527494,
+          "max": 2.987878325940166
+        }
+      ],
+      "single_shot_zero_variance_count": 0,
+      "probability_normalization_max_error": 4.440892098500626e-16,
+      "mean_variance": {
+        "implemented": 0.008214499106558627,
+        "baseline": 0.0007145686570171244,
+        "proportional_continuous": 0.0082144085041464,
+        "uniform_continuous": 0.010734229430622709,
+        "pointwise_neyman_continuous": 0.00819093196046988,
+        "pointwise_neyman_integer_exact": 0.00819093259788947,
+        "fixed_neyman_continuous": 0.008203415622943456,
+        "fixed_neyman_integer_exact": 0.008203416233069853
+      },
+      "pointwise_ratio_implemented_over_continuous_oracle": {
+        "min": 1.0000000043613668,
+        "q01": 1.0000000238390134,
+        "q25": 1.0001162306527758,
+        "median": 1.000893506254326,
+        "q75": 1.0039424541586122,
+        "q99": 1.0092560211381365,
+        "max": 1.0095371906958497
+      },
+      "pointwise_ratio_implemented_over_integer_oracle": {
+        "min": 1.0,
+        "q01": 1.0,
+        "q25": 1.0001161458329064,
+        "median": 1.0008933335174068,
+        "q75": 1.0039423457999734,
+        "q99": 1.0092559997009853,
+        "max": 1.0095370388043758
+      },
+      "aggregate_factor_implemented_over_pointwise_continuous_oracle": 1.0028772240085113,
+      "aggregate_factor_implemented_over_pointwise_integer_oracle": 1.002877145964457,
+      "aggregate_factor_implemented_over_fixed_continuous_oracle": 1.0013510815646318,
+      "aggregate_factor_implemented_over_fixed_integer_oracle": 1.0013510070894727,
+      "fixed_integer_oracle_allocation": [
+        2267,
+        1418,
+        411
+      ],
+      "aggregate_factor_implemented_over_uniform_continuous": 0.7652621140297438,
+      "fractional_variance_reduction_pointwise_integer_oracle": 0.002868891744152724,
+      "fractional_variance_reduction_fixed_integer_oracle": 0.0013491843318753638,
+      "mean_excess_variance_implemented_over_baseline": 0.007499930449541501,
+      "fractional_reduction_excess_variance_pointwise_integer_oracle": 0.0031422302950284454,
+      "mean_squared_bias": {
+        "zne": 0.0003041708061937799,
+        "baseline": 0.03094752998414418
+      },
+      "exact_expected_grid_MSE": {
+        "implemented": 0.008518669912752406,
+        "pointwise_integer_oracle": 0.00849510340408325,
+        "baseline": 0.031662098641161304
+      },
+      "integer_oracle_max_relative_gap_over_continuous": 2.131544321049006e-07,
+      "recorded_rounding_max_relative_abs_variance_change": 2.867501212877599e-05,
+      "max_abs_integer_fixed_mean_crosscheck": 1.734723475976807e-18
+    }
+  ],
+  "elapsed_seconds": 3.6214605000568554
+}

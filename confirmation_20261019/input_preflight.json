@@ -1,0 +1,23 @@
+{
+  "graphs_source_sha256": "febbe8a308a2d949076a0d0d44012716223459307a71b9be32c42f802964ac2e",
+  "checks": [
+    {
+      "graph": "H1",
+      "original_ideal": "data/raw/phase_d/D1/H1/grid_120/C_ideal.npy",
+      "sha256": "5c97aff19946cb0a6872c058a9f032c46aad453514b35a4de8ae323081fa124c",
+      "max_statevector_error_8_fixed_points": 0.0
+    },
+    {
+      "graph": "H3",
+      "original_ideal": "data/raw/phase_d/D1/H3/grid_120/C_ideal.npy",
+      "sha256": "457e449c14e591ab05e810bb74f4ff708013d9b16afe6817a0078d71586a79df",
+      "max_statevector_error_8_fixed_points": 0.0
+    },
+    {
+      "graph": "H8",
+      "original_ideal": "data/raw/phase_d/D3/H8/grid_120/C_ideal.npy",
+      "sha256": "86fb265d99812ad78295c997ee3eb4eb1fa957d4f4673683195a499230cb7812",
+      "max_statevector_error_8_fixed_points": 0.0
+    }
+  ]
+}

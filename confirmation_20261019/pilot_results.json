@@ -1,0 +1,61 @@
+{
+  "scope": "timing and pointwise validation only; no selected-landscape endpoints",
+  "points": [
+    0,
+    167,
+    1249,
+    3317,
+    5611,
+    8017,
+    11119,
+    14399
+  ],
+  "groups": [
+    {
+      "graph": "H1",
+      "n_qubits": 4,
+      "scales": [
+        1,
+        3,
+        5
+      ],
+      "probability_calls": 24,
+      "seconds": 0.18699090008158237,
+      "mean_seconds_per_probability": 0.007791287503399265,
+      "projected_serial_probability_seconds": 336.58362014684826,
+      "sample_seconds_per_10000_calls": 0.01735089998692274,
+      "aer_max_probability_error": 6.245004513516506e-16
+    },
+    {
+      "graph": "H3",
+      "n_qubits": 5,
+      "scales": [
+        1,
+        3,
+        5
+      ],
+      "probability_calls": 24,
+      "seconds": 0.19053500005975366,
+      "mean_seconds_per_probability": 0.007938958335823068,
+      "projected_serial_probability_seconds": 342.9630001075565,
+      "sample_seconds_per_10000_calls": 0.029265599965583533,
+      "aer_max_probability_error": 2.914335439641036e-16
+    },
+    {
+      "graph": "H8",
+      "n_qubits": 6,
+      "scales": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "probability_calls": 32,
+      "seconds": 1.3611436996725388,
+      "mean_seconds_per_probability": 0.04253574061476684,
+      "projected_serial_probability_seconds": 2450.05865941057,
+      "sample_seconds_per_10000_calls": 0.04695619997801259,
+      "aer_max_probability_error": 3.3306690738754696e-16
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Decision-aware validation of zero-noise extrapolation in QAOA optimization landscapes: reproducibility package",
+  "upload_type": "dataset",
+  "description": "Code and data accompanying \"Decision-aware validation of zero-noise extrapolation in QAOA optimization landscapes\". The package supports paired comparisons of estimation error and decision regret in simulated depth-one QAOA for MaxCut. It contains 20,250 historical seed-level metric records covering 675 conditions, complete data for a targeted confirmation with 100 repetitions in each of four selected conditions, a bounded bias-variance control, allocation-sensitivity results, reanalysis and figure-generation scripts, pinned dependencies, and the unified manuscript with editable LaTeX sources. Historical noisy C/D landscapes are excluded; twelve historical ideal grids and all fresh confirmation landscapes are included. Historical seed collisions limit that exploratory screen; the fresh confirmation applies to four selected conditions. Reproduction instructions and the exact verification scope are provided in REPRODUCIBILITY.txt.",
+  "creators": [
+    {
+      "name": "Scavino Alfaro, Vicenzo",
+      "orcid": "0009-0000-2472-9785"
+    }
+  ],
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "version": "1.0.0",
+  "keywords": [
+    "QAOA",
+    "MaxCut",
+    "zero-noise extrapolation",
+    "decision regret",
+    "reproducibility"
+  ],
+  "notes": "Code is licensed under MIT. Data, documentation and manuscript materials are licensed under CC-BY-4.0, subject to third-party notices; see LICENSE_BUNDLE.md. Frozen source modules are retained for provenance and hash verification, including modules outside the experiments exercised by this release."
+}

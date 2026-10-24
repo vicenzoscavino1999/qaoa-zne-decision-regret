@@ -1,0 +1,169 @@
+version: 1
+status: active_submission_minimum
+created_utc: "2026-05-25T05:15:00Z"
+scope: through_phase_d_with_auxiliary_diagnostics
+source_plan: REPRODUCIBILITY_UPGRADE_PLAN_v0.2.md
+
+policy:
+  official_random_stream: numpy_default_rng_or_qiskit_aer_seeded_from_recorded_integer
+  seed_set_source: config/seeds.yaml
+  official_candidates_policy: first_30_values_are_the_frozen_phase_c_d_seed_set
+  bootstrap_policy: bootstrap_base_seed_plus_deterministic_cell_index
+  no_unrecorded_randomness_for_current_release_scope: true
+
+seeds:
+  phase_a_smoke:
+    value: 42
+    source: config/config_official_pilot_v1.6.yaml
+    source_field: smoke_test.seed
+    consumer:
+      - src/runner.py
+      - scripts/verify_numerical_reproducibility_subset.py
+    note: Used for Phase A smoke verification and the fast numerical subset.
+    verified: tests/test_seed_registry.py::test_phase_a_smoke_seed_matches_config
+
+  phase_b_debug_initial:
+    value: [42, 1337, 2718]
+    source: config/config_official_pilot_v1.6.yaml
+    source_field: phase_b_debug.seeds_initial
+    consumer:
+      - src/phase_b.py
+      - results/phase_b_debug/seed_selection_table.csv
+    note: Initial Phase B debug-pilot seeds used to select the official seed count.
+    verified: tests/test_seed_registry.py::test_phase_b_debug_seeds_match_config
+
+  official_candidates_first_30:
+    value: [42, 1337, 2718, 31415, 16180, 27182, 101, 202, 303, 404, 505, 606, 707, 808, 909, 1001, 2002, 3003, 4004, 5005, 6006, 7007, 8008, 9009, 10001, 11002, 12003, 13004, 14005, 15006]
+    source: config/seeds.yaml
+    source_field: official_candidates[0:30]
+    consumer:
+      - src/phase_c.py
+      - src/phase_c_120_analysis.py
+      - src/phase_d_kernel_runner.py
+      - src/phase_d_analysis.py
+      - scripts/verify_numerical_reproducibility_subset.py
+    note: Frozen official seed set for discovery and independent-replication analyses.
+    verified: tests/test_seed_registry.py::test_official_seed_set_matches_config
+
+  phase_c_official:
+    value: [42, 1337, 2718, 31415, 16180, 27182, 101, 202, 303, 404, 505, 606, 707, 808, 909, 1001, 2002, 3003, 4004, 5005, 6006, 7007, 8008, 9009, 10001, 11002, 12003, 13004, 14005, 15006]
+    source: config/seeds.yaml
+    source_field: official_candidates[0:30]
+    consumer:
+      - results/phase_c_120_analysis/classification_matrix.csv
+      - results/phase_c_120_analysis/statistics_summary.json
+    note: Official Phase C discovery seed set.
+    verified: tests/test_seed_registry.py::test_phase_c_and_d_registry_sets_equal_official_candidates
+
+  phase_d_official:
+    value: [42, 1337, 2718, 31415, 16180, 27182, 101, 202, 303, 404, 505, 606, 707, 808, 909, 1001, 2002, 3003, 4004, 5005, 6006, 7007, 8008, 9009, 10001, 11002, 12003, 13004, 14005, 15006]
+    source: config/seeds.yaml
+    source_field: official_candidates[0:30]
+    consumer:
+      - results/phase_d/global_D1_D2_D3_D4/classification_matrix.csv
+      - results/phase_d/global_D1_D2_D3_D4/fdr_global_540_summary.json
+    note: Official Phase D independent-replication seed set.
+    verified: tests/test_seed_registry.py::test_phase_c_and_d_registry_sets_equal_official_candidates
+
+  bootstrap_base:
+    value: 99999
+    source:
+      - config/seeds.yaml
+      - config/config_official_pilot_v1.6.yaml
+    source_field:
+      - bootstrap_seed
+      - rng.bootstrap_seed
+    consumer:
+      - src/phase_b.py
+      - src/phase_c_120_analysis.py
+      - src/phase_d_analysis.py
+    note: Base seed for paired seed-level bootstrap; cell-level streams use this value plus deterministic cell indices.
+    verified: tests/test_seed_registry.py::test_bootstrap_seed_matches_configs
+
+  phase_d_instance_generator:
+    value: 20260513
+    source: config/phase_d_instances_v1.0.json
+    source_field: generator_seed
+    consumer:
+      - src/phase_d_generator.py
+      - src/phase_d_final_freeze.py
+    note: Frozen master seed for generated Phase D H-instance definitions.
+    verified: tests/test_seed_registry.py::test_phase_d_generator_seed_matches_config
+
+  phase_c_robustness_permutation:
+    value: 20260513
+    source: src/phase_c_120_robustness.py
+    source_field: PERMUTATION_SEED
+    consumer:
+      - src/phase_c_120_robustness.py
+    note: Permutation seed for Phase C robustness diagnostics.
+    verified: tests/test_seed_registry.py::test_recorded_source_literals_are_present
+
+  phase_d_robustness_permutation:
+    value: 20260513
+    source: src/phase_d_robustness.py
+    source_field: PERMUTATION_SEED
+    consumer:
+      - src/phase_d_robustness.py
+    note: Permutation seed for Phase D robustness diagnostics.
+    verified: tests/test_seed_registry.py::test_recorded_source_literals_are_present
+
+  phase_d_fdr_power_gate_planning:
+    value: 20260514
+    source: src/phase_d_fdr_power_gate.py
+    source_field: DEFAULT_SEED
+    consumer:
+      - src/phase_d_fdr_power_gate.py
+      - scripts/31_phase_d_fdr_power_gate.py
+    note: Planning seed for Phase D FDR/power-gate simulation diagnostics.
+    verified: tests/test_seed_registry.py::test_recorded_source_literals_are_present
+
+  phase_d_depth2_official_seed_policy:
+    value: official_candidates_first_n
+    source: scripts/85_phase_d_depth2_noisy_zne_chunk.py
+    source_field: config/seeds.yaml:official_candidates[:seed_count]
+    consumer:
+      - scripts/85_phase_d_depth2_noisy_zne_chunk.py
+      - scripts/86_phase_d_depth2_run_chunks_parallel.py
+      - scripts/87_phase_d_depth2_combine_chunks.py
+    note: Depth-two auxiliary diagnostics use the frozen official candidate list truncated to the requested seed count.
+    verified: tests/test_seed_registry.py::test_depth2_seed_policy_is_documented
+
+  phase_d_thermal_readout_robustness:
+    value: range_0_29
+    source: scripts/95_phase_d_thermal_readout_robustness.py
+    source_field: DEFAULT_SEEDS = tuple(range(30))
+    consumer:
+      - scripts/95_phase_d_thermal_readout_robustness.py
+    note: Thermal-readout auxiliary robustness script uses integer seeds 0 through 29 by default.
+    verified: tests/test_seed_registry.py::test_recorded_source_literals_are_present
+
+  phase_d_cobyla_endpoint_random_start:
+    value: 20260522
+    source: scripts/97_phase_d_cobyla_endpoint_consistency.py
+    source_field: MASTER_START_SEED
+    consumer:
+      - scripts/97_phase_d_cobyla_endpoint_consistency.py
+    note: Fixed random-start seed for COBYLA endpoint consistency diagnostics.
+    verified: tests/test_seed_registry.py::test_recorded_source_literals_are_present
+
+  phase_d_auxiliary_boundary_plot_jitter:
+    value: 20260522
+    source: scripts/98_phase_d_auxiliary_boundary_figures.py
+    source_field: np.random.default_rng(20260522)
+    consumer:
+      - scripts/98_phase_d_auxiliary_boundary_figures.py
+    note: Plot jitter only; does not change numerical endpoint decisions.
+    verified: tests/test_seed_registry.py::test_recorded_source_literals_are_present
+
+  numerical_subset_verification:
+    value: phase_a_seed_42_and_official_candidates_first_30
+    source: scripts/verify_numerical_reproducibility_subset.py
+    source_field:
+      - smoke_test.seed
+      - official_candidates[:30]
+    consumer:
+      - reproducibility/verify.py
+      - scripts/verify_numerical_reproducibility_subset.py
+    note: Fast verifier policy for bounded local checks without official Phase C/D reruns.
+    verified: tests/test_seed_registry.py::test_numerical_subset_seed_policy_is_documented

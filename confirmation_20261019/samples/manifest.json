@@ -1,0 +1,14 @@
+{
+  "protocol_sha256": "1e3f691b832da693cff97edbb1055ddbbd9a07ba884f1139edf6e2a8c2d7b345",
+  "elapsed_seconds_this_execution": 160.54979749995982,
+  "unique_stream_paths": 1600,
+  "unique_initial_states": 1600,
+  "sha256": {
+    "H1.npz": "32ebcc3fc1e8bac8c2f7fb229774a6abdfe5f39738016dad521413163a08b1eb",
+    "H1_streams.json": "84e9ace105fdcd15841229cda818ee0a88006aaacd8b046a9af6b96175758ef6",
+    "H3.npz": "9058edc2099dc25992f73cf224fd1403dbc8a8264c624e19808c161a0182c30d",
+    "H3_streams.json": "4ad5352abbceb28dd72d9d9ec381eb5ec50cb096b2f29dbdb1297ee64ba4675a",
+    "H8.npz": "06f45c4978d377ca3bcd2748f9d6b3f5988b0cdec57fe63376d6cf0711e1273a",
+    "H8_streams.json": "66cd42fbbf1232fb2dccd59af75ae6376be7ecf64efdc7c647ce768017f2ce7f"
+  }
+}

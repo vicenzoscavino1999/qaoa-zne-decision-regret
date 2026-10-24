@@ -1,0 +1,160 @@
+version: 1
+status: active_submission_minimum
+created_utc: "2026-05-25T04:40:00Z"
+source_plan: REPRODUCIBILITY_UPGRADE_PLAN_v0.2.md
+scope: through_phase_d_with_auxiliary_diagnostics
+
+purpose: >
+  Define the bounded fast subset used to verify the archived Phase A/C/D
+  numerical outputs without launching official Phase C/D reruns.
+
+selection_method: first_lexicographic_per_classification
+selection_sources:
+  - results/phase_d/global_D1_D2_D3_D4/classification_matrix.csv
+  - results/phase_c_120_analysis/classification_matrix.csv
+
+selection_criteria:
+  include_phase_a_smoke: true
+  include_phase_c_discovery_summary: true
+  include_phase_d_primary_endpoint: true
+  include_at_least_one_bh_retained_cell: true
+  include_at_least_one_nominal_only_cell: true
+  include_at_least_one_non_discordant_cell: true
+  include_at_least_one_excluded_or_filtered_cell_if_available: true
+  include_q10_only_sensitivity_cell_if_available: true
+  avoid_full_official_reruns: true
+
+coverage_argument: >
+  The selected rows cover all observed Phase D classification groups
+  (discordant_fdr, discordant_fdr_q10_only, discordant_not_fdr,
+  excluded_below_detection_floor, not_discordant) and all observed Phase C
+  classification groups (discordant_fdr, discordant_not_fdr,
+  excluded_below_detection_floor, not_discordant). Phase A is represented by
+  the smoke-test recomputation from archived arrays and fixed seed 42.
+
+uncovered_classifications: []
+
+phase_a:
+  id: phase_a_smoke_reference
+  result: results/phase_a_smoke_summary.json
+  config: config/config_official_pilot_v1.6.yaml
+  instance: G1_C4
+  p: 0.005
+  shots: 1024
+  seed: 42
+  zne_order: linear
+  verification_script: scripts/verify_numerical_reproducibility_subset.py
+
+cells:
+  - id: phase_d_bh_retained_example
+    phase: D
+    source: results/phase_d/global_D1_D2_D3_D4/classification_matrix.csv
+    instance: H1
+    p: 0.01
+    shots: 4096
+    richardson_order: quadratic
+    cell_id: H1|p=0.01|B=4096|zne=quadratic
+    classification: discordant_fdr
+    reason: First lexicographic Phase D row with classification=discordant_fdr.
+
+  - id: phase_d_q10_only_example
+    phase: D
+    source: results/phase_d/global_D1_D2_D3_D4/classification_matrix.csv
+    instance: H1
+    p: 0.01
+    shots: 1024
+    richardson_order: linear
+    cell_id: H1|p=0.01|B=1024|zne=linear
+    classification: discordant_fdr_q10_only
+    reason: First lexicographic Phase D row retained only at the q=0.10 sensitivity threshold.
+
+  - id: phase_d_nominal_not_fdr_example
+    phase: D
+    source: results/phase_d/global_D1_D2_D3_D4/classification_matrix.csv
+    instance: H10
+    p: 0.003
+    shots: 4096
+    richardson_order: linear
+    cell_id: H10|p=0.003|B=4096|zne=linear
+    classification: discordant_not_fdr
+    reason: First lexicographic Phase D nominal discordant row not retained by BH.
+
+  - id: phase_d_excluded_detection_floor_example
+    phase: D
+    source: results/phase_d/global_D1_D2_D3_D4/classification_matrix.csv
+    instance: H1
+    p: 0.001
+    shots: 4096
+    richardson_order: cubic
+    cell_id: H1|p=0.001|B=4096|zne=cubic
+    classification: excluded_below_detection_floor
+    reason: First lexicographic Phase D excluded row.
+
+  - id: phase_d_non_discordant_example
+    phase: D
+    source: results/phase_d/global_D1_D2_D3_D4/classification_matrix.csv
+    instance: H1
+    p: 0.001
+    shots: 512
+    richardson_order: cubic
+    cell_id: H1|p=0.001|B=512|zne=cubic
+    classification: not_discordant
+    reason: First lexicographic Phase D non-discordant control row.
+
+  - id: phase_c_discovery_bh_example
+    phase: C
+    source: results/phase_c_120_analysis/classification_matrix.csv
+    instance: G1_C4
+    p: 0.005
+    shots: 4096
+    richardson_order: linear
+    cell_id: G1_C4|p=0.005|B=4096|zne=linear
+    classification: discordant_fdr
+    reason: First lexicographic Phase C discovery row with classification=discordant_fdr.
+
+  - id: phase_c_nominal_not_fdr_example
+    phase: C
+    source: results/phase_c_120_analysis/classification_matrix.csv
+    instance: G1_C4
+    p: 0.01
+    shots: 4096
+    richardson_order: quadratic
+    cell_id: G1_C4|p=0.01|B=4096|zne=quadratic
+    classification: discordant_not_fdr
+    reason: First lexicographic Phase C nominal discordant row not retained by BH.
+
+  - id: phase_c_excluded_detection_floor_example
+    phase: C
+    source: results/phase_c_120_analysis/classification_matrix.csv
+    instance: G1_C4
+    p: 0.001
+    shots: 4096
+    richardson_order: cubic
+    cell_id: G1_C4|p=0.001|B=4096|zne=cubic
+    classification: excluded_below_detection_floor
+    reason: First lexicographic Phase C excluded row.
+
+  - id: phase_c_non_discordant_example
+    phase: C
+    source: results/phase_c_120_analysis/classification_matrix.csv
+    instance: G1_C4
+    p: 0.001
+    shots: 512
+    richardson_order: cubic
+    cell_id: G1_C4|p=0.001|B=512|zne=cubic
+    classification: not_discordant
+    reason: First lexicographic Phase C non-discordant control row.
+
+verification:
+  script: scripts/verify_numerical_reproducibility_subset.py
+  local_command: ".venv\\Scripts\\python.exe scripts\\verify_numerical_reproducibility_subset.py"
+  docker_status: pending_small_data_bundle_or_mounted_data
+  classification_labels: exact_string
+  integer_counts: exact_integer
+  expectation_values: absolute_tolerance_1e-6
+  p_values_from_archived_inputs: absolute_tolerance_1e-15
+
+runtime_policy:
+  fast_subset_warning_threshold_minutes: 5
+  fast_subset_block_threshold_minutes: 15
+  measured_local_status: passed_fast_check

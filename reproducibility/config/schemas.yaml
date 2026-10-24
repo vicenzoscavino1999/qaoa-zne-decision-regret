@@ -1,0 +1,81 @@
+version: 1
+status: initial_submission_minimum
+
+csv_schemas:
+  phase_c_classification_matrix:
+    path: results/phase_c_120_analysis/classification_matrix.csv
+    required_columns:
+      - cell_id
+      - instance
+      - classification
+      - shots_total
+      - zne_order
+      - n_seeds
+      - mean_d_R
+      - mean_r_mse
+      - p_conjunction
+      - q_conjunction_bh
+    expected_rows: 135
+    classification_column: classification
+
+  phase_d_classification_matrix:
+    path: results/phase_d/global_D1_D2_D3_D4/classification_matrix.csv
+    required_columns:
+      - cell_id
+      - instance
+      - classification
+      - shots_total
+      - zne_order
+      - n_seeds
+      - mean_d_R
+      - mean_r_mse
+      - p_conjunction
+      - q_conjunction_bh
+      - q_conjunction_by
+      - q_conjunction_holm
+      - discordant_fdr_q10
+    expected_rows: 540
+    classification_column: classification
+
+  phase_b_seed_selection:
+    path: results/phase_b_debug/seed_selection_table.csv
+    required_columns:
+      - N_seeds
+      - decision
+    expected_rows_min: 1
+
+json_schemas:
+  phase_a_smoke_summary:
+    path: results/phase_a_smoke_summary.json
+    required_top_level_keys:
+      - comparison
+
+  phase_c_statistics_summary:
+    path: results/phase_c_120_analysis/statistics_summary.json
+    required_top_level_keys:
+      - classification_counts
+      - fdr_family_size
+      - discordant_fdr_count
+      - discordant_pre_fdr_count
+
+  phase_d_fdr_global_summary:
+    path: results/phase_d/global_D1_D2_D3_D4/fdr_global_540_summary.json
+    required_top_level_keys:
+      - classification_counts
+      - fdr_family_size
+      - discordant_fdr_count
+      - discordant_fdr_q10_count
+      - instance_level_primary_endpoint_pass
+
+  phase_d_instance_primary_endpoint:
+    path: results/phase_d/global_D1_D2_D3_D4/instance_primary_endpoint.json
+    required_top_level_keys:
+      - n_instances
+      - successes_instance_positive_stress
+      - exact_binomial_p_value
+      - rows
+
+global_rules:
+  reject_nan_or_inf_in_numeric_columns: true
+  require_no_phase_e_f_paths: true
+  long_jobs_forbidden: true

@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "scope": "Endpoint CSV statistics and result interpretation only; raw audit delegated separately",
+  "cells": [
+    {
+      "id": "H1_q",
+      "kr": 100,
+      "kd": 66,
+      "joint": 66,
+      "p_exact": "1134503167567529161843261685/1267650600228229401496703205376",
+      "median_r": 0.43575457445089827,
+      "median_d": 0.006462902012915278,
+      "native_median": 0.015196760472107051,
+      "above_10pct": true,
+      "above_strong": false,
+      "Holm_exact": "1134503167567529161843261685/1267650600228229401496703205376",
+      "Holm_float": 0.0008949651957434263
+    },
+    {
+      "id": "H3_q",
+      "kr": 100,
+      "kd": 70,
+      "joint": 70,
+      "p_exact": "6219521396007647079184795/158456325028528675187087900672",
+      "median_r": 0.07654266626908811,
+      "median_d": 0.006431763775080839,
+      "native_median": 0.013612628101804301,
+      "above_10pct": false,
+      "above_strong": false,
+      "Holm_exact": "18658564188022941237554385/158456325028528675187087900672",
+      "Holm_float": 0.00011775209468390504
+    },
+    {
+      "id": "H8_c",
+      "kr": 100,
+      "kd": 84,
+      "joint": 84,
+      "p_exact": "825854026168912113/633825300114114700748351602688",
+      "median_r": 0.26132231960255614,
+      "median_d": 0.007324162384082553,
+      "native_median": 0.0259618310249361,
+      "above_10pct": true,
+      "above_strong": false,
+      "Holm_exact": "825854026168912113/158456325028528675187087900672",
+      "Holm_float": 5.2118716373122015e-12
+    },
+    {
+      "id": "H8_q",
+      "kr": 100,
+      "kd": 67,
+      "joint": 67,
+      "p_exact": "553785737846639752356280235/1267650600228229401496703205376",
+      "median_r": 0.7309021004478689,
+      "median_d": 0.0030839014018394064,
+      "native_median": 0.010931451665533663,
+      "above_10pct": true,
+      "above_strong": false,
+      "Holm_exact": "553785737846639752356280235/633825300114114700748351602688",
+      "Holm_float": 0.0008737198369123723
+    }
+  ],
+  "n_confirmed": 4,
+  "H8_baseline_match_all_repetitions": true,
+  "median_MSE_improvement_percent_range": [
+    7.654266626908811,
+    73.09021004478689
+  ],
+  "median_regret_range": [
+    0.0030839014018394064,
+    0.007324162384082553
+  ],
+  "median_native_regret_range": [
+    0.010931451665533663,
+    0.0259618310249361
+  ],
+  "n_above_10pct": 3,
+  "n_above_strong": 0
+}

@@ -1,0 +1,25 @@
+# Revisión científica del control
+
+El control terminó correctamente en 69,29 s, dentro del límite de 600 s, sin repetir C/D. Incluye todos los resultados del diseño declarado: tres grafos, dos niveles de ruido, cuatro métodos, 144 puntos y 500 réplicas de cada paisaje. Los CSV contienen 24 agregados, 3.456 resultados puntuales y 12.000 resultados por réplica. No se seleccionaron condiciones a partir de efectos favorables.
+
+## Lo que demuestra este cálculo
+
+La identidad puntual MSE esperada = sesgo² + varianza se evalúa con los dos primeros momentos de la distribución física completa, y con los presupuestos enteros realmente asignados. No usa A/B como si la varianza física fuera constante entre escalas. Las observaciones de puntos, escalas y métodos son independientes. Los pesos y presupuestos verificados son: sin mitigación [1], [1024]; lineal [1,5; −0,5], [768; 256]; cuadrática [1,875; −1,25; 0,375], [548; 366; 110]; cúbica [2,1875; −2,1875; 1,3125; −0,3125], [373; 373; 224; 54].
+
+En las 24 configuraciones, el promedio MSE de 500 paisajes está a menos de 1,919 errores estándar de su esperanza exacta. Es una concordancia descriptiva, no una prueba conjunta de validación con umbral seleccionado después de mirar los datos. Los máximos errores frente a Aer en los dos puntos declarados son 2,73e−14 para la media y 1,33e−13 para el segundo momento. El contraste ideal independiente con statevector en los 432 puntos tiene error máximo 6,22e−15. Los hashes de todas las entradas incluidas en el manifiesto original coinciden.
+
+La mitigación reduce sesgo² e incrementa varianza en todas las condiciones. Los cocientes de varianza frente a la referencia son 3,90–4,00, 11,63–12,27 y 33,29–36,09, para lineal, cuadrática y cúbica. A p=0,001 el crecimiento de varianza domina: los cocientes de MSE esperado son aproximadamente 3,79–3,82, 11,60–11,67 y 34,02–34,19. A p=0,02, lineal y cuadrática reducen MSE en los tres grafos, con cocientes 0,373–0,489 y 0,758–0,839; cúbica aumenta MSE, con cocientes 2,116–2,265.
+
+La figura de decisión responde una pregunta distinta. Todos los paisajes medios exactos conservan un mínimo ideal, a tolerancia numérica: sus regrets normalizados están por debajo de 1e−14. Por tanto, este control no aporta un ejemplo de inversión determinista del mínimo. Sí muestra regret medio finito mayor con mitigación en todas las condiciones de G2/G3. A p=0,02 coexiste con menor MSE esperado para lineal y cuadrática. La selección puede empeorar aunque el error cuadrático medio mejore.
+
+En G2 a p=0,02, el regret medio observado es 0,003366 sin mitigación; 0,008734 lineal; 0,01883 cuadrática; 0,03222 cúbica. En G3 es esencialmente cero para la referencia, y 0,002257; 0,01205; 0,04134 para los tres órdenes. Son promedios Monte Carlo en esta cuadrícula pequeña y llevan sus errores estándar en `summary.csv`; las barras de 1,96 SE son descriptivas y no intervalos simultáneos ni pruebas entre métodos. Cero errores empíricos en 500 réplicas no significa probabilidad real cero.
+
+## Interpretación del contraste y límites
+
+Hay 32, 2 y 2 puntos equivalentes al mínimo ideal a tolerancia absoluta de 1e−10 en G1, G2 y G3. El protocolo escoge un mínimo mediante `argmin` en punto flotante y el punto estrictamente peor con menor diferencia ideal. La elección del representante entre mínimos equivalentes puede depender de redondeo; el regret evita convertir ese detalle en un efecto material. El contraste excluye los otros mínimos equivalentes, pero la selección del paisaje puede beneficiarse de ellos.
+
+Una inversión del contraste con un representante fijo no implica error del argmin global. Por ejemplo, G1 cúbica tiene 1/500 y 2/500 inversiones de ese contraste a p=0,001 y 0,02, pero todos los mínimos seleccionados tienen regret menor de 1e−14. G3 sin mitigación a p=0,02 invierte el contraste 1/500 veces y también selecciona mínimos ideales en todas las réplicas. Otro mínimo equivalente puede ganar. El contraste es ilustrativo, no una aproximación suficiente de toda la competencia entre candidatos.
+
+El muestreo es necesario para los errores de selección observados aquí porque el paisaje medio selecciona correctamente; aun así, el sesgo residual puede afectar los márgenes y con ello la susceptibilidad al muestreo. No se realizó un contrafactual que mantenga varianzas y reemplace medias por las ideales, ni una descomposición causal del regret. No corresponde atribuir todo su cambio exclusivamente a la varianza.
+
+Este es un diagnóstico posterior, con grafos conocidos y cuadrícula 12×12, sobre un dominio gamma finito prescrito. No revalida los endpoints, clasificaciones múltiples, conteos de discordancia ni mecanismos de cada celda de la campaña 120×120. Tampoco demuestra que la mitigación de orden alto falle universalmente. Aporta evidencia mecanística acotada, conserva los casos negativos G1 y reporta todas las condiciones examinadas. Puede integrarse como control o material suplementario con ese alcance explícito; no justifica descartar o repetir los paisajes oficiales.

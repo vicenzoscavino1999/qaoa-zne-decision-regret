@@ -1,0 +1,36 @@
+{
+  "mode": "fast",
+  "overall": "PASS_WITH_WARNINGS",
+  "results": {
+    "numerical_subset": {
+      "message": "subset_specification.yaml is not generated yet; WS3 pending",
+      "severity": "WARN",
+      "status": "WARN"
+    },
+    "paper_mapping": {
+      "message": "paper_mapping.yaml is not generated yet; WS4 pending",
+      "severity": "WARN",
+      "status": "WARN"
+    },
+    "reference_manifest": {
+      "message": "reference_manifest.json is not generated yet; WS3 pending",
+      "severity": "WARN",
+      "status": "WARN"
+    },
+    "release_manifest": {
+      "manifest": "RELEASE_MANIFEST_THROUGH_PHASE_D.json",
+      "message": "release manifest intentionally stale until scope freeze",
+      "severity": "WARN",
+      "status": "WARN"
+    },
+    "scope_guard": {
+      "match_count": 0,
+      "matches": [],
+      "phase_ef_absent": true,
+      "severity": "BLOCK",
+      "status": "PASS"
+    }
+  },
+  "timestamp_utc": "2026-05-25T04:34:18Z",
+  "verify_version": "0.1.0-ws2-scaffold"
+}

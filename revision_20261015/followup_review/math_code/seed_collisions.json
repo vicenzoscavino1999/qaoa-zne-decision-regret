@@ -1,0 +1,967 @@
+[
+  {
+    "instance": "H1",
+    "p": 0.02,
+    "budget": 1024,
+    "order": "quadratic",
+    "requests": 1728000,
+    "distinct_seeds": 1727307,
+    "collision_pairs_within_repetition": 16,
+    "collision_pairs_between_repetitions": 677,
+    "distinct_repetition_pairs_with_collisions": 333,
+    "collision_pairs_same_theta": 0,
+    "categories": {
+      "cross_rep|zne_scale3|zne_scale5": 81,
+      "cross_rep|zne_scale5|zne_scale5": 32,
+      "cross_rep|zne_scale1|zne_scale3": 74,
+      "cross_rep|zne_scale1|zne_scale5": 88,
+      "cross_rep|baseline|zne_scale1": 79,
+      "cross_rep|baseline|zne_scale3": 96,
+      "cross_rep|baseline|zne_scale5": 91,
+      "cross_rep|baseline|baseline": 39,
+      "cross_rep|zne_scale3|zne_scale3": 47,
+      "cross_rep|zne_scale1|zne_scale1": 50,
+      "within_rep|baseline|zne_scale1": 8,
+      "within_rep|baseline|zne_scale3": 1,
+      "within_rep|zne_scale1|zne_scale3": 1,
+      "within_rep|baseline|zne_scale5": 2,
+      "within_rep|zne_scale1|zne_scale5": 2,
+      "within_rep|zne_scale3|zne_scale5": 1,
+      "within_rep|baseline|baseline": 1
+    },
+    "examples": [
+      {
+        "seed": 3826345,
+        "first": {
+          "repetition": 1337,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 4507
+        },
+        "second": {
+          "repetition": 4004,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 5835
+        }
+      },
+      {
+        "seed": 13132677,
+        "first": {
+          "repetition": 3003,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 5608
+        },
+        "second": {
+          "repetition": 15006,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 3101
+        }
+      },
+      {
+        "seed": 19342705,
+        "first": {
+          "repetition": 2002,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 13663
+        },
+        "second": {
+          "repetition": 12003,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 1,
+          "theta_index": 4016
+        }
+      },
+      {
+        "seed": 22823953,
+        "first": {
+          "repetition": 202,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 1,
+          "theta_index": 14275
+        },
+        "second": {
+          "repetition": 909,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 11610
+        }
+      },
+      {
+        "seed": 23062384,
+        "first": {
+          "repetition": 303,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 1,
+          "theta_index": 2404
+        },
+        "second": {
+          "repetition": 31415,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 4397
+        }
+      },
+      {
+        "seed": 24252089,
+        "first": {
+          "repetition": 505,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 2445
+        },
+        "second": {
+          "repetition": 909,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 11897
+        }
+      },
+      {
+        "seed": 24599809,
+        "first": {
+          "repetition": 101,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 7385
+        },
+        "second": {
+          "repetition": 13004,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 3174
+        }
+      },
+      {
+        "seed": 28603375,
+        "first": {
+          "repetition": 606,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 13102
+        },
+        "second": {
+          "repetition": 13004,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 6180
+        }
+      },
+      {
+        "seed": 29073274,
+        "first": {
+          "repetition": 1337,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 3782
+        },
+        "second": {
+          "repetition": 2002,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 9700
+        }
+      },
+      {
+        "seed": 39695196,
+        "first": {
+          "repetition": 404,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 14169
+        },
+        "second": {
+          "repetition": 606,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 12577
+        }
+      },
+      {
+        "seed": 40099461,
+        "first": {
+          "repetition": 808,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 3585
+        },
+        "second": {
+          "repetition": 2718,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 12057
+        }
+      },
+      {
+        "seed": 44195453,
+        "first": {
+          "repetition": 4004,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 646
+        },
+        "second": {
+          "repetition": 13004,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 2440
+        }
+      }
+    ]
+  },
+  {
+    "instance": "H3",
+    "p": 0.02,
+    "budget": 1024,
+    "order": "quadratic",
+    "requests": 1728000,
+    "distinct_seeds": 1727278,
+    "collision_pairs_within_repetition": 32,
+    "collision_pairs_between_repetitions": 690,
+    "distinct_repetition_pairs_with_collisions": 339,
+    "collision_pairs_same_theta": 0,
+    "categories": {
+      "cross_rep|baseline|zne_scale1": 94,
+      "cross_rep|baseline|baseline": 46,
+      "cross_rep|zne_scale5|zne_scale5": 49,
+      "cross_rep|zne_scale1|zne_scale5": 86,
+      "cross_rep|baseline|zne_scale3": 102,
+      "cross_rep|baseline|zne_scale5": 72,
+      "cross_rep|zne_scale3|zne_scale3": 34,
+      "cross_rep|zne_scale3|zne_scale5": 81,
+      "cross_rep|zne_scale1|zne_scale3": 84,
+      "cross_rep|zne_scale1|zne_scale1": 42,
+      "within_rep|zne_scale3|zne_scale3": 2,
+      "within_rep|baseline|zne_scale5": 4,
+      "within_rep|baseline|zne_scale3": 5,
+      "within_rep|zne_scale5|zne_scale5": 4,
+      "within_rep|baseline|baseline": 2,
+      "within_rep|zne_scale1|zne_scale3": 3,
+      "within_rep|zne_scale1|zne_scale1": 1,
+      "within_rep|zne_scale1|zne_scale5": 5,
+      "within_rep|baseline|zne_scale1": 3,
+      "within_rep|zne_scale3|zne_scale5": 3
+    },
+    "examples": [
+      {
+        "seed": 364640,
+        "first": {
+          "repetition": 1337,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 1,
+          "theta_index": 5325
+        },
+        "second": {
+          "repetition": 16180,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 10561
+        }
+      },
+      {
+        "seed": 553487,
+        "first": {
+          "repetition": 606,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 675
+        },
+        "second": {
+          "repetition": 808,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 9060
+        }
+      },
+      {
+        "seed": 6685215,
+        "first": {
+          "repetition": 707,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 305
+        },
+        "second": {
+          "repetition": 808,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 12608
+        }
+      },
+      {
+        "seed": 8619455,
+        "first": {
+          "repetition": 42,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 13678
+        },
+        "second": {
+          "repetition": 10001,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 1,
+          "theta_index": 4624
+        }
+      },
+      {
+        "seed": 11749196,
+        "first": {
+          "repetition": 202,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 2088
+        },
+        "second": {
+          "repetition": 3003,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 2458
+        }
+      },
+      {
+        "seed": 13045699,
+        "first": {
+          "repetition": 1337,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 7700
+        },
+        "second": {
+          "repetition": 2718,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 10108
+        }
+      },
+      {
+        "seed": 16602308,
+        "first": {
+          "repetition": 101,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 13248
+        },
+        "second": {
+          "repetition": 404,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 1,
+          "theta_index": 9816
+        }
+      },
+      {
+        "seed": 27698981,
+        "first": {
+          "repetition": 303,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 4083
+        },
+        "second": {
+          "repetition": 10001,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 3299
+        }
+      },
+      {
+        "seed": 28729296,
+        "first": {
+          "repetition": 14005,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 4770
+        },
+        "second": {
+          "repetition": 31415,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 9172
+        }
+      },
+      {
+        "seed": 31289912,
+        "first": {
+          "repetition": 13004,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 3042
+        },
+        "second": {
+          "repetition": 15006,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 9676
+        }
+      },
+      {
+        "seed": 36113101,
+        "first": {
+          "repetition": 606,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 10214
+        },
+        "second": {
+          "repetition": 909,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 1416
+        }
+      },
+      {
+        "seed": 40884300,
+        "first": {
+          "repetition": 7007,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 1,
+          "theta_index": 3164
+        },
+        "second": {
+          "repetition": 8008,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 2514
+        }
+      }
+    ]
+  },
+  {
+    "instance": "H8",
+    "p": 0.01,
+    "budget": 4096,
+    "order": "cubic",
+    "requests": 2160000,
+    "distinct_seeds": 2158890,
+    "collision_pairs_within_repetition": 51,
+    "collision_pairs_between_repetitions": 1059,
+    "distinct_repetition_pairs_with_collisions": 391,
+    "collision_pairs_same_theta": 0,
+    "categories": {
+      "cross_rep|baseline|zne_scale7": 110,
+      "cross_rep|zne_scale7|zne_scale7": 44,
+      "cross_rep|baseline|baseline": 44,
+      "cross_rep|zne_scale5|zne_scale7": 76,
+      "within_rep|zne_scale1|zne_scale3": 3,
+      "cross_rep|zne_scale1|zne_scale3": 77,
+      "cross_rep|zne_scale1|zne_scale5": 90,
+      "cross_rep|baseline|zne_scale5": 99,
+      "cross_rep|baseline|zne_scale3": 90,
+      "cross_rep|zne_scale3|zne_scale5": 69,
+      "cross_rep|baseline|zne_scale1": 91,
+      "cross_rep|zne_scale3|zne_scale7": 84,
+      "cross_rep|zne_scale1|zne_scale7": 81,
+      "within_rep|baseline|zne_scale3": 3,
+      "within_rep|zne_scale1|zne_scale7": 8,
+      "within_rep|zne_scale5|zne_scale7": 6,
+      "cross_rep|zne_scale5|zne_scale5": 25,
+      "cross_rep|zne_scale1|zne_scale1": 50,
+      "within_rep|baseline|baseline": 3,
+      "within_rep|baseline|zne_scale7": 6,
+      "within_rep|baseline|zne_scale5": 5,
+      "cross_rep|zne_scale3|zne_scale3": 29,
+      "within_rep|zne_scale3|zne_scale7": 6,
+      "within_rep|zne_scale5|zne_scale5": 1,
+      "within_rep|zne_scale3|zne_scale5": 2,
+      "within_rep|zne_scale7|zne_scale7": 2,
+      "within_rep|zne_scale3|zne_scale3": 1,
+      "within_rep|zne_scale1|zne_scale1": 2,
+      "within_rep|zne_scale1|zne_scale5": 3
+    },
+    "examples": [
+      {
+        "seed": 2628970,
+        "first": {
+          "repetition": 101,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 7,
+          "theta_index": 13262
+        },
+        "second": {
+          "repetition": 2002,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 12829
+        }
+      },
+      {
+        "seed": 4254584,
+        "first": {
+          "repetition": 2002,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 7,
+          "theta_index": 10971
+        },
+        "second": {
+          "repetition": 8008,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 7,
+          "theta_index": 13079
+        }
+      },
+      {
+        "seed": 4627808,
+        "first": {
+          "repetition": 2002,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 3328
+        },
+        "second": {
+          "repetition": 15006,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 4049
+        }
+      },
+      {
+        "seed": 8041583,
+        "first": {
+          "repetition": 404,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 7,
+          "theta_index": 4506
+        },
+        "second": {
+          "repetition": 606,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 5,
+          "theta_index": 3989
+        }
+      },
+      {
+        "seed": 8176704,
+        "first": {
+          "repetition": 202,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 1,
+          "theta_index": 10003
+        },
+        "second": {
+          "repetition": 202,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 3,
+          "theta_index": 8897
+        }
+      },
+      {
+        "seed": 9556422,
+        "first": {
+          "repetition": 101,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 3,
+          "theta_index": 1422
+        },
+        "second": {
+          "repetition": 2718,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 1,
+          "theta_index": 5234
+        }
+      },
+      {
+        "seed": 10067045,
+        "first": {
+          "repetition": 3003,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 1,
+          "theta_index": 2535
+        },
+        "second": {
+          "repetition": 31415,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 5,
+          "theta_index": 12458
+        }
+      },
+      {
+        "seed": 10274800,
+        "first": {
+          "repetition": 5005,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 5,
+          "theta_index": 230
+        },
+        "second": {
+          "repetition": 12003,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 8441
+        }
+      },
+      {
+        "seed": 14655943,
+        "first": {
+          "repetition": 42,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 3,
+          "theta_index": 13154
+        },
+        "second": {
+          "repetition": 101,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 6348
+        }
+      },
+      {
+        "seed": 15481982,
+        "first": {
+          "repetition": 202,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 10628
+        },
+        "second": {
+          "repetition": 16180,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 3,
+          "theta_index": 2577
+        }
+      },
+      {
+        "seed": 16383703,
+        "first": {
+          "repetition": 303,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 5197
+        },
+        "second": {
+          "repetition": 707,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 5,
+          "theta_index": 656
+        }
+      },
+      {
+        "seed": 24563582,
+        "first": {
+          "repetition": 6006,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 5,
+          "theta_index": 9810
+        },
+        "second": {
+          "repetition": 13004,
+          "method": "zne",
+          "order": "cubic",
+          "scale": 1,
+          "theta_index": 11359
+        }
+      }
+    ]
+  },
+  {
+    "instance": "H8",
+    "p": 0.01,
+    "budget": 4096,
+    "order": "quadratic",
+    "requests": 1728000,
+    "distinct_seeds": 1727335,
+    "collision_pairs_within_repetition": 28,
+    "collision_pairs_between_repetitions": 637,
+    "distinct_repetition_pairs_with_collisions": 339,
+    "collision_pairs_same_theta": 0,
+    "categories": {
+      "within_rep|baseline|zne_scale3": 7,
+      "cross_rep|baseline|baseline": 44,
+      "cross_rep|baseline|zne_scale1": 88,
+      "cross_rep|zne_scale1|zne_scale3": 65,
+      "cross_rep|zne_scale3|zne_scale3": 40,
+      "cross_rep|zne_scale1|zne_scale1": 37,
+      "cross_rep|zne_scale3|zne_scale5": 82,
+      "cross_rep|baseline|zne_scale3": 71,
+      "cross_rep|baseline|zne_scale5": 96,
+      "cross_rep|zne_scale1|zne_scale5": 75,
+      "within_rep|baseline|zne_scale5": 3,
+      "cross_rep|zne_scale5|zne_scale5": 39,
+      "within_rep|baseline|baseline": 3,
+      "within_rep|baseline|zne_scale1": 2,
+      "within_rep|zne_scale1|zne_scale3": 5,
+      "within_rep|zne_scale5|zne_scale5": 2,
+      "within_rep|zne_scale1|zne_scale1": 1,
+      "within_rep|zne_scale1|zne_scale5": 1,
+      "within_rep|zne_scale3|zne_scale5": 4
+    },
+    "examples": [
+      {
+        "seed": 2134896,
+        "first": {
+          "repetition": 27182,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 4464
+        },
+        "second": {
+          "repetition": 27182,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 2520
+        }
+      },
+      {
+        "seed": 4627808,
+        "first": {
+          "repetition": 2002,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 3328
+        },
+        "second": {
+          "repetition": 15006,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 4049
+        }
+      },
+      {
+        "seed": 5906431,
+        "first": {
+          "repetition": 13004,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 1,
+          "theta_index": 5374
+        },
+        "second": {
+          "repetition": 14005,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 12209
+        }
+      },
+      {
+        "seed": 6275115,
+        "first": {
+          "repetition": 42,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 9087
+        },
+        "second": {
+          "repetition": 9009,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 1,
+          "theta_index": 1154
+        }
+      },
+      {
+        "seed": 10951791,
+        "first": {
+          "repetition": 3003,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 6037
+        },
+        "second": {
+          "repetition": 10001,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 8655
+        }
+      },
+      {
+        "seed": 16453754,
+        "first": {
+          "repetition": 808,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 1,
+          "theta_index": 13152
+        },
+        "second": {
+          "repetition": 27182,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 1,
+          "theta_index": 4600
+        }
+      },
+      {
+        "seed": 16786059,
+        "first": {
+          "repetition": 42,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 2431
+        },
+        "second": {
+          "repetition": 202,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 6377
+        }
+      },
+      {
+        "seed": 19281039,
+        "first": {
+          "repetition": 505,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 1353
+        },
+        "second": {
+          "repetition": 1337,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 13671
+        }
+      },
+      {
+        "seed": 22385343,
+        "first": {
+          "repetition": 909,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 956
+        },
+        "second": {
+          "repetition": 11002,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 5761
+        }
+      },
+      {
+        "seed": 34695205,
+        "first": {
+          "repetition": 5005,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 3985
+        },
+        "second": {
+          "repetition": 9009,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 1736
+        }
+      },
+      {
+        "seed": 35057900,
+        "first": {
+          "repetition": 9009,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 3,
+          "theta_index": 12099
+        },
+        "second": {
+          "repetition": 27182,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 7684
+        }
+      },
+      {
+        "seed": 36307599,
+        "first": {
+          "repetition": 404,
+          "method": "phase_c_checkpoint_noisy",
+          "order": "none",
+          "scale": 1,
+          "theta_index": 4713
+        },
+        "second": {
+          "repetition": 11002,
+          "method": "zne",
+          "order": "quadratic",
+          "scale": 5,
+          "theta_index": 1086
+        }
+      }
+    ]
+  }
+]

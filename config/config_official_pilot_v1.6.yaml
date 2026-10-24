@@ -1,0 +1,238 @@
+experiment_id: official_pilot_v1.6
+
+grid:
+  default_size: 80
+  fallback_size: 60
+  gamma_min: 0.0
+  gamma_max: 6.283185307179586
+  beta_min: 0.0
+  beta_max: 3.141592653589793
+  endpoint: false
+
+smoke_test:
+  instance: G1_C4
+  grid_size: 20
+  noise: 0.005
+  shots_total: 1024
+  seed: 42
+  zne_order: linear
+  scale_factors: [1, 3]
+  p0_mse_tolerance_fraction: 0.01
+  same_seed_exact: true
+
+phase_b_debug:
+  instance: G1_C4
+  grid_size: 40
+  benchmark_grid_size: 8
+  noise_values: [0.005, 0.01]
+  shots_total: 1024
+  seeds_initial: [42, 1337, 2718]
+  zne_orders:
+    linear: [1, 3]
+    cubic: [1, 3, 5, 7]
+  benchmark_orders:
+    linear: [1, 3]
+    quadratic: [1, 3, 5]
+    cubic: [1, 3, 5, 7]
+  core_allocation: proportional_to_abs_weights
+  sensitivity_allocations:
+    - uniform
+  sensitivity_stage: benchmark_only
+  sensitivity_noise_values: [0.005]
+  sensitivity_seeds: [42]
+  max_full_runtime_hours_without_confirmation: 4
+
+phase_c:
+  decision_status: frozen_for_phase_c_preparation
+  execution_requires_feasibility_gate: true
+  seed_count: 30
+  seeds_source: official_candidates_first_n
+  tau_R: 0.03996218710369882
+  tau_R_source: phase_b_debug_noisy_seed_pairs
+  instances: [G1_C4, G2_weighted4, G3_weighted6]
+  grid_size: 80
+  benchmark_grid_size: 4
+  benchmark_noise: 0.005
+  benchmark_shots_total: 1024
+  optimization_benchmark_grid_size: 2
+
+fairness:
+  primary: equal_total_shot_budget
+  secondary:
+    enabled: true
+    type: per_scale_factor_budget
+    run_if_runtime_allows: true
+    affects_go_no_go: false
+
+feasibility_gate:
+  required_before_phase_c: true
+  runtime_thresholds_hours:
+    full_run: 72
+    reduce_seeds: 144
+    reduce_grid: 240
+  allowed_seed_counts: [10, 20, 30]
+  optimize_and_parallelize_before_reducing: true
+
+seed_selection:
+  method: phase_b_bootstrap_ci_width
+  target: ci_width_median_dR_less_than_tau_R
+  candidate_seed_counts: [10, 20, 30]
+
+instances:
+  prescreening:
+    allowed: true
+    uses_only: ideal_landscape
+    forbidden_to_use:
+      - noisy_results
+      - zne_results
+      - mse_zne
+      - regret_zne
+      - discordance_quadrant
+
+  G1_C4:
+    edges:
+      - [0, 1, 1.00]
+      - [1, 2, 1.00]
+      - [2, 3, 1.00]
+      - [3, 0, 1.00]
+
+  G2_weighted4:
+    edges:
+      - [0, 1, 1.00]
+      - [1, 2, 0.73]
+      - [2, 3, 1.31]
+      - [3, 0, 0.92]
+      - [0, 2, 0.47]
+
+  G3_weighted6:
+    edges:
+      - [0, 1, 1.00]
+      - [0, 2, 0.81]
+      - [1, 2, 1.27]
+      - [1, 3, 0.66]
+      - [2, 4, 1.44]
+      - [3, 4, 1.05]
+      - [3, 5, 0.72]
+      - [4, 5, 1.18]
+      - [0, 5, 0.53]
+
+ansatz:
+  type: qaoa
+  p_layers: 1
+  objective: negative_expected_cut
+
+noise:
+  model: depolarizing
+  p_values: [0.001, 0.003, 0.005, 0.01, 0.02]
+  one_qubit_error: p
+  two_qubit_error: 2p
+  below_detection_floor_threshold: 0.0001
+
+shots:
+  total_budget_primary: [512, 1024, 4096]
+  exact_reference: true
+  allocation_primary: proportional_to_abs_richardson_weights_under_total_budget
+  allocation_integer_rounding: largest_remainder
+  allocation_phase_b_sensitivity:
+    - uniform_under_total_budget
+
+zne:
+  extrapolation: richardson
+  folding: deterministic
+  folding_backend: qiskit_local_global_u_u_dagger_u
+  folding_backend_frozen_before_phase_b: true
+  mitiq_qiskit_conversion_check_required: true
+  methods:
+    linear: [1, 3]
+    quadratic: [1, 3, 5]
+    cubic: [1, 3, 5, 7]
+  save_mitiq_weights: true
+
+rng:
+  aer_seed: official_seed
+  numpy_seed: official_seed
+  bootstrap_seed: 99999
+  mitiq_randomness_allowed_in_core: false
+  paired_design_by_seed: true
+  derived_circuit_seed_fields:
+    - instance
+    - p
+    - B_total
+    - seed
+    - method
+    - zne_order
+    - scale_factor
+    - theta_index
+
+ties:
+  epsilon_tie_fraction_of_range: 0.001
+
+oob:
+  delta_fraction_of_range: 0.10
+  breakdown_threshold: 0.50
+  include_in_scatter: true
+  marker: empty
+  counts_for_go_no_go: false
+
+metrics:
+  good_region_fraction: 0.10
+  core:
+    - pointwise_mse
+    - normalized_ideal_regret
+    - argmin_preservation_with_ties
+    - spearman_rank_correlation
+    - good_region_overlap_10pct
+    - gradient_alignment
+    - out_of_bounds_fraction
+  gradient_boundary_rule:
+    wraparound_only_if_boundary_continuity_verified: true
+    otherwise_exclude_boundary_points: true
+    boundary_continuity_tolerance_fraction: 0.05
+    min_ideal_gradient_norm: 0.00000001
+    denominator_epsilon: 0.000000000001
+  exploratory_not_core:
+    - basin_overlap
+    - hessian_distortion
+    - sublevel_set_overlap
+    - low_frequency_ratio
+    - minimum_displacement
+
+go_no_go:
+  discordant:
+    r_mse_min: 0.10
+    median_r_mse_required: true
+    ci_low_r_mse_gt_zero: true
+    d_R_positive: true
+    ci_low_d_R_nonnegative: true
+    prob_d_R_positive_min: 0.60
+    exclude_below_detection_floor: true
+    exclude_extrapolation_breakdown: true
+  strongly_discordant:
+    r_mse_min: 0.20
+    d_R_min: tau_R
+    ci_low_r_mse_gt_zero: true
+    ci_low_d_R_gt_zero: true
+    prob_d_R_positive_min: 0.70
+    exclude_below_detection_floor: true
+    exclude_extrapolation_breakdown: true
+    requires_fdr_conjunction_q_max: 0.10
+  go_strong:
+    criterion_1: at_least_2_strongly_discordant_cells_passing_fdr
+    criterion_2: at_least_5_discordant_cells_across_multiple_instances_or_noise_shots_with_at_least_3_passing_fdr
+  removed_criteria:
+    - single_strong_cell_plus_auxiliary_metric
+
+statistics:
+  bootstrap:
+    resamples: 10000
+    method: percentile
+    unit: seed
+    paired_by_seed: true
+  p_values:
+    r_mse_positive: one_sided_paired
+    d_R_positive: one_sided_paired
+    conjunction: max_pvalue_conjunction
+  multiple_comparisons:
+    method: benjamini_hochberg
+    q: 0.10
+    family: phase_c_core_cells

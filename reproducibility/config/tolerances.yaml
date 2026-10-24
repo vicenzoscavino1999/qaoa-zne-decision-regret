@@ -1,0 +1,63 @@
+version: 1
+status: initial_submission_minimum
+
+cross_platform_note: |
+  Reference outputs were generated on Windows 11 / Python 3.12.4. Docker
+  verification currently runs on Linux. Integer results such as row counts,
+  classification labels, and endpoint counts must match exactly. Floating-point
+  values are checked only where the verification script recomputes deterministic
+  quantities from archived inputs.
+
+tolerances:
+  expectation_values:
+    type: absolute
+    value: 1.0e-6
+    warning_fraction_of_budget: 0.50
+    justification: |
+      Phase A expectation/regret metrics are recomputed from archived arrays
+      with fixed seed and no stochastic resampling. The tolerance is loose
+      relative to same-platform machine precision and is intended to absorb
+      ordinary Windows/Linux floating-point representation differences.
+    validated_empirically: true
+    validation_script: scripts/verify_numerical_reproducibility_subset.py
+
+  p_values_from_archived_inputs:
+    type: absolute
+    value: 1.0e-15
+    warning_fraction_of_budget: 0.50
+    justification: |
+      Applies only to deterministic recomputation from archived summaries or
+      stored inputs, such as the Phase D exact binomial endpoint. It does not
+      authorize rerunning bootstrap with different random streams.
+    validated_empirically: true
+    validation_script: scripts/verify_numerical_reproducibility_subset.py
+
+  classification_labels:
+    type: exact_string
+    justification: >
+      Classification labels are deterministic outputs of frozen p-values, FDR
+      thresholds, and exclusion rules.
+
+  integer_counts:
+    type: exact_integer
+    justification: >
+      Counts and family sizes are deterministic aggregations over frozen
+      CSV/JSON outputs.
+
+  hashes:
+    type: exact_sha256
+    justification: >
+      Reference manifest files are frozen archived outputs and should match
+      byte-for-byte until a deliberate scope-freeze update is made.
+
+  figures:
+    type: existence_and_metadata
+    checks:
+      - file_exists
+      - file_size_gt_zero
+      - pdf_page_count_if_pdf
+      - png_dimensions_if_png
+    justification: |
+      Figures are generated from verified numerical outputs. Pixel-level
+      comparison is fragile across Matplotlib, font, and metadata differences.
+    enhancement_path: Future archival hardening may add perceptual hashes.

@@ -1,0 +1,211 @@
+\maketitle
+
+\begin{abstract}
+Zero-noise extrapolation (ZNE) is usually validated by the accuracy of mitigated observables, yet variational quantum optimization uses those observables to select parameters. We ask whether, and by how much, an accuracy gain from ZNE coincides with a worse decision. In depth-one simulations of the quantum approximate optimization algorithm (QAOA) for MaxCut on four to six qubits, each sampled $120\times120$ landscape yields both its mean-squared error (MSE) and the ideal regret of its selected grid minimum, comparing Richardson orders one to three with unmitigated estimation at the same total shot budget per grid point. In an exploratory screen of 675 conditions, whose per-point random seeds collide, a familywise (Holm) analysis retains only four of 540 replication conditions as showing both directional MSE improvement and regret increase. A frozen confirmation with 100 fresh paired repetitions per condition reproduces all four: median MSE improvements of 7.65--73.09\% accompany median normalized regret increases of only 0.0031--0.0073. We distinguish a bias route, in which residual bias reorders the mean landscape, from a variance route, in which Richardson weights amplify finite-shot noise. Exact first and second moments on a bounded control grid find no bias-route reversal: mitigated mean landscapes preserve the ideal minima, and ZNE can more than halve expected MSE, yet finite-shot selections incur higher mean regret. Decision losses that survive strict testing are few and small in this benchmark, but reproducible and not revealed by aggregate MSE. We present a paired benchmark and recommend reporting decision regret alongside estimation error when mitigation is assessed for optimization. Results concern simulated exhaustive grids, not hardware or optimizer loops.
+\end{abstract}
+
+\noindent\textbf{Keywords:} quantum optimization, zero-noise extrapolation, QAOA, error mitigation, finite-shot sampling, decision regret
+
+\section{Introduction}
+Variational quantum optimization, as in the quantum approximate optimization algorithm (QAOA), uses estimated objectives to choose circuit parameters \citep{Farhi2014,Zhou2020QAOA,Cerezo2021VQAReview}. Error mitigation can improve those estimates without full fault tolerance, at a sampling cost that matters when measurements are limited \citep{Temme2017,LiBenjamin2017,Cai2023QEM,Takagi2022LimitsQEM}. Zero-noise extrapolation (ZNE) is usually validated by the accuracy of the mitigated observable. For optimization, however, the quantity of interest is the quality of the parameter that the mitigated estimate selects. Richardson extrapolation reduces bias by combining folded circuits with weights whose magnitudes amplify sampling variance \citep{Krebsbach2022RichardsonOptimization}, and the two error sources need not affect accuracy and decisions in the same way: landscape mean-squared error (MSE) averages over every parameter, whereas the selected parameter is decided by its contrasts with the ideal minimum, which are smallest, and therefore most easily reversed, at near-optimal parameters. Whether an accuracy gain becomes a decision gain is therefore an empirical question for each mitigation setting.
+
+The general distinction is well established. Predict-then-optimize methods separate prediction error from the loss of the decision induced by a prediction \citep{ElmachtoubGrigas2022SPO}. In variational quantum algorithms, convergence analyses with quasiprobabilistic mitigation balance reduced bias against added variance \citep{JoseSimeone2022Convergence}, and mitigation can fail to restore the resolvability of cost differences at acceptable resource cost \citep{Wang2024Trainability}; the QAOA optimizer-loop experiments in that study find no improvement from ZNE over noisy optimization in the evaluated settings. Landscape diagnostics show that Richardson extrapolation can introduce roughness that complicates gradient-based optimization \citep{Liu2023OSCAR}. Shot-budget benchmarks compare mitigated QAOA MaxCut observables at parameters optimized beforehand without noise \citep{Bultrini2023UNITED}, and hardware QAOA studies combine ZNE with readout correction and layout selection while evaluating optimization trajectories and final sampled-solution success \citep{Cheng2024DARBO}. Conference reports examine ZNE in QAOA workflows \citep{Venere2024ZNEQAOAWorkflow,Lusso2025NoiseMitigationQAOA}, and mitigation within variational training has been demonstrated for function fitting \citep{Robbiati2026RealtimeQEMVQA}. Studies of local noise, parameter setting and energy landscapes characterize the underlying QAOA problem \citep{Marshall2020LocalNoiseQAOA,Sureshbabu2024ParameterSettingWeightedQAOA,BoyWales2024EnergyLandscapesQAOA}.
+
+The closest precedents compare estimation quality with downstream outcomes. Sack and Egger report QAOA runs in which optimizing a machine-learning-mitigated cost yields worse parameters under noiseless sampling than optimizing the unmitigated cost \citep{SackEgger2024MLMitigation}; their reported MSE concerns correlator prediction, not whole landscapes. A response-model-learning preprint reports landscape root-mean-square error and selected-point regret separately, using different corrections and calibration budgets from a raw-versus-ZNE comparison \citep{Khaleghian2026QAOAReliability}. A preprint by the present author develops residual-gap theory for finite-shot mitigation, including ZNE, and evaluates static failure probabilities and dynamic regret \citep{Scavino2026DecisionKernels}. What remains unquantified for conventional Richardson ZNE is whether, and by how much, a whole-landscape accuracy gain coincides with a worse selected parameter when both are measured on the same sampled landscape, at an equal shot budget, and without the trajectory and stopping-rule choices of an optimizer.
+
+We measure this paired relationship in depth-one QAOA MaxCut on four to six qubits. Exhaustive $120\times120$ grids replace the optimizer, so each sampled landscape yields both its MSE against the exact ideal reference and the ideal regret of its selected minimum. Mitigated and unmitigated estimates use the same total number of shots at each grid point. Fifteen graphs and 675 conditions, spanning five depolarizing levels and three budgets, form an exploratory screen. Four selected conditions are then confirmed prospectively on fresh data, and an exact-moment control separates squared bias from sampling variance. The contributions are:
+\begin{itemize}
+\item \emph{A paired accuracy--decision benchmark.} Per-repetition landscape MSE and ideal regret measured on the same sampled landscape, at equal per-point budgets and against exact ideal grids.
+\item \emph{Reproducible but small discordance.} A familywise (Holm) analysis of the exploratory screen retains four conditions that combine directional MSE improvement with directional regret increase, and a frozen confirmation on fresh repetitions reproduces all four, with regret shifts below the pre-specified practical-effect threshold.
+\item \emph{Bias and variance routes to a decision loss.} Decomposing the observed contrast separates a bias route, in which residual bias reorders the mean landscape, from a variance route, in which Richardson weights amplify finite-shot noise. An exact-moment control finds the variance route at work, and an oracle reallocation of shots shows that the implemented allocation is already close to variance-optimal in the confirmed conditions.
+\end{itemize}
+
+The scope is bounded. The screen is exploratory: its sampler reuses some random streams, and its directional analysis was chosen after the screening results were known. The confirmation addresses only the four selected conditions, so it establishes reproducibility rather than frequency across graphs. Hardware, adaptive optimizers and deeper circuits lie outside this simulation study.
+
+We first define the design and paired endpoints, then show why a relative MSE gain cannot order decisions and identify the bias and variance routes. The statistical analysis precedes the confirmation, screening, control and allocation results, followed by a discussion of limitations.
+
+\section{Problem and experimental design}
+\subsection{Finite-grid QAOA and paired endpoints}
+For a positive-weight graph $G=(V,E,w)$, let
+\begin{equation}
+ H_C=\sum_{(i,j)\in E}w_{ij}(I-Z_iZ_j)/2,\qquad H_M=\sum_i X_i.
+\end{equation}
+Depth-one QAOA prepares $|\psi(\gamma,\beta)\rangle=e^{-i\beta H_M}e^{-i\gamma H_C}|+\rangle^{\otimes |V|}$. We minimize $L_0(\gamma,\beta)=-\langle\psi|H_C|\psi\rangle$ over a $120\times120$ grid $\Theta$ on $[0,2\pi)\times[0,\pi)$. Zero is included and each upper endpoint is excluded. This is a prescribed finite domain, and the results concern it alone; arbitrary weighted graphs need not have a $2\pi$ period in $\gamma$. In $\beta$ the depth-one landscape has period $\pi/2$: $e^{-i(\pi/2)H_M}=(-i)^{|V|}X^{\otimes|V|}$, and $X^{\otimes|V|}$ commutes with both $H_M$ and $H_C$, so it leaves $\langle H_C\rangle$ unchanged. The $\beta$ range therefore contains two copies of the landscape, aligned with the grid because $\pi/2$ spans 60 grid steps, and the ideal minimizers on $\Theta$ occur in symmetry-related pairs whose computed values agree up to floating-point roundoff. Such symmetries produce the equivalent ideal minima that the analysis below treats explicitly.
+
+Write $L_*=\min_\Theta L_0$, $D_0=\max_\Theta L_0-L_*>0$, and $\Theta_*=\argmin_\Theta L_0$. A row-major ordering resolves ties in any sampled landscape. For $\widehat\theta=\argmin_\Theta\widehat L$, define
+\begin{align}
+ \MSE(\widehat L,L_0)&=|\Theta|^{-1}\sum_{\theta\in\Theta}(\widehat L(\theta)-L_0(\theta))^2,\\
+ R(\widehat L;L_0)&=\{L_0(\widehat\theta)-L_*\}/D_0.
+\end{align}
+This is normalized simple regret for a terminal recommendation from a finite set, as in fixed-budget best-arm identification \citep{AudibertBubeckMunos2010BestArm}. Here observations may remain biased relative to the ideal objective and multiple ideal optima are allowed, so standard best-arm guarantees are not imported. For each graph/noise/budget/order condition and sampling seed, the paired quantities are
+\begin{align}
+ r_{\MSE}&=\frac{\MSE(\widehat L_{\noisy},L_0)-\MSE(\widehat L_{\zne},L_0)}{\MSE(\widehat L_{\noisy},L_0)},\label{eq:rmse}\\
+ d_R&=R(\widehat L_{\zne};L_0)-R(\widehat L_{\noisy};L_0).\label{eq:dr}
+\end{align}
+Positive values of both describe improved aggregate accuracy and a worse selected parameter for that repetition. The denominator in Eq.~\eqref{eq:rmse} is positive in the retained data. Regret uses the exact ideal reference available in simulation.
+
+\subsection{Noise, extrapolation and resource accounting}
+Local depolarizing channels follow circuit gates. The channel on a $d$-dimensional subsystem is $\mathcal D_\kappa(\rho)=(1-\kappa)\rho+\kappa I/d$, with $\kappa=p$ after one-qubit gates and $\kappa=2p$ after two-qubit gates. Thus $p$ is the depolarizing-channel parameter; the corresponding probabilities of a nonidentity Pauli error are $3p/4$ after one-qubit gates and $15p/8$ after two-qubit gates. We use $p\in\{0.001,0.003,0.005,0.01,0.02\}$.
+
+Deterministic global circuit folding \citep{GiurgicaTiron2020DigitalZNE} produces scale sets $(1,3)$, $(1,3,5)$ and $(1,3,5,7)$ for Richardson orders $m=1,2,3$. Folding preserves the ideal circuit, but local noisy folded circuits are not assumed to equal a single channel with parameter $a_jp$. The estimator is
+\begin{equation}
+ \widehat L_Z(\theta)=\sum_j\lambda_j\widehat L^{[a_j]}(\theta),\qquad
+ \sum_j\lambda_j=1,\quad\sum_j\lambda_j a_j^r=0\ (1\le r\le m).
+\end{equation}
+The total budget $B\in\{512,1024,4096\}$ is allocated across scales in proportion to $|\lambda_j|$, using largest remainders to obtain positive integers $B_j$ with $\sum_j B_j=B$. The unmitigated estimate uses all $B$ shots. This is a budget \emph{per grid point}: one full landscape costs $14\,400B$ shots ($14\,745\,600$ at $B=1024$). Each screening condition has 30 sampling repetitions; the same noisy baseline is shared between extrapolation orders for a given graph, noise, budget and seed.
+
+\subsection{Discovery and generated replication}
+Discovery comprises three graphs and $3\times5\times3\times3=135$ conditions. Replication comprises twelve additional graphs, H1--H12, and $12\times5\times3\times3=540$ conditions. Graphs have four to six vertices. Two replication graphs were selected in each of six strata: sparse, regular or near-regular, Erdos--Renyi, heterogeneous weighted, dense positive-weight, and hardware-friendly/control. Graph generation, selection and grid-adequacy checks were fixed before any noisy simulation, which protects instance selection from the outcomes.
+
+Probabilities were evaluated with a custom NumPy density-matrix kernel validated against Qiskit Aer within the Qiskit software framework \citep{JavadiAbhari2024}; a bounded cross-check of 540 graph/point/noise/scale combinations against Aer gave a maximum objective discrepancy $9.45\times10^{-14}$. Probabilities are cached across budgets and repetitions, and finite-shot samples use deterministic pseudorandom seeds.
+
+\section{Why relative MSE improvement does not order decisions}\label{sec:mse_decisions}
+\subsection{A finite-grid example and an absolute-error guarantee}\label{sec:nonimplication}
+On two points, take $L_0=(0,1)$, $\widehat L_N=(2,3)$ and $\widehat L_Z=(0.6,0.4)$. Their MSEs are $4$ and $0.36$, yet their normalized regrets are $0$ and $1$; the landscapes are arbitrary and illustrate only the logical nonimplication. The same construction works on any finite grid $\Theta$ of size $N$ with nonconstant $L_0$, including grids with several ideal minimizers. For a point with ideal gap $\Delta>0$, adding a constant $C>2\Delta/\sqrt N$ to $L_0$ preserves the ideal optimal set, whereas lowering that point by $2\Delta$ makes it the unique observed minimizer, with regret $\Delta/D_0$ and the smaller MSE $4\Delta^2/N<C^2$.
+
+Absolute MSE nevertheless controls regret on a fixed finite grid. With $e=\widehat L-L_0$,
+\begin{equation}
+ R(\widehat L;L_0)\le\min\left\{1,\frac{\sqrt{2N\MSE(\widehat L,L_0)}}{D_0}\right\}.\label{eq:mse_bound}
+\end{equation}
+Indeed, for $u\in\Theta_*$, selection implies $L_0(\widehat\theta)-L_*\le e(u)-e(\widehat\theta)$. Cauchy--Schwarz bounds this contrast by $\sqrt{2\sum_\theta e(\theta)^2}$. Likewise $\|e\|_\infty\le\delta$ implies unnormalized regret at most $2\delta$. If the smallest positive ideal gap is $g_*$, then $2\delta<g_*$ ensures that every selected minimizer belongs to $\Theta_*$. Thus MSE tending to zero does imply vanishing regret on a fixed grid. A relative improvement between two finite errors does not order their actual regrets.
+
+\subsection{Integer-budget variance and two routes to a decision change}\label{sec:routes}
+If the single-shot objective variance at folded scale $j$ is $v_j(\theta)$, independent samples across scales give
+\begin{equation}
+ \Var[\widehat L_Z(\theta)]=\sum_j\frac{\lambda_j^2v_j(\theta)}{B_j}
+ \le v_{\max}(\theta)S_B,\qquad S_B=\sum_j\frac{\lambda_j^2}{B_j}.\label{eq:integer_variance}
+\end{equation}
+For an exactly proportional allocation, including the continuous ideal, $S_B=A_m/B$, where $A_m=(\sum_j|\lambda_j|)^2$. The weights and amplification factors are
+\begin{equation}
+\begin{array}{c|c|c}
+m&\lambda&A_m\\\hline
+1&(3/2,-1/2)&4\\
+2&(15/8,-5/4,3/8)&49/4\\
+3&(35/16,-35/16,21/16,-5/16)&36
+\end{array}
+\end{equation}
+Integer rounding makes $S_B\ge A_m/B$, with relative excess at most $1.39\times10^{-5}$ for the nine implemented allocations (Appendix~\ref{app:mathematics}). Proportional allocation minimizes this variance upper-bound coefficient; minimizing the actual variance for unequal $v_j$ instead gives $B_j\propto|\lambda_j|\sqrt{v_j}$ in the continuous positive-variance case \citep{Krebsbach2022RichardsonOptimization}.
+
+Write $\widehat L_Z=L_0+b_Z+\eta_Z$, where $b_Z$ is the exact mean residual and $\eta_Z$ is centered sampling noise. For a fixed ideal minimizer $u$ and competitor $v$, the observed contrast is
+\begin{equation}
+ \widehat L_Z(v)-\widehat L_Z(u)=L_0(v)-L_*+b_Z(v)-b_Z(u)+\eta_Z(v)-\eta_Z(u).\label{eq:contrast}
+\end{equation}
+Beating one ideal minimizer is a pairwise ranking event, not a guarantee that $v$ is the selected global minimum. With equivalent optima, a sufficient condition for positive regret is that some nonoptimal point beats \emph{all} ideal minimizers. By Eq.~\eqref{eq:contrast}, $v$ does so whenever, for every $u\in\Theta_*$, $|\eta_Z(v)-\eta_Z(u)|\le\delta_u$ and $b_Z(v)-b_Z(u)+\delta_u<-[L_0(v)-L_*]$; if the unmitigated selection lies in $\Theta_*$, this also gives $d_R>0$.
+
+Equation~\eqref{eq:contrast} separates two routes by which ZNE can change a decision relative to the ideal ordering. In the \emph{bias route}, the residual contrast $b_Z(v)-b_Z(u)$ reverses the order of $v$ and $u$ even without sampling noise. The exact Richardson example in Appendix~\ref{app:mathematics} shows that this route is compatible with lower MSE: on two points with bounded expectation values, Richardson extrapolation lowers the deterministic MSE from 12.5 to 4.5 while reversing a decision that the unmitigated expectation preserves. The example is abstract, and the studied circuits need not realize such coefficients. In the \emph{variance route}, the mean landscape keeps the ideal ordering, but the centered contrast $\eta_Z(v)-\eta_Z(u)$ reverses it in some finite-shot repetitions. By Eq.~\eqref{eq:integer_variance}, the scale of that contrast is governed by $S_B\ge A_m/B$, at least $A_m$ times the coefficient $1/B$ of unmitigated estimation at the same budget. The routes are not exclusive, because residual bias also changes the margins that sampling noise must overcome.
+
+Appendix~\ref{app:mathematics} applies Hoeffding's inequality \citep{Hoeffding1963} to bound the probability of excess regret in terms of $S_B$ and an ideal anchor, without assuming a unique optimum; Section~\ref{sec:discussion} interprets it. It is a structural bound under independent shots rather than a calibrated predictor of $d_R$. Section~\ref{sec:control} examines which route is present in a bounded control.
+
+\section{Statistical analysis}\label{sec:statistics}
+\subsection{Screening analysis}\label{sec:screening}
+The exploratory screen is analyzed with the directional tests below and Holm correction. This analysis replaces the pre-specified bootstrap classification rule, whose results and calibration and resolution limitations are reported as a secondary descriptive analysis in Appendix~\ref{app:statistics}. Nine discovery and 33 replication conditions excluded by the detection-floor rule, which flags noisy MSE below $10^{-4}D_0^2$ in some seed, remain in their families with $p_c=1$.
+
+\subsection{Directional inference}\label{sec:directional}
+For a fixed condition $c$, the reference inferential model assumes independent, identically distributed sampling repetitions with circuit probabilities held fixed. We test
+\begin{equation}
+ \pi_{r,c}=\Pr(r_{\MSE}>0)>1/2,\qquad
+ \pi_{d,c}=\Pr(d_R>\epsilon_{\rm num})>1/2,\quad\epsilon_{\rm num}=10^{-12}.\label{eq:estimand}
+\end{equation}
+The small regret tolerance treats roundoff-level splitting of equivalent ideal minima as nonpositive; it is not a practical-effect threshold. All $n$ observations remain in the denominator ($n=30$ in the screen, $n=100$ in the confirmation), with ties counted as failures. Under this model, the indicator counts $K_r,K_d$ give exact one-sided binomial component tests \citep{LehmannRomano2005}:
+\begin{equation}
+ p_x=\sum_{k=K_x}^{n}{n\choose k}2^{-n},\qquad p_c=\max(p_r,p_d).\label{eq:sign}
+\end{equation}
+This is an intersection--union test (IUT) \citep{Berger1982IUT}. Under the union null that at least one probability is at most $1/2$, $p_c$ is valid whenever the component tests are valid: if component $x$ is null, $\Pr(p_c\le t)\le\Pr(p_x\le t)\le t$. This requires neither independence of the two endpoints nor symmetry of their difference distributions. It tests two marginal directional probabilities, not the probability of their joint occurrence.
+
+The screening analysis applies Holm at familywise level $0.05$ to all 540 replication conditions \citep{Holm1979}, which allows arbitrary dependence between conditions; no effect-size filter defines the rejection set. Benjamini--Yekutieli (BY) and Benjamini--Hochberg (BH) adjustments are reported as false-discovery-rate (FDR) sensitivities, the latter conditional on dependence assumptions not established here \citep{BenjaminiYekutieli2001}. Discovery is analyzed separately. This procedure and the numerical tolerance were chosen after the screening results were known, so their error guarantees do not cover that choice. Effect sizes are reported separately against the pre-specified thresholds of 10\% median MSE improvement and $\tau_R=0.039962$ normalized regret.
+
+\subsection{Screening sampler}\label{sec:streams}
+The screening sampler hashes each point/scale/repetition label into a 31-bit seed and initializes a new generator at each point. In the four conditions retained by Holm, this produces 637--1059 colliding seed pairs between repetitions and 16--51 within repetitions per condition, all at distinct grid points (Appendix~\ref{app:statistics}). The screening repetitions therefore do not implement the independent-sampling model exactly, and Holm's robustness to dependence between conditions does not extend to dependence within a component test. The four screening rejections are accordingly model-based and exploratory.
+
+\subsection{Prospective targeted confirmation}\label{sec:confirmation_design}
+A protocol fixed and hashed before any new sample was drawn specifies the four screening candidates, $n=100$, the screening grids, circuits, exact ideal references and integer allocations; the confirmation uses only new samples. A new 256-bit entropy value initializes NumPy \texttt{SeedSequence}; separately spawned \texttt{PCG64DXSM} streams are consumed sequentially across grid points for each group, repetition and method/scale.
+
+The primary indicators remain $r_{\MSE}>0$ and $d_R>10^{-12}$, and Eq.~\eqref{eq:sign} uses all 100 repetitions. Holm at $.05$ is applied to the four intersection--union p-values, with no exclusions or interim analyses; conclusions are conditional on the selection from the screen. Appendix~\ref{app:confirmation} gives allocations and design sensitivity.
+
+\subsection{Computational verification}\label{sec:verification}
+A second, separately written implementation reconstructs all 400 paired confirmation endpoints from the saved landscapes, evaluates binomial tails with integer binomial coefficients and recomputes the Holm adjustments.
+
+\section{Results}
+\subsection{Fresh confirmation of four selected conditions}
+All four selected conditions pass Holm at $.05$ on 100 fresh repetitions (Table~\ref{tab:confirmation}). Median relative MSE improvements range from 7.65\% to 73.09\%, and median normalized regret shifts from 0.00308 to 0.00732, or 0.0109--0.0260 expected-cut units. Three of the four MSE medians exceed the pre-specified 10\% threshold, the exception being H3 quadratic at 7.65\%, and no regret median reaches the pre-specified threshold $\tau_R$: the directional effects are clear, while their practical size is small.
+
+\begin{table}[htbp]
+\caption{Prospective targeted family, $n=100$ per condition. $K_r$ and $K_d$ count positive indicators; $r$ and $d_R$ are medians. Native shift is $D_0\operatorname{median}(d_R)$ in expected-cut units. All four conditions were fixed before new sampling; Holm corrects these four tests only.}
+\label{tab:confirmation}\centering\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{llrrrrrr}\hline
+Graph & $(p,B,m)$ & $K_r$ & $K_d$ & $r$ & $d_R$ & \shortstack{Native\\shift} & Holm $p$\\\hline
+H1 & $(0.02,1024,2)$ & 100 & 66 & 0.4358 & 0.00646 & 0.01520 & $8.95\times10^{-4}$\\
+H3 & $(0.02,1024,2)$ & 100 & 70 & 0.0765 & 0.00643 & 0.01361 & $1.18\times10^{-4}$\\
+H8 & $(0.01,4096,3)$ & 100 & 84 & 0.2613 & 0.00732 & 0.02596 & $5.21\times10^{-12}$\\
+H8 & $(0.01,4096,2)$ & 100 & 67 & 0.7309 & 0.00308 & 0.01093 & $8.74\times10^{-4}$\\
+\hline\end{tabular}
+\end{table}
+
+\subsection{Exploratory screen}
+Four of 540 replication conditions meet the Holm cutoff, distributed across H1, H3 and H8 (Table~\ref{tab:revised}). All four improve MSE in 30 of 30 repetitions; increased regret beyond numerical tolerance occurs in 26 or 28 repetitions. Their median MSE improvements range from 8.05\% to 73.11\%; three meet the pre-specified 10\% threshold, and the H3 quadratic condition does not. The median native shifts range from 0.0131 to 0.0317 expected-cut units, or 0.146\%--0.635\% of total graph edge weight, and none reaches $\tau_R$. Figure~\ref{fig:revised} places them among all eligible conditions and displays within-condition variability; its interquartile bars are descriptive.
+
+\begin{table}[htbp]
+\caption{Four replication conditions retained by the sign/IUT/Holm analysis of the screen. Columns as in Table~\ref{tab:confirmation}, with counts out of 30 repetitions.}
+\label{tab:revised}\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{llrrrrr}
+\hline
+Graph & $(p,B,m)$ & $K_d$ & $r$ & $d_R$ & Native shift & Holm $p$\\\hline
+H1 & $(0.02,1024,2)$ & 26 & 0.4338 & 0.01350 & 0.03174 & 0.015999\\
+H3 & $(0.02,1024,2)$ & 28 & 0.0805 & 0.00881 & 0.01865 & 0.000234\\
+H8 & $(0.01,4096,3)$ & 26 & 0.2627 & 0.00703 & 0.02491 & 0.015999\\
+H8 & $(0.01,4096,2)$ & 28 & 0.7311 & 0.00370 & 0.01311 & 0.000234\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.8\textwidth]{figure1.pdf}
+\caption{Paired effects in the replication family. (a) Median relative mean-squared-error improvement and median normalized regret change for the 507 eligible conditions; excluded conditions are omitted, and the four Holm rejections are shown as larger orange points. The horizontal axis uses a symmetric logarithmic scale to retain large negative relative improvements. (b) Medians and seed interquartile ranges of the regret change for the four retained conditions.}
+\label{fig:revised}
+\end{figure}
+
+Holm and BY retain the same four replication conditions, while BH retains twelve; these screening results are exploratory (Section~\ref{sec:streams}). The retained sets are unchanged at regret tolerances $10^{-14}$, $10^{-12}$, $10^{-10}$ and $10^{-6}$. In the separately analyzed discovery family, Holm retains one condition, in G2. Appendix~\ref{app:statistics} reports the complete sensitivities, including strict floating-point positivity and the original bootstrap classification.
+
+\subsection{Bounded bias--variance control}\label{sec:control}
+An explanatory control uses all three discovery graphs, two endpoint noise parameters ($0.001,0.02$), $B=1024$, all three orders and the unmitigated baseline. It evaluates a new $12\times12$ grid and 500 independent multinomial landscape repetitions per configuration, and complements rather than retests the 540-condition endpoint (Appendix~\ref{app:control}).
+
+Exact density-matrix probabilities give each scale's mean $\mu_j(\theta)$ and single-shot variance $v_j(\theta)$. With $b_Z=\sum_j\lambda_j\mu_j-L_0$, the exact decomposition is
+\begin{equation}
+ \E\!\left[\MSE(\widehat L_Z,L_0)\right]
+ =\frac1{|\Theta|}\sum_{\theta}\left[b_Z(\theta)^2+
+ \sum_j\lambda_j^2v_j(\theta)/B_j\right].\label{eq:biasvariance}
+\end{equation}
+At $p=.02$, linear and quadratic ZNE reduce expected MSE on all three graphs; cubic ZNE increases it despite reducing squared bias. At $p=.001$, all three orders increase expected MSE. The Monte Carlo mean MSE agrees with the exact decomposition within 1.919 Monte Carlo standard errors in every configuration.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.85\textwidth]{figure2.pdf}
+\caption{Bias--variance control on a $12\times12$ grid with $B=1024$ shots per point for every method and 500 repetitions per configuration: exact grid-averaged squared bias and sampling variance (stacked bars) and Monte Carlo estimates of the mean-squared error with $\pm1.96$ standard errors (points). This control is separate from the $120\times120$ screen.}
+\label{fig:biasvariance}
+\end{figure}
+
+All exact mean landscapes select ideal minima to numerical precision. Nevertheless, finite-shot ZNE selections have greater Monte Carlo mean regret on G2 and G3 in the tested regimes. For G2 at $p=.02$, expected MSE falls from $0.017405$ without mitigation to $0.007840$ with linear ZNE, while Monte Carlo mean normalized regret increases from $0.003365$ to $0.008734$. Quadratic ZNE gives MSE $0.013914$ and Monte Carlo mean regret $0.01883$. In each G1 configuration, all 500 repetitions select symmetry-related ideal minima to numerical precision on this coarse grid (Figure~\ref{fig:control_decision}).
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=0.85\textwidth]{figure3.pdf}
+\caption{Decision outcomes for the bias--variance control ($12\times12$ grid, $B=1024$, 500 repetitions per configuration): normalized ideal regret of exact-mean and finite-shot selections. A common vertical scale is used for all graphs. Error bars denote $\pm1.96$ Monte Carlo standard errors and are descriptive.}
+\label{fig:control_decision}
+\end{figure}
+
+This control separates contributions to expected MSE exactly. Since the mean selections are ideal, the bias route of Section~\ref{sec:routes} alone produces no regret here, and the regret observed after sampling arises through the variance route. Residual bias can still change the margins that sampling must overcome, so the control identifies the route but not the separate causal contributions of bias and variance.
+
+\subsection{Sensitivity to shot allocation}
+An additional exact-moment analysis compares the implemented allocation with a pointwise oracle that knows every scale variance and minimizes ZNE variance over positive integer shot counts at the same total per-point budget. Across the four confirmation conditions, this reduces grid-mean variance by 0.0443\%--0.3652\%; even the largest pointwise improvement allowed by the continuous optimum is below 1.26\%. Appendix~\ref{app:allocation} gives each condition and a fixed-allocation comparison. The oracle uses the saved probabilities and is charged no calibration cost; the comparison concerns variance only.
+
+\section{Discussion and limitations}\label{sec:discussion}
+In the four confirmed conditions, ZNE improves landscape MSE in every fresh repetition, while the directional tests indicate a probability above one half of increased regret. These decision losses are small but reproducible and are not captured by aggregate MSE. In the control, ideal mean selections become imperfect under finite-shot sampling. The bound in Appendix~\ref{app:mathematics} relates this variance route to the mean margins in Eq.~\eqref{eq:contrast} and the noise scale $W_G\sqrt{S_B}$, where $W_G$ is the total edge weight. Near-optimal competitors with small margins can remain sensitive to sampling even when aggregate MSE falls. Richardson weights increase the variance-bound coefficient relative to unmitigated estimation at the same budget, while residual bias also changes those margins. This provides a structural interpretation of the small observed regret shifts.
+
+Relative to prior work, the contribution is a paired measurement. Bias--variance trade-offs in Richardson extrapolation, mitigation-induced landscape roughness and the accuracy--decision distinction are known from theory, landscape diagnostics and optimizer runs \citep{Krebsbach2022RichardsonOptimization,Wang2024Trainability,Liu2023OSCAR,SackEgger2024MLMitigation}. Here the same sampled landscape supplies both whole-landscape MSE and ideal regret at an equal shot budget, which isolates the selection step from optimizer dynamics; a prospective confirmation shows that the resulting discordance reproduces on fresh streams; and exact moments show the variance route at work in a bounded control. The related decision-kernel preprint develops residual-gap theory and evaluates failure probabilities and dynamic regret \citep{Scavino2026DecisionKernels}; the present work supplies the corresponding empirical characterization for conventional Richardson extrapolation on exhaustive grids. The finite-grid bounds used here are elementary and serve to organize this evidence.
+
+Several restrictions matter. The primary circuits are shallow and small, with local depolarizing noise. The generated graphs satisfy stratification and grid-adequacy rules, so the observed frequency is not a prevalence estimate for arbitrary QAOA instances. The ideal oracle and exhaustive grid are simulation tools; an adaptive optimizer on hardware has different resource and selection constraints. Measurement-frugal variational optimizers can instead allocate shots by iteration and gradient component \citep{Kubler2020MeasurementFrugal}; the present benchmark uses a prescribed per-point allocation. Auxiliary exploratory depth-two slices, thermal/readout simulations and COBYLA checks are summarized in Appendix~\ref{app:auxiliary}; the COBYLA conditions did not meet their prescribed endpoint-effect rule.
+
+\section{Conclusion}
+In this benchmark, accuracy gains from ZNE seldom came with decision losses that survive strict testing: a model-based familywise analysis retains four of 540 replication conditions. Those four losses are nevertheless reproducible. A frozen confirmation on fresh random streams recovered all of them, with median MSE improvements of up to 73.09\% alongside median normalized regret increases of 0.0031--0.0073. The losses are small, but aggregate MSE does not reveal them. Exact moments on a bounded control show the variance route producing such losses: mitigated mean landscapes keep the ideal minima, and the regret appears only once finite-shot landscapes are sampled and minimized, a step that a grid-averaged error does not resolve.
+
+When mitigation is assessed as a component of optimization, decision regret, or a validated decision-level proxy, should therefore be reported alongside estimation error; the two can disagree even when the shot allocation is close to variance-optimal. Extending paired accuracy--decision measurements to deeper circuits, optimizer loops and hardware noise is the natural next step. Validated decision-level proxies will be needed in settings where the ideal reference is unavailable.

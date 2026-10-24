@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "Please cite this reproducibility package when using its code or data. Version-specific archival identifiers will be added when assigned."
+title: "Decision-aware validation of zero-noise extrapolation in QAOA optimization landscapes: reproducibility package"
+authors:
+  - family-names: "Scavino Alfaro"
+    given-names: "Vicenzo"
+    orcid: "https://orcid.org/0009-0000-2472-9785"
+version: "1.0.0"
+# Licenses apply to different files: MIT for code; CC-BY-4.0 for data/docs.
+# See LICENSE_BUNDLE.md. The optional CFF license field cannot express this split.
+keywords:
+  - "zero-noise extrapolation"
+  - "QAOA"
+  - "quantum error mitigation"
+  - "decision regret"
+  - "MaxCut"
+abstract: "Compact reproducibility package for the unified manuscript: historical reanalysis, complete targeted confirmation, bounded bias-variance control, allocation sensitivity and figures. Historical noisy C/D landscapes are excluded; historical seed metrics and twelve ideal grids are included."

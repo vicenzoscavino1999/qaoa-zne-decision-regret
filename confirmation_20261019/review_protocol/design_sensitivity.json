@@ -1,0 +1,127 @@
+{
+  "scope": "Design calculations frozen before new endpoint results; standard library only",
+  "N": 100,
+  "alpha": 0.05,
+  "family_size": 4,
+  "thresholds": [
+    {
+      "Holm_rank": 1,
+      "cutoff": 0.0125,
+      "minimum_count": 62,
+      "null_tail": 0.010489367838925859,
+      "previous_count_tail": 0.017600100108852407
+    },
+    {
+      "Holm_rank": 2,
+      "cutoff": 0.016666666666666666,
+      "minimum_count": 62,
+      "null_tail": 0.010489367838925859,
+      "previous_count_tail": 0.017600100108852407
+    },
+    {
+      "Holm_rank": 3,
+      "cutoff": 0.025,
+      "minimum_count": 61,
+      "null_tail": 0.017600100108852407,
+      "previous_count_tail": 0.028443966820490395
+    },
+    {
+      "Holm_rank": 4,
+      "cutoff": 0.05,
+      "minimum_count": 59,
+      "null_tail": 0.04431304005703379,
+      "previous_count_tail": 0.06660530960360667
+    }
+  ],
+  "power_rows": [
+    {
+      "pi": 0.5,
+      "component_probability_count_ge_62": 0.010489367838925859,
+      "IUT_probability_lower_bound_equal_marginals": 0.0,
+      "IUT_probability_upper_bound_equal_marginals": 0.010489367838925859,
+      "all_four_reject_lower_bound_eight_equal_components": 0.0
+    },
+    {
+      "pi": 0.55,
+      "component_probability_count_ge_62": 0.09514060318529237,
+      "IUT_probability_lower_bound_equal_marginals": 0.0,
+      "IUT_probability_upper_bound_equal_marginals": 0.09514060318529237,
+      "all_four_reject_lower_bound_eight_equal_components": 0.0
+    },
+    {
+      "pi": 0.6,
+      "component_probability_count_ge_62": 0.38218765728323567,
+      "IUT_probability_lower_bound_equal_marginals": 0.0,
+      "IUT_probability_upper_bound_equal_marginals": 0.38218765728323567,
+      "all_four_reject_lower_bound_eight_equal_components": 0.0
+    },
+    {
+      "pi": 0.62,
+      "component_probability_count_ge_62": 0.5442355489804968,
+      "IUT_probability_lower_bound_equal_marginals": 0.08847109796099346,
+      "IUT_probability_upper_bound_equal_marginals": 0.5442355489804968,
+      "all_four_reject_lower_bound_eight_equal_components": 0.0
+    },
+    {
+      "pi": 0.65,
+      "component_probability_count_ge_62": 0.769870835847818,
+      "IUT_probability_lower_bound_equal_marginals": 0.5397416716956361,
+      "IUT_probability_upper_bound_equal_marginals": 0.769870835847818,
+      "all_four_reject_lower_bound_eight_equal_components": 0.0
+    },
+    {
+      "pi": 0.7,
+      "component_probability_count_ge_62": 0.9660210017310686,
+      "IUT_probability_lower_bound_equal_marginals": 0.9320420034621374,
+      "IUT_probability_upper_bound_equal_marginals": 0.9660210017310686,
+      "all_four_reject_lower_bound_eight_equal_components": 0.7281680138485495
+    },
+    {
+      "pi": 0.75,
+      "component_probability_count_ge_62": 0.9986000436117506,
+      "IUT_probability_lower_bound_equal_marginals": 0.9972000872235012,
+      "IUT_probability_upper_bound_equal_marginals": 0.9986000436117506,
+      "all_four_reject_lower_bound_eight_equal_components": 0.9888003488940045
+    },
+    {
+      "pi": 0.8,
+      "component_probability_count_ge_62": 0.9999903162071075,
+      "IUT_probability_lower_bound_equal_marginals": 0.9999806324142152,
+      "IUT_probability_upper_bound_equal_marginals": 0.9999903162071075,
+      "all_four_reject_lower_bound_eight_equal_components": 0.9999225296568606
+    },
+    {
+      "pi": 0.85,
+      "component_probability_count_ge_62": 0.99999999552357,
+      "IUT_probability_lower_bound_equal_marginals": 0.99999999104714,
+      "IUT_probability_upper_bound_equal_marginals": 0.99999999552357,
+      "all_four_reject_lower_bound_eight_equal_components": 0.9999999641885597
+    },
+    {
+      "pi": 0.9,
+      "component_probability_count_ge_62": 0.9999999999999825,
+      "IUT_probability_lower_bound_equal_marginals": 0.9999999999999649,
+      "IUT_probability_upper_bound_equal_marginals": 0.9999999999999825,
+      "all_four_reject_lower_bound_eight_equal_components": 0.9999999999998598
+    },
+    {
+      "pi": 0.95,
+      "component_probability_count_ge_62": 1.0,
+      "IUT_probability_lower_bound_equal_marginals": 1.0,
+      "IUT_probability_upper_bound_equal_marginals": 1.0,
+      "all_four_reject_lower_bound_eight_equal_components": 1.0
+    }
+  ],
+  "pi_for_component_power": {
+    "0.8": 0.6548633169629716,
+    "0.9": 0.6753362590006711,
+    "0.95": 0.6918993366112034
+  },
+  "notes": [
+    "At least 62 successes in BOTH components guarantees each condition meets alpha/4, regardless of its Holm rank.",
+    "IUT lower/upper bounds use Frechet bounds and do not assume independent endpoints.",
+    "The eight-component lower bound guarantees all four rejections, without cross-condition independence.",
+    "Probabilities shown are scenarios, not estimates from selected historical cells.",
+    "No new simulations, probability caches, or endpoint samples read."
+  ]
+}

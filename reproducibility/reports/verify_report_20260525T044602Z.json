@@ -1,0 +1,24 @@
+{
+  "mode": "reference-only",
+  "overall": "PASS",
+  "results": {
+    "reference_manifest": {
+      "byte_failures": [],
+      "checked": 17,
+      "declared": 17,
+      "hash_failures": [],
+      "missing": [],
+      "severity": "BLOCK",
+      "status": "PASS"
+    },
+    "scope_guard": {
+      "match_count": 0,
+      "matches": [],
+      "phase_ef_absent": true,
+      "severity": "BLOCK",
+      "status": "PASS"
+    }
+  },
+  "timestamp_utc": "2026-05-25T04:46:02Z",
+  "verify_version": "0.1.0-ws2-scaffold"
+}

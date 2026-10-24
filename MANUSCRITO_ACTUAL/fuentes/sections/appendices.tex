@@ -1,0 +1,180 @@
+\section{Finite-grid mathematical details}\label{app:mathematics}
+This appendix collects the finite-grid results referred to in Section~\ref{sec:mse_decisions}. The integer-budget bound formalizes the variance route of Section~\ref{sec:routes}, and the exact Richardson example illustrates the bias route.
+
+\input{sections/math_details.tex}
+
+\section{Statistical methods and conventions}\label{app:statistics}
+C denotes the discovery family and D the generated replication family in the tables below.
+\subsection{Pre-specified screening rule}
+The screen was planned with a bootstrap classification rule based on 10\,000 percentile-bootstrap resamples of the 30 paired seed metrics \citep{EfronTibshirani1993}. A nominal condition required median $r_{\MSE}\ge0.10$, a positive lower bootstrap limit for $r_{\MSE}$, positive median $d_R$, nonnegative lower bootstrap limit for $d_R$, and at least 60\% positive $d_R$ values. Bootstrap positivity tails with a one-count correction were combined using their maximum, followed by BH adjustment \citep{BenjaminiHochberg1995}, with $q=0.10$ for discovery and $q=0.05$ for replication. Nine discovery and 33 replication conditions were excluded because at least one seed had noisy MSE below $10^{-4}D_0^2$. No condition triggered the extrapolation-breakdown rule, which required more than half the grid to fall outside the ideal range extended by $0.10D_0$.
+
+Bootstrap positivity tails need not be null-calibrated p-values, so this rule does not yield calibrated familywise statements. Its zero Holm rejections also reflect a Monte Carlo resolution limit, examined in Appendix~\ref{app:bootstrap_resolution}. Under the rule, 18 discovery conditions are nominal and 13 survive BH, and 69 replication conditions are nominal and 39 survive BH. We report these classifications as a secondary descriptive analysis.
+
+\subsection{Sampling unit and complete families}
+Every screening condition contains the same 30 seed labels. The reference test model assumes independent, identically distributed shot repetitions conditional on a fixed graph, noise model, circuit folding, integer allocation and grid; Appendix~\ref{app:collisions} describes how the screening sampler departs from it. Metrics are formed from the paired noisy and mitigated landscapes. Sharing the noisy baseline between orders creates cross-condition dependence, but does not require assuming independent endpoints within a pair for an intersection--union test.
+
+Discovery and replication are separate families of 135 and 540 tests. Conditions excluded by the detection-floor rule receive adjusted input p-values of one, so they remain nonrejectable members of their families. An exclusion based on observed data can only increase these p-values; it cannot invalidate super-uniformity of an otherwise valid unfiltered test.
+
+\subsection{Exact directional tests and multiplicity}
+For $X=r_{\MSE}$ and $Y=d_R$, the component nulls are $\Pr(X>0)\le1/2$ and $\Pr(Y>10^{-12})\le1/2$. Under that sampling model, standard exact binomial testing \citep{LehmannRomano2005} gives, for either positive count $K$, the p-value $\sum_{k=K}^{30}\binom{30}{k}2^{-30}$. A binomial upper tail is largest at the boundary $1/2$ of this composite null. Zeros and numerical ties are failures, with denominator 30; deleting them would change the estimand.
+
+The conjunction alternative requires both marginal probabilities to exceed one half; this is the intersection--union construction \citep{Berger1982IUT}, whose validity is shown in Section~\ref{sec:directional}. Holm's sorted adjusted values \citep{Holm1979} are
+\[
+ p^{\rm Holm}_{(i)}=\min\{1,\max_{l\le i}(T-l+1)p_{(l)}\},
+\]
+where $T$ is the number of tests in the family; they control the familywise error at level $\alpha$ under arbitrary dependence between conditions. This is distinct from an FDR claim on an outcome-filtered subset. BY sensitivity \citep{BenjaminiYekutieli2001} uses the harmonic factor $\sum_{l=1}^T1/l$. BH sensitivity \citep{BenjaminiHochberg1995} does not supply arbitrary-dependence control.
+
+\subsection{Seed collisions in the screening sampler}\label{app:collisions}
+The screening code initializes \texttt{default\_rng} at every point and scale from the first eight hexadecimal SHA-256 digits masked with \texttt{0x7fffffff} (31 bits). Distinct labels can therefore reuse a stream. Counting all random-number-generator (RNG) initializations in each of the four conditions retained by Holm gives:
+\begin{center}\small
+\begin{tabular}{lrrr}\hline
+Condition $(G,p,B,m)$ & RNG calls & Within repetition & Between repetitions\\\hline
+H1, .02, 1024, 2 & 1\,728\,000 & 16 & 677\\
+H3, .02, 1024, 2 & 1\,728\,000 & 32 & 690\\
+H8, .01, 4096, 3 & 2\,160\,000 & 51 & 1059\\
+H8, .01, 4096, 2 & 1\,728\,000 & 28 & 637\\\hline
+\end{tabular}
+\end{center}
+The last two columns count colliding pairs of RNG initializations, not duplicated landscapes or changed decisions, and all colliding pairs refer to distinct grid indices. The counts therefore do not quantify the effect on signs; the directional analysis retains the four conditions. Repeated streams nevertheless induce dependence not represented by the ideal binomial model, so the four screening results are model-based diagnostics, without a certified error probability for this generator.
+
+\subsection{Roundoff-sensitive signs}
+Strict floating-point positivity, without the numerical tolerance, retains five D conditions. In H3 at $p=.02$, $B=4096$, cubic order, two positive $d_R$ values are approximately $2.1\times10^{-16}$. Discounting them as numerical ties lowers its regret count from 26 to 24, and it no longer survives Holm. H8 at $p=.01$, $B=4096$, cubic order also has two roundoff-level positives; its count falls from 28 to 26, and it remains retained.
+
+\begin{table}[htbp]\centering\small
+\caption{Directional-test sensitivity to the regret threshold. Holm uses $.05$ for each separate family. BY/BH use $.10$ for C and $.05$ for D. Values are counts before any practical-effect filtering.}
+\begin{tabular}{lrrrrrr}\hline
+Threshold & C Holm & C BY & C BH & D Holm & D BY & D BH\\\hline
+$0$ & 2 & 2 & 11 & 5 & 5 & 34\\
+$10^{-14}$ & 1 & 0 & 4 & 4 & 4 & 12\\
+$10^{-12}$ & 1 & 0 & 4 & 4 & 4 & 12\\
+$10^{-10}$ & 1 & 0 & 4 & 4 & 4 & 12\\
+$10^{-6}$ & 1 & 0 & 4 & 4 & 4 & 12\\\hline
+\end{tabular}
+\end{table}
+The tolerance is in normalized ideal-regret units, far below the observed median shifts. The exact median relative MSE improvement of the retained H3 quadratic condition is $0.080523$.
+
+\begin{table}[htbp]
+\caption{Pre-specified bootstrap classifications and directional tests. Bootstrap rows include the pre-specified nominal filters; sign rows do not. Consequently, these rows differ in estimand and decision rule, not only in multiplicity adjustment. C and D are separate families.}
+\label{tab:sensitivity}\centering\small
+\begin{tabular}{lrrr}\hline
+Analysis & Holm $.05$ & BY & BH\\\hline
+D: pre-specified bootstrap rule & 0 & 15 & 39\\
+D: exact conditional bootstrap tail, same filters & 14 & 15 & 40\\
+D: sign tests, strict floating-point positivity & 5 & 5 & 34\\
+D: sign tests, $d_R>10^{-12}$ & 4 & 4 & 12\\
+C: sign tests, $d_R>10^{-12}$ & 1 & 0 & 4\\\hline
+\end{tabular}
+\par\smallskip\footnotesize BY/BH use $.05$ for D and $.10$ for C. Exact conditional bootstrap tails remove Monte Carlo error only; they are not exact frequentist p-values.
+\end{table}
+
+\subsection{Isolating bootstrap resolution from calibration}\label{app:bootstrap_resolution}
+For the empirical bootstrap \citep{EfronTibshirani1993}, the lower bound $1/(10000+1)$ on Monte Carlo bootstrap tails exceeds the first Holm cutoff $.05/540$. To isolate this resolution limit, we also compute the \emph{conditional empirical-bootstrap} median distribution without Monte Carlo sampling.
+
+For $n=2s$ and empirical distinct values $x_i$ with probabilities $p_i$, write $F_i=\sum_{l\le i}p_l$ and $F_i^-=F_i-p_i$. If the two middle order statistics equal distinct values $x_i<x_l$, their joint probability is
+\[
+ {2s\choose s}\{F_i^s-(F_i^-)^s\}
+ \{(1-F_l^-)^s-(1-F_l)^s\}.
+\]
+If both middle values equal $x_i$, the probability is
+\[
+ \sum_{a=0}^{s-1}\sum_{b=0}^{s-1}
+ \frac{(2s)!}{a!b!(2s-a-b)!}
+ (F_i^-)^a(1-F_i)^b p_i^{2s-a-b}.
+\]
+Assign these masses to $(x_i+x_l)/2$ and $x_i$, respectively. The implementation verifies normalization and compares the cumulative distribution function to exhaustive resampling enumeration for small samples with and without ties. The pre-specified nominal filters remain attached only to this resolution sensitivity: D gives 40 BH, 15 BY and 14 Holm classifications, compared with 39, 15 and zero under the Monte Carlo rule.
+
+Sign-test rejection probabilities are also enumerated at the null boundary.
+
+\subsection{Graph-level interpretation}
+The pre-specified stress rule counts conditions with $p\in\{.005,.01,.02\}$, $B\in\{1024,4096\}$ and all orders, requiring at least three nominal classifications per graph. The observed count is 11/12. The six fixed strata have two selected graphs each, and the positivity probabilities need not be identical across strata. The homogeneous binomial tail $13/4096$ is not an exact test of a heterogeneous population-average probability. A related bound would require the stronger null that \emph{every} independent graph-specific probability is at most $1/2$. We report the 11/12 count descriptively.
+
+\section{Prospective targeted confirmation}\label{app:confirmation}
+\subsection{Frozen design and sampling}
+The protocol was fixed before any confirmatory landscape was sampled. Its machine-readable form, explanatory text and SHA-256 lock identify the analysis script, graph definitions, exact ideal arrays and source modules; its timestamped record is included in the reproducibility package, and it is not externally registered. All four screening candidates were retained: H1 and H3 at $p=.02$, $B=1024$, quadratic order; H8 at $p=.01$, $B=4096$, quadratic and cubic orders. The planned sample is 100 repetitions for every condition, without pooling screening data.
+
+In increasing scale order, the exact integer allocations are
+\[
+(548,366,110),\qquad (2194,1463,439),\qquad (1493,1493,896,214)
+\]
+for quadratic order at $B=1024$, quadratic order at $B=4096$ and cubic order at $B=4096$, respectively. The same $120\times120$ grids, row-major first-index argmin, circuit and depolarizing model are used. Probabilities must be finite, nonnegative and sum to one within $10^{-9}$; normalization by the sum removes floating-point drift before sampling. The ideal arrays match independent statevector calculations at eight fixed points per graph.
+
+A recorded 256-bit entropy value seeds the root \texttt{SeedSequence}. Children are spawned in group order H1, H3, H8, then repetition 0--99, then baseline followed by the cell/scale order in the protocol. H8 cubic precedes quadratic. Each child initializes one \texttt{PCG64DXSM} generator, consumed sequentially over grid points. There are 1600 distinct stream paths and initial states; baseline draws are shared only between the two H8 orders at the same repetition. Distinct paths and states support the usual independent-stream model. Software versions, including NumPy 2.2.6, are fixed in the protocol.
+
+A preliminary pilot that measured only runtime and pointwise agreement with Aer is excluded, together with its streams and draws. No interim endpoint analysis, optional stopping, sample-size extension or metric-based exclusion is permitted.
+
+\subsection{Inference and complete outcomes}
+Before execution, exact design calculations showed that 62 successes in both components suffice to pass the most stringent Holm cutoff $.0125$. For a component success probability $.60$, $.65$ or $.70$, the probability of reaching 62 is $.3822$, $.7699$ or $.9660$, respectively. These are design scenarios, not estimates from the screening success rates. Power can be limited for probabilities close to one half.
+
+\begin{table}[htbp]\centering\small
+\caption{Complete primary p-values for the targeted family ($n=100$ each). The final column is the descriptive count of repetitions with both positive indicators; it is not the tested probability.}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrr}\hline
+Condition & $p_r$ & $p_d$ & $p_{\rm IUT}$ & $p_{\rm Holm}$ & Both\\\hline
+H1, $m=2$ & $7.89\times10^{-31}$ & $8.95\times10^{-4}$ & $8.95\times10^{-4}$ & $8.95\times10^{-4}$ & 66\\
+H3, $m=2$ & $7.89\times10^{-31}$ & $3.93\times10^{-5}$ & $3.93\times10^{-5}$ & $1.18\times10^{-4}$ & 70\\
+H8, $m=3$ & $7.89\times10^{-31}$ & $1.30\times10^{-12}$ & $1.30\times10^{-12}$ & $5.21\times10^{-12}$ & 84\\
+H8, $m=2$ & $7.89\times10^{-31}$ & $4.37\times10^{-4}$ & $4.37\times10^{-4}$ & $8.74\times10^{-4}$ & 67\\
+\hline\end{tabular}\end{table}
+
+Medians, quartiles, native regret shifts and individual 95\% Clopper--Pearson intervals accompany all 400 paired endpoints in the reproducibility package. The intervals are descriptive and do not have simultaneous family coverage. The verification implementation of Section~\ref{sec:verification} also checks the stream records, complemented by partial stream replay and bounded Aer checks.
+
+Probability generation and sampling took 535.74 and 160.55 seconds, respectively (11.60 minutes combined), with probabilities cached and reused across repetitions; these timings indicate scale only.
+
+\section{Bias--variance control: design and validation}\label{app:control}
+The control of Section~\ref{sec:control} uses the three discovery graphs, chosen for coverage, and was designed after the screening results were known. Its 24 graph/noise/method configurations comprise 3456 pointwise rows and 12\,000 complete Monte Carlo landscape repetitions, with independent random streams across methods, scales and grid points; common repetition indices are labels, not common random numbers.
+
+The simulator's moments agree with Aer at two specified validation cases to maximum discrepancies $2.73\times10^{-14}$ and $1.33\times10^{-13}$. An independent ideal statevector calculation at all 432 graph/grid points agrees within $6.22\times10^{-15}$.
+
+The three ideal grids contain 32, two and two equivalent minima within $10^{-10}$ objective units. The saved outcomes also record an illustrative single-competitor contrast, between the first ideal minimum and the point with the smallest strictly positive ideal gap.
+
+The control took 69.29 seconds, compared with approximately 10.21 and 50.46 hours for the discovery and replication screens on different machines.
+
+\section{Allocation sensitivity}\label{app:allocation}
+\label{sec:allocation_sensitivity}
+This deterministic sensitivity analysis uses the saved probability caches of the four confirmation conditions and does not modify the confirmation. At each grid point, basis-state objective values $L_x$ and cached probabilities $p_{j,x}$ give
+\[
+ \mu_j=\sum_x p_{j,x}L_x,\qquad
+ v_j=\sum_xp_{j,x}(L_x-\mu_j)^2.
+\]
+All scale variances in these caches are positive. For fixed weights, independent scale samples and total budget $B$, the continuous variance minimum is
+\[
+ V_{\rm cont}^*(\theta)=
+ \frac{\bigl(\sum_j|\lambda_j|\sqrt{v_j(\theta)}\bigr)^2}{B},
+ \qquad B_j^*(\theta)\ \propto\ |\lambda_j|\sqrt{v_j(\theta)}.
+\]
+The actual variance uses the implemented integer $B_j$. For the exact positive-integer minimum, write $q_j=\lambda_j^2v_j$, initialize every count at one and assign each remaining shot to the largest decrease $q_j/[B_j(B_j+1)]$. These decreases are monotonically diminishing for each scale, so the greedy sequence gives the global optimum of this separable integer problem. A final one-shot exchange check is performed at every point.
+
+The pointwise oracle may also change allocations between grid points, so it is a favorable reference for variance reduction, not an experimentally available protocol at the same acquisition cost. With an overbar denoting a grid mean, Table~\ref{tab:allocation_sensitivity} reports $100(1-\overline V_{\rm int}^*/\overline V_{\rm used})$. These are ratios of mean variances, not averages of pointwise ratios. A single fixed allocation for each entire condition is also optimized, using grid-mean $q_j$ in the integer calculation.
+
+\begin{table}[htbp]\centering\small
+\caption{Exact-moment allocation sensitivity for the four confirmation conditions. Pointwise and fixed-oracle gains are percentage reductions in grid-mean variance; all allocations retain the same total shots per point.}
+\label{tab:allocation_sensitivity}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lrrrrr}\hline
+Condition & $B$ & $\overline V_{\rm used}$ & $\overline V_{\rm int}^*$ & \shortstack{Pointwise\\gain (\%)} & \shortstack{Fixed\\gain (\%)}\\\hline
+H1, $m=2$ & 1024 & 0.01565629 & 0.01563791 & 0.11738 & 0.01077\\
+H3, $m=2$ & 1024 & 0.01219100 & 0.01218560 & 0.04433 & 0.00005\\
+H8, $m=3$ & 4096 & 0.02333666 & 0.02325143 & 0.36521 & 0.17148\\
+H8, $m=2$ & 4096 & 0.00821450 & 0.00819093 & 0.28689 & 0.13492\\
+\hline\end{tabular}\end{table}
+
+The largest pointwise reduction relative to the continuous lower bound is 1.2566\%, and the reduction in grid-mean excess variance above the unmitigated baseline is below 0.38\% in every condition. A continuous uniform allocation has greater grid-mean variance than the implemented allocation in all four conditions. These results concern these cached distributions and fixed estimator coefficients.
+
+Because moments alone do not determine the selected minimum, the confirmation applies to its prescribed allocation.
+
+\section{Auxiliary exploratory checks}\label{app:auxiliary}
+The following exploratory checks accompany the screen. They are not pooled into the depth-one test family; their full outputs are archived with the screening data.
+
+\begin{table}[htbp]\centering\small
+\caption{Scope of the auxiliary checks. None supplies hardware or optimizer-loop confirmation of the paired endpoint.}
+\begin{tabular}{L{.22\textwidth}L{.68\textwidth}}\hline
+Diagnostic & Interpretation\\\hline
+Depth-two slices & Selected instances, slices and budgets provide exploratory directional evidence only; they are not a full two-layer parameter search or an independent replication of the paired endpoint.\\
+Thermal/readout noise & Synthetic component checks are not hardware-calibrated. The MSE-improvement precondition often fails, especially for thermal-only noise.\\
+COBYLA endpoints & No examined instance/order condition met the prescribed joint rule of at least 80\% positive repetitions and median optimizer regret shift above .02.\\
+No-reference scores & On the pre-specified D classifications, areas under the receiver-operating-characteristic curve were .546 for order-to-order argmin distance, .498 for seed instability and .504 for observed-margin risk. They do not validate an oracle-free replacement for ideal regret.\\
+Leave-one-out checks & Leave-one-seed, graph and factor checks used the pre-specified bootstrap classifications. Their conclusions are not transferred to the sign/Holm set.\\\hline
+\end{tabular}
+\end{table}
+
+For example, the H11 quadratic random-start COBYLA check had 22/25 positive repetitions and median shift about .0195, below its .02 criterion. The warm-start H11 quadratic check had a slightly negative median. These mixed results delimit the grid-based claim.

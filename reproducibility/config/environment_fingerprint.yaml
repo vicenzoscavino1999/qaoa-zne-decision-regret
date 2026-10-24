@@ -1,0 +1,128 @@
+version: 1
+generated_utc: "2026-05-25T04:34:23Z"
+python_executable: "D:\\paper fisica paper2\\.venv\\Scripts\\python.exe"
+python_version: "3.12.4"
+platform: "Windows-11-10.0.22621-SP0"
+machine: "AMD64"
+in_docker: false
+pip_freeze_sha256: "sha256:57bace6419023e6c67b9361de1db8d36bcd126a2986d992e812ab1eec15b58fc"
+thread_environment:
+  PYTHONHASHSEED: null
+  OMP_NUM_THREADS: null
+  MKL_NUM_THREADS: null
+  OPENBLAS_NUM_THREADS: null
+  PYTHONDONTWRITEBYTECODE: null
+packages:
+  - distribution: "numpy"
+    module: "numpy"
+    import_ok: true
+    version: "2.2.6"
+  - distribution: "scipy"
+    module: "scipy"
+    import_ok: true
+    version: "1.17.1"
+  - distribution: "pandas"
+    module: "pandas"
+    import_ok: true
+    version: "2.3.3"
+  - distribution: "matplotlib"
+    module: "matplotlib"
+    import_ok: true
+    version: "3.10.9"
+  - distribution: "PyYAML"
+    module: "yaml"
+    import_ok: true
+    version: "6.0.3"
+  - distribution: "qiskit"
+    module: "qiskit"
+    import_ok: true
+    version: "1.4.5"
+  - distribution: "qiskit-aer"
+    module: "qiskit_aer"
+    import_ok: true
+    version: "0.15.1"
+  - distribution: "mitiq"
+    module: "mitiq"
+    import_ok: true
+    version: "1.0.0"
+  - distribution: "tqdm"
+    module: "tqdm"
+    import_ok: true
+    version: "4.67.3"
+  - distribution: "ply"
+    module: "ply"
+    import_ok: true
+    version: "3.11"
+blas_backend_note: |
+  Build Dependencies:
+    blas:
+      detection method: pkgconfig
+      found: true
+      include directory: C:/Users/runneradmin/AppData/Local/Temp/cibw-run-ll3k360g/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include
+      lib directory: C:/Users/runneradmin/AppData/Local/Temp/cibw-run-ll3k360g/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib
+      name: scipy-openblas
+      openblas configuration: OpenBLAS 0.3.29  USE64BITINT DYNAMIC_ARCH NO_AFFINITY
+        Haswell MAX_THREADS=24
+      pc file directory: C:/a/numpy/numpy/.openblas
+      version: 0.3.29
+    lapack:
+      detection method: pkgconfig
+      found: true
+      include directory: C:/Users/runneradmin/AppData/Local/Temp/cibw-run-ll3k360g/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include
+      lib directory: C:/Users/runneradmin/AppData/Local/Temp/cibw-run-ll3k360g/cp312-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib
+      name: scipy-openblas
+      openblas configuration: OpenBLAS 0.3.29  USE64BITINT DYNAMIC_ARCH NO_AFFINITY
+        Haswell MAX_THREADS=24
+      pc file directory: C:/a/numpy/numpy/.openblas
+      version: 0.3.29
+  Compilers:
+    c:
+      commands: cl
+      linker: link
+      name: msvc
+      version: 19.29.30159
+    c++:
+      commands: cl
+      linker: link
+      name: msvc
+      version: 19.29.30159
+    cython:
+      commands: cython
+      linker: cython
+      name: cython
+      version: 3.1.0
+  Machine Information:
+    build:
+      cpu: x86_64
+      endian: little
+      family: x86_64
+      system: windows
+    host:
+      cpu: x86_64
+      endian: little
+      family: x86_64
+      system: windows
+  Python Information:
+    path: C:\Users\runneradmin\AppData\Local\Temp\build-env-82yfwekj\Scripts\python.exe
+    version: '3.12'
+  SIMD Extensions:
+    baseline:
+    - SSE
+    - SSE2
+    - SSE3
+    found:
+    - SSSE3
+    - SSE41
+    - POPCNT
+    - SSE42
+    - AVX
+    - F16C
+    - FMA3
+    - AVX2
+    not found:
+    - AVX512F
+    - AVX512CD
+    - AVX512_SKX
+    - AVX512_CLX
+    - AVX512_CNL
+    - AVX512_ICL

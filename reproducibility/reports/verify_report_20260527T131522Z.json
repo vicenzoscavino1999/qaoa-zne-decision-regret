@@ -1,0 +1,65 @@
+{
+  "mode": "fast",
+  "overall": "FAIL",
+  "results": {
+    "numerical_subset": {
+      "returncode": 0,
+      "severity": "BLOCK",
+      "status": "PASS",
+      "stderr_tail": "",
+      "stdout_tail": "phase_a_verification_matches=true\nphase_c_verification_matches=true\nphase_d_verification_matches=true\nverification_seeds_recorded=true\nverification_tolerances_recorded=true\noverall_pass=true\n"
+    },
+    "paper_mapping": {
+      "checked_dependencies": 12,
+      "checked_generators": 12,
+      "checked_outputs": 16,
+      "missing": [],
+      "phase_ef_absent": true,
+      "severity": "BLOCK",
+      "status": "PASS"
+    },
+    "reference_manifest": {
+      "byte_failures": [
+        {
+          "actual": 25526,
+          "expected": 11047,
+          "path": "scripts/verify_numerical_reproducibility_subset.py"
+        }
+      ],
+      "checked": 17,
+      "declared": 17,
+      "hash_failures": [
+        {
+          "actual": "cb74b784909ba1ecb27970246c7707880302ee698781e3e1474fdc8d5c6f5f9b",
+          "expected": "dfc0d3094da158dfc3c6770d268739593d8d6b87ea2b1334a14f975f150d08d6",
+          "path": "scripts/verify_numerical_reproducibility_subset.py"
+        }
+      ],
+      "missing": [],
+      "severity": "BLOCK",
+      "status": "FAIL"
+    },
+    "release_manifest": {
+      "manifest": "RELEASE_MANIFEST_THROUGH_PHASE_D.json",
+      "message": "release manifest intentionally stale until scope freeze",
+      "severity": "WARN",
+      "status": "WARN"
+    },
+    "schema_tolerance_files": {
+      "cross_platform_note_present": true,
+      "schemas_present": true,
+      "severity": "WARN",
+      "status": "PASS",
+      "tolerances_present": true
+    },
+    "scope_guard": {
+      "match_count": 0,
+      "matches": [],
+      "phase_ef_absent": true,
+      "severity": "BLOCK",
+      "status": "PASS"
+    }
+  },
+  "timestamp_utc": "2026-05-27T13:15:22Z",
+  "verify_version": "0.5.0-fdr-audit"
+}

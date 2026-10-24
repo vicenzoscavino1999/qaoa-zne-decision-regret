@@ -1,0 +1,269 @@
+\begin{thebibliography}{34}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Audibert et~al.(2010)Audibert, Bubeck, and
+  Munos]{AudibertBubeckMunos2010BestArm}
+Jean-Yves Audibert, S{\'e}bastien Bubeck, and R{\'e}mi Munos.
+\newblock Best arm identification in multi-armed bandits.
+\newblock In \emph{Proceedings of the 23rd Conference on Learning Theory},
+  pages 41--53, 2010.
+\newblock URL
+  \url{https://www.learningtheory.org/colt2010/papers/59Audibert.pdf}.
+
+\bibitem[Benjamini and Hochberg(1995)]{BenjaminiHochberg1995}
+Yoav Benjamini and Yosef Hochberg.
+\newblock Controlling the false discovery rate: A practical and powerful
+  approach to multiple testing.
+\newblock \emph{J. R. Stat. Soc. B}, 57:\penalty0 289--300, 1995.
+\newblock \doi{10.1111/j.2517-6161.1995.tb02031.x}.
+
+\bibitem[Benjamini and Yekutieli(2001)]{BenjaminiYekutieli2001}
+Yoav Benjamini and Daniel Yekutieli.
+\newblock The control of the false discovery rate in multiple testing under
+  dependency.
+\newblock \emph{The Annals of Statistics}, 29\penalty0 (4):\penalty0
+  1165--1188, 2001.
+\newblock \doi{10.1214/aos/1013699998}.
+
+\bibitem[Berger(1982)]{Berger1982IUT}
+Roger~L. Berger.
+\newblock Multiparameter hypothesis testing and acceptance sampling.
+\newblock \emph{Technometrics}, 24\penalty0 (4):\penalty0 295--300, 1982.
+\newblock \doi{10.1080/00401706.1982.10487790}.
+
+\bibitem[Boy and Wales(2024)]{BoyWales2024EnergyLandscapesQAOA}
+Choy Boy and David~J. Wales.
+\newblock Energy landscapes for the quantum approximate optimization algorithm.
+\newblock \emph{Phys. Rev. A}, 109:\penalty0 062602, 2024.
+\newblock \doi{10.1103/PhysRevA.109.062602}.
+
+\bibitem[Bultrini et~al.(2023)Bultrini, Gordon, Czarnik, Arrasmith, Cerezo,
+  Coles, and Cincio]{Bultrini2023UNITED}
+Daniel Bultrini, Max~Hunter Gordon, Piotr Czarnik, Andrew Arrasmith, Marco
+  Cerezo, Patrick~J. Coles, and Lukasz Cincio.
+\newblock Unifying and benchmarking state-of-the-art quantum error mitigation
+  techniques.
+\newblock \emph{Quantum}, 7:\penalty0 1034, 2023.
+\newblock \doi{10.22331/q-2023-06-06-1034}.
+
+\bibitem[Cai et~al.(2023)Cai, Babbush, Benjamin, Endo, Huggins, Li, McClean,
+  and O'Brien]{Cai2023QEM}
+Zhenyu Cai, Ryan Babbush, Simon~C. Benjamin, Suguru Endo, William~J. Huggins,
+  Ying Li, Jarrod~R. McClean, and Thomas~E. O'Brien.
+\newblock Quantum error mitigation.
+\newblock \emph{Rev. Mod. Phys.}, 95:\penalty0 045005, 2023.
+\newblock \doi{10.1103/RevModPhys.95.045005}.
+
+\bibitem[Cerezo et~al.(2021)Cerezo, Arrasmith, Babbush, Benjamin, Endo, Fujii,
+  McClean, Mitarai, Yuan, Cincio, and Coles]{Cerezo2021VQAReview}
+M.~Cerezo, Andrew Arrasmith, Ryan Babbush, Simon~C. Benjamin, Suguru Endo,
+  Keisuke Fujii, Jarrod~R. McClean, Kosuke Mitarai, Xiao Yuan, Lukasz Cincio,
+  and Patrick~J. Coles.
+\newblock Variational quantum algorithms.
+\newblock \emph{Nature Reviews Physics}, 3\penalty0 (9):\penalty0 625--644,
+  2021.
+\newblock \doi{10.1038/s42254-021-00348-9}.
+
+\bibitem[Cheng et~al.(2024)Cheng, Chen, Zhang, and Zhang]{Cheng2024DARBO}
+Lixue Cheng, Yu-Qin Chen, Shi-Xin Zhang, and Shengyu Zhang.
+\newblock Quantum approximate optimization via learning-based adaptive
+  optimization.
+\newblock \emph{Communications Physics}, 7\penalty0 (1):\penalty0 83, 2024.
+\newblock \doi{10.1038/s42005-024-01577-x}.
+
+\bibitem[Efron and Tibshirani(1993)]{EfronTibshirani1993}
+Bradley Efron and Robert~J. Tibshirani.
+\newblock \emph{An Introduction to the Bootstrap}.
+\newblock Chapman and Hall, New York, 1993.
+\newblock \doi{10.1007/978-1-4899-4541-9}.
+
+\bibitem[Elmachtoub and Grigas(2022)]{ElmachtoubGrigas2022SPO}
+Adam~N. Elmachtoub and Paul Grigas.
+\newblock Smart ``predict, then optimize''.
+\newblock \emph{Management Science}, 68\penalty0 (1):\penalty0 9--26, 2022.
+\newblock \doi{10.1287/mnsc.2020.3922}.
+
+\bibitem[Farhi et~al.(2014)Farhi, Goldstone, and Gutmann]{Farhi2014}
+Edward Farhi, Jeffrey Goldstone, and Sam Gutmann.
+\newblock A quantum approximate optimization algorithm.
+\newblock \emph{arXiv}, 2014.
+\newblock \doi{10.48550/arXiv.1411.4028}.
+
+\bibitem[Giurgica-Tiron et~al.(2020)Giurgica-Tiron, Hindy, LaRose, Mari, and
+  Zeng]{GiurgicaTiron2020DigitalZNE}
+Tudor Giurgica-Tiron, Yousef Hindy, Ryan LaRose, Andrea Mari, and William~J.
+  Zeng.
+\newblock Digital zero noise extrapolation for quantum error mitigation.
+\newblock In \emph{2020 IEEE International Conference on Quantum Computing and
+  Engineering (QCE)}, pages 306--316, 2020.
+\newblock \doi{10.1109/QCE49297.2020.00045}.
+
+\bibitem[Hoeffding(1963)]{Hoeffding1963}
+Wassily Hoeffding.
+\newblock Probability inequalities for sums of bounded random variables.
+\newblock \emph{Journal of the American Statistical Association}, 58\penalty0
+  (301):\penalty0 13--30, 1963.
+\newblock \doi{10.1080/01621459.1963.10500830}.
+
+\bibitem[Holm(1979)]{Holm1979}
+Sture Holm.
+\newblock A simple sequentially rejective multiple test procedure.
+\newblock \emph{Scandinavian Journal of Statistics}, 6\penalty0 (2):\penalty0
+  65--70, 1979.
+\newblock URL \url{https://www.jstor.org/stable/4615733}.
+
+\bibitem[Javadi-Abhari et~al.(2024)Javadi-Abhari, Treinish, Krsulich, Wood,
+  Lishman, Gacon, Martiel, Nation, Bishop, Cross, Johnson, and
+  Gambetta]{JavadiAbhari2024}
+Ali Javadi-Abhari, Matthew Treinish, Kevin Krsulich, Christopher~J. Wood, Jake
+  Lishman, Julien Gacon, Simon Martiel, Paul~D. Nation, Lev~S. Bishop,
+  Andrew~W. Cross, Blake~R. Johnson, and Jay~M. Gambetta.
+\newblock Quantum computing with {Qiskit}.
+\newblock \emph{arXiv}, 2024.
+\newblock \doi{10.48550/arXiv.2405.08810}.
+
+\bibitem[Jose and Simeone(2022)]{JoseSimeone2022Convergence}
+Sharu~Theresa Jose and Osvaldo Simeone.
+\newblock Error-mitigation-aided optimization of parameterized quantum
+  circuits: Convergence analysis.
+\newblock \emph{IEEE Transactions on Quantum Engineering}, 3:\penalty0 3103119,
+  2022.
+\newblock \doi{10.1109/TQE.2022.3229747}.
+
+\bibitem[Khaleghian and M{\"u}stecapl{\i}o{\u
+  g}lu(2026)]{Khaleghian2026QAOAReliability}
+Ebrahim Khaleghian and {\"O}zg{\"u}r~E. M{\"u}stecapl{\i}o{\u g}lu.
+\newblock Physics-informed learning of effective error processes from limited
+  noisy transmon measurements for robust {QAOA} reliability, 2026.
+\newblock URL \url{https://arxiv.org/abs/2606.00353v2}.
+\newblock Preprint, version 2.
+
+\bibitem[Krebsbach et~al.(2022)Krebsbach, Trauzettel, and
+  Calzona]{Krebsbach2022RichardsonOptimization}
+Michael Krebsbach, Bj{\"o}rn Trauzettel, and Alessio Calzona.
+\newblock Optimization of {Richardson} extrapolation for quantum error
+  mitigation.
+\newblock \emph{Phys. Rev. A}, 106:\penalty0 062436, 2022.
+\newblock \doi{10.1103/PhysRevA.106.062436}.
+
+\bibitem[K{\"u}bler et~al.(2020)K{\"u}bler, Arrasmith, Cincio, and
+  Coles]{Kubler2020MeasurementFrugal}
+Jonas~M. K{\"u}bler, Andrew Arrasmith, Lukasz Cincio, and Patrick~J. Coles.
+\newblock An adaptive optimizer for measurement-frugal variational algorithms.
+\newblock \emph{Quantum}, 4:\penalty0 263, 2020.
+\newblock \doi{10.22331/q-2020-05-11-263}.
+
+\bibitem[Lehmann and Romano(2005)]{LehmannRomano2005}
+E.~L. Lehmann and Joseph~P. Romano.
+\newblock \emph{Testing Statistical Hypotheses}.
+\newblock Springer Texts in Statistics. Springer, New York, 3 edition, 2005.
+\newblock \doi{10.1007/0-387-27605-X}.
+
+\bibitem[Li and Benjamin(2017)]{LiBenjamin2017}
+Ying Li and Simon~C. Benjamin.
+\newblock Efficient variational quantum simulator incorporating active error
+  minimization.
+\newblock \emph{Phys. Rev. X}, 7:\penalty0 021050, 2017.
+\newblock \doi{10.1103/PhysRevX.7.021050}.
+
+\bibitem[Liu et~al.(2023)Liu, Hao, and Tannu]{Liu2023OSCAR}
+Kun Liu, Tianyi Hao, and Swamit Tannu.
+\newblock Enabling high performance debugging for variational quantum
+  algorithms using compressed sensing.
+\newblock In \emph{Proceedings of the 50th Annual International Symposium on
+  Computer Architecture}, ISCA '23, pages 1--13, New York, NY, USA, 2023.
+  Association for Computing Machinery.
+\newblock \doi{10.1145/3579371.3589044}.
+
+\bibitem[Lusso et~al.(2025)Lusso, Venere, Onofre, Maldonado-Romo,
+  Montanez-Barrera, and Santambrogio]{Lusso2025NoiseMitigationQAOA}
+Adriano Lusso, Marco Venere, Victor Onofre, Alberto Maldonado-Romo, Alejandro
+  Montanez-Barrera, and Marco~D. Santambrogio.
+\newblock Evaluating the role of noise mitigation in {QAOA}: A study of
+  zero-noise extrapolation and {CVaR}.
+\newblock In \emph{2025 IEEE International Conference on Quantum Computing and
+  Engineering (QCE)}, pages 602--603, 2025.
+\newblock \doi{10.1109/QCE65121.2025.10466}.
+
+\bibitem[Marshall et~al.(2020)Marshall, Wudarski, Hadfield, and
+  Hogg]{Marshall2020LocalNoiseQAOA}
+Jeffrey Marshall, Filip Wudarski, Stuart Hadfield, and Tad Hogg.
+\newblock Characterizing local noise in {QAOA} circuits.
+\newblock \emph{IOP SciNotes}, 1\penalty0 (2):\penalty0 025208, 2020.
+\newblock \doi{10.1088/2633-1357/abb0d7}.
+
+\bibitem[Robbiati et~al.(2026)Robbiati, Sopena, Papaluca, and
+  Carrazza]{Robbiati2026RealtimeQEMVQA}
+Matteo Robbiati, Alejandro Sopena, Andrea Papaluca, and Stefano Carrazza.
+\newblock Real-time error mitigation for variational optimization on quantum
+  hardware.
+\newblock \emph{Phys. Rev. Research}, 8:\penalty0 013262, 2026.
+\newblock \doi{10.1103/zyb2-zl2d}.
+
+\bibitem[Sack and Egger(2024)]{SackEgger2024MLMitigation}
+Stefan~H. Sack and Daniel~J. Egger.
+\newblock Large-scale quantum approximate optimization on nonplanar graphs with
+  machine learning noise mitigation.
+\newblock \emph{Phys. Rev. Research}, 6:\penalty0 013223, 2024.
+\newblock \doi{10.1103/PhysRevResearch.6.013223}.
+
+\bibitem[Scavino(2026)]{Scavino2026DecisionKernels}
+Vicenzo Scavino.
+\newblock Decision kernels for quantum error mitigation: Why accuracy gains
+  need not improve downstream decisions, 2026.
+\newblock URL \url{https://arxiv.org/abs/2607.02888}.
+\newblock Preprint.
+
+\bibitem[Sureshbabu et~al.(2024)Sureshbabu, Herman, Shaydulin, Basso,
+  Chakrabarti, Sun, and Pistoia]{Sureshbabu2024ParameterSettingWeightedQAOA}
+Shree~Hari Sureshbabu, Dylan Herman, Ruslan Shaydulin, Joao Basso, Shouvanik
+  Chakrabarti, Yue Sun, and Marco Pistoia.
+\newblock Parameter setting in quantum approximate optimization of weighted
+  problems.
+\newblock \emph{Quantum}, 8:\penalty0 1231, 2024.
+\newblock \doi{10.22331/q-2024-01-18-1231}.
+
+\bibitem[Takagi et~al.(2022)Takagi, Endo, Minagawa, and
+  Gu]{Takagi2022LimitsQEM}
+Ryuji Takagi, Suguru Endo, Shintaro Minagawa, and Mile Gu.
+\newblock Fundamental limits of quantum error mitigation.
+\newblock \emph{npj Quantum Information}, 8\penalty0 (1):\penalty0 114, 2022.
+\newblock \doi{10.1038/s41534-022-00618-z}.
+
+\bibitem[Temme et~al.(2017)Temme, Bravyi, and Gambetta]{Temme2017}
+Kristan Temme, Sergey Bravyi, and Jay~M. Gambetta.
+\newblock Error mitigation for short-depth quantum circuits.
+\newblock \emph{Phys. Rev. Lett.}, 119:\penalty0 180509, 2017.
+\newblock \doi{10.1103/PhysRevLett.119.180509}.
+
+\bibitem[Venere et~al.(2024)Venere, Lusso, Onofre, Maldonado-Romo, and
+  Santambrogio]{Venere2024ZNEQAOAWorkflow}
+Marco Venere, Adriano Lusso, Victor Onofre, Alberto Maldonado-Romo, and
+  Marco~D. Santambrogio.
+\newblock Characterizing the effects of zero-noise extrapolation on a {QAOA}
+  workflow.
+\newblock In \emph{2024 IEEE International Conference on Quantum Computing and
+  Engineering (QCE)}, pages 426--427, 2024.
+\newblock \doi{10.1109/QCE60285.2024.10338}.
+
+\bibitem[Wang et~al.(2024)Wang, Czarnik, Arrasmith, Cerezo, Cincio, and
+  Coles]{Wang2024Trainability}
+Samson Wang, Piotr Czarnik, Andrew Arrasmith, M.~Cerezo, Lukasz Cincio, and
+  Patrick~J. Coles.
+\newblock Can error mitigation improve trainability of noisy variational
+  quantum algorithms?
+\newblock \emph{Quantum}, 8:\penalty0 1287, 2024.
+\newblock \doi{10.22331/q-2024-03-14-1287}.
+
+\bibitem[Zhou et~al.(2020)Zhou, Wang, Choi, Pichler, and Lukin]{Zhou2020QAOA}
+Leo Zhou, Sheng-Tao Wang, Soonwon Choi, Hannes Pichler, and Mikhail~D. Lukin.
+\newblock Quantum approximate optimization algorithm: Performance, mechanism,
+  and implementation on near-term devices.
+\newblock \emph{Phys. Rev. X}, 10:\penalty0 021067, 2020.
+\newblock \doi{10.1103/PhysRevX.10.021067}.
+
+\end{thebibliography}

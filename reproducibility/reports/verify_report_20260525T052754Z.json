@@ -1,0 +1,53 @@
+{
+  "mode": "fast",
+  "overall": "PASS_WITH_WARNINGS",
+  "results": {
+    "numerical_subset": {
+      "returncode": 0,
+      "severity": "BLOCK",
+      "status": "PASS",
+      "stderr_tail": "",
+      "stdout_tail": "phase_a_verification_matches=true\nphase_c_verification_matches=true\nphase_d_verification_matches=true\nverification_seeds_recorded=true\nverification_tolerances_recorded=true\noverall_pass=true\n"
+    },
+    "paper_mapping": {
+      "checked_dependencies": 12,
+      "checked_generators": 12,
+      "checked_outputs": 16,
+      "missing": [],
+      "phase_ef_absent": true,
+      "severity": "BLOCK",
+      "status": "PASS"
+    },
+    "reference_manifest": {
+      "byte_failures": [],
+      "checked": 17,
+      "declared": 17,
+      "hash_failures": [],
+      "missing": [],
+      "severity": "BLOCK",
+      "status": "PASS"
+    },
+    "release_manifest": {
+      "manifest": "RELEASE_MANIFEST_THROUGH_PHASE_D.json",
+      "message": "release manifest intentionally stale until scope freeze",
+      "severity": "WARN",
+      "status": "WARN"
+    },
+    "schema_tolerance_files": {
+      "cross_platform_note_present": true,
+      "schemas_present": true,
+      "severity": "WARN",
+      "status": "PASS",
+      "tolerances_present": true
+    },
+    "scope_guard": {
+      "match_count": 0,
+      "matches": [],
+      "phase_ef_absent": true,
+      "severity": "BLOCK",
+      "status": "PASS"
+    }
+  },
+  "timestamp_utc": "2026-05-25T05:27:54Z",
+  "verify_version": "0.4.0-ws6-ci"
+}

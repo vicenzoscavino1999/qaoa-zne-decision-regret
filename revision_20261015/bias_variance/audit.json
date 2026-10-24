@@ -1,0 +1,269 @@
+{
+  "status": "PASS",
+  "audit_utc": "2026-10-15T06:24:18.431658+00:00",
+  "audit_elapsed_seconds": 0.33587579999584705,
+  "run_elapsed_seconds": 69.29213940000045,
+  "original_hash_checks": {
+    "config\\config_official_pilot_v1.6.yaml": true,
+    "src\\phase_c_120_custom_kernel.py": true,
+    "src\\circuits.py": true,
+    "src\\mitiq_wrapper.py": true,
+    "src\\noise_models.py": true,
+    "revision_20261015\\bias_variance\\protocol.md": true,
+    "revision_20261015\\bias_variance\\control.py": true
+  },
+  "record_counts": {
+    "configurations": 24,
+    "pointwise": 3456,
+    "replicates": 12000
+  },
+  "independent_ideal_reference": [
+    {
+      "graph": "G1_C4",
+      "max_abs_statevector_difference": 2.220446049250313e-15,
+      "equivalent_minima_tolerance_1e-10": 32
+    },
+    {
+      "graph": "G2_weighted4",
+      "max_abs_statevector_difference": 1.7763568394002505e-15,
+      "equivalent_minima_tolerance_1e-10": 2
+    },
+    {
+      "graph": "G3_weighted6",
+      "max_abs_statevector_difference": 6.217248937900877e-15,
+      "equivalent_minima_tolerance_1e-10": 2
+    }
+  ],
+  "configurations": [
+    {
+      "graph": "G1_C4",
+      "p": 0.001,
+      "method": "noisy",
+      "seed": 872528582,
+      "mse_mc_z": -0.8722343949686688,
+      "mc_material_error_fraction_tolerance_1e-10": 0.0,
+      "contrast_mc_variance_over_exact": 0.9395435250567493
+    },
+    {
+      "graph": "G1_C4",
+      "p": 0.001,
+      "method": "linear",
+      "seed": 1926874242,
+      "mse_mc_z": 0.8164453628447542,
+      "mc_material_error_fraction_tolerance_1e-10": 0.0,
+      "contrast_mc_variance_over_exact": 1.073021034800934
+    },
+    {
+      "graph": "G1_C4",
+      "p": 0.001,
+      "method": "quadratic",
+      "seed": 1621211271,
+      "mse_mc_z": -0.17481560792804135,
+      "mc_material_error_fraction_tolerance_1e-10": 0.0,
+      "contrast_mc_variance_over_exact": 1.0091819977643324
+    },
+    {
+      "graph": "G1_C4",
+      "p": 0.001,
+      "method": "cubic",
+      "seed": 1706627215,
+      "mse_mc_z": 0.39912541557283265,
+      "mc_material_error_fraction_tolerance_1e-10": 0.0,
+      "contrast_mc_variance_over_exact": 1.0063361413516956
+    },
+    {
+      "graph": "G1_C4",
+      "p": 0.02,
+      "method": "noisy",
+      "seed": 99089004,
+      "mse_mc_z": 1.2145902499672951,
+      "mc_material_error_fraction_tolerance_1e-10": 0.0,
+      "contrast_mc_variance_over_exact": 1.014511368121495
+    },
+    {
+      "graph": "G1_C4",
+      "p": 0.02,
+      "method": "linear",
+      "seed": 27218340,
+      "mse_mc_z": -0.967544492535285,
+      "mc_material_error_fraction_tolerance_1e-10": 0.0,
+      "contrast_mc_variance_over_exact": 0.8922815018319533
+    },
+    {
+      "graph": "G1_C4",
+      "p": 0.02,
+      "method": "quadratic",
+      "seed": 1069185042,
+      "mse_mc_z": -0.9908465847128569,
+      "mc_material_error_fraction_tolerance_1e-10": 0.0,
+      "contrast_mc_variance_over_exact": 1.0901267774830434
+    },
+    {
+      "graph": "G1_C4",
+      "p": 0.02,
+      "method": "cubic",
+      "seed": 954713236,
+      "mse_mc_z": 0.4380493196708547,
+      "mc_material_error_fraction_tolerance_1e-10": 0.0,
+      "contrast_mc_variance_over_exact": 0.9844257606919262
+    },
+    {
+      "graph": "G2_weighted4",
+      "p": 0.001,
+      "method": "noisy",
+      "seed": 2145213135,
+      "mse_mc_z": -0.04850298198719629,
+      "mc_material_error_fraction_tolerance_1e-10": 0.502,
+      "contrast_mc_variance_over_exact": 0.993962526497418
+    },
+    {
+      "graph": "G2_weighted4",
+      "p": 0.001,
+      "method": "linear",
+      "seed": 1403307134,
+      "mse_mc_z": -1.3463099000655894,
+      "mc_material_error_fraction_tolerance_1e-10": 0.552,
+      "contrast_mc_variance_over_exact": 0.8982485267379421
+    },
+    {
+      "graph": "G2_weighted4",
+      "p": 0.001,
+      "method": "quadratic",
+      "seed": 234071635,
+      "mse_mc_z": 1.3317289855051544,
+      "mc_material_error_fraction_tolerance_1e-10": 0.672,
+      "contrast_mc_variance_over_exact": 0.930457166209177
+    },
+    {
+      "graph": "G2_weighted4",
+      "p": 0.001,
+      "method": "cubic",
+      "seed": 1854172442,
+      "mse_mc_z": 1.0895518929121584,
+      "mc_material_error_fraction_tolerance_1e-10": 0.756,
+      "contrast_mc_variance_over_exact": 1.1086446854412118
+    },
+    {
+      "graph": "G2_weighted4",
+      "p": 0.02,
+      "method": "noisy",
+      "seed": 1363346255,
+      "mse_mc_z": -0.036593168273506525,
+      "mc_material_error_fraction_tolerance_1e-10": 0.294,
+      "contrast_mc_variance_over_exact": 1.0222995225474163
+    },
+    {
+      "graph": "G2_weighted4",
+      "p": 0.02,
+      "method": "linear",
+      "seed": 1639164843,
+      "mse_mc_z": -0.016683947612378458,
+      "mc_material_error_fraction_tolerance_1e-10": 0.512,
+      "contrast_mc_variance_over_exact": 1.0829472176793429
+    },
+    {
+      "graph": "G2_weighted4",
+      "p": 0.02,
+      "method": "quadratic",
+      "seed": 215221052,
+      "mse_mc_z": 0.25534998590658964,
+      "mc_material_error_fraction_tolerance_1e-10": 0.646,
+      "contrast_mc_variance_over_exact": 1.0340705437427336
+    },
+    {
+      "graph": "G2_weighted4",
+      "p": 0.02,
+      "method": "cubic",
+      "seed": 480320080,
+      "mse_mc_z": -1.796530608610611,
+      "mc_material_error_fraction_tolerance_1e-10": 0.708,
+      "contrast_mc_variance_over_exact": 1.079730634969956
+    },
+    {
+      "graph": "G3_weighted6",
+      "p": 0.001,
+      "method": "noisy",
+      "seed": 842788964,
+      "mse_mc_z": 0.6964739535767182,
+      "mc_material_error_fraction_tolerance_1e-10": 0.0,
+      "contrast_mc_variance_over_exact": 0.9970534944519436
+    },
+    {
+      "graph": "G3_weighted6",
+      "p": 0.001,
+      "method": "linear",
+      "seed": 344621454,
+      "mse_mc_z": -0.7081929823316251,
+      "mc_material_error_fraction_tolerance_1e-10": 0.008,
+      "contrast_mc_variance_over_exact": 1.0137129194562906
+    },
+    {
+      "graph": "G3_weighted6",
+      "p": 0.001,
+      "method": "quadratic",
+      "seed": 1481657942,
+      "mse_mc_z": -1.9188794137863556,
+      "mc_material_error_fraction_tolerance_1e-10": 0.074,
+      "contrast_mc_variance_over_exact": 0.900429403948923
+    },
+    {
+      "graph": "G3_weighted6",
+      "p": 0.001,
+      "method": "cubic",
+      "seed": 1193347958,
+      "mse_mc_z": -0.3052560374902471,
+      "mc_material_error_fraction_tolerance_1e-10": 0.282,
+      "contrast_mc_variance_over_exact": 1.0452571945320077
+    },
+    {
+      "graph": "G3_weighted6",
+      "p": 0.02,
+      "method": "noisy",
+      "seed": 2126056807,
+      "mse_mc_z": 0.36253074304554733,
+      "mc_material_error_fraction_tolerance_1e-10": 0.0,
+      "contrast_mc_variance_over_exact": 1.033474517912633
+    },
+    {
+      "graph": "G3_weighted6",
+      "p": 0.02,
+      "method": "linear",
+      "seed": 1514234065,
+      "mse_mc_z": -0.1266060418827943,
+      "mc_material_error_fraction_tolerance_1e-10": 0.026,
+      "contrast_mc_variance_over_exact": 0.9685042257086316
+    },
+    {
+      "graph": "G3_weighted6",
+      "p": 0.02,
+      "method": "quadratic",
+      "seed": 201513768,
+      "mse_mc_z": 1.2560644278957562,
+      "mc_material_error_fraction_tolerance_1e-10": 0.13,
+      "contrast_mc_variance_over_exact": 0.9660352998418494
+    },
+    {
+      "graph": "G3_weighted6",
+      "p": 0.02,
+      "method": "cubic",
+      "seed": 720888568,
+      "mse_mc_z": 1.4502279243955765,
+      "mc_material_error_fraction_tolerance_1e-10": 0.312,
+      "contrast_mc_variance_over_exact": 1.0329203142687602
+    }
+  ],
+  "max_abs_mse_mc_z": 1.9188794137863556,
+  "versions": {
+    "python": "3.12.10",
+    "numpy": "2.2.6",
+    "matplotlib": "3.10.9",
+    "pyyaml": "6.0.3"
+  },
+  "notes": [
+    "MC agreement is descriptive; no post hoc acceptance threshold was used.",
+    "Replicate labels match across methods, but samples and seeds are independent.",
+    "Protocol and original run manifest are preserved byte for byte.",
+    "The protocol contains a literal backtick-n before its pre-run clarification; this cosmetic issue is preserved for hash integrity.",
+    "The independent ideal comparison verifies all 432 grid points; noisy second moments have the two original Aer checks only."
+  ]
+}

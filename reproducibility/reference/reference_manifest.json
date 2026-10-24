@@ -1,0 +1,120 @@
+{
+  "manifest_version": "1.0.0",
+  "manifest_schema_version": "1",
+  "scope": "through_phase_d_with_auxiliary_diagnostics",
+  "created_utc": "2026-05-27T13:26:21Z",
+  "baseline_commit": "PENDING_UNTIL_CLEAN_SCOPE_COMMIT",
+  "generation_platform": "Windows 11 / Python 3.12.4",
+  "total_files": 17,
+  "total_size_bytes": 472623,
+  "excluded_from_scope": [
+    "phase_e",
+    "phase_f",
+    "real_hardware_pending",
+    "extra_experiment_pending"
+  ],
+  "reference_outputs": {
+    "results/phase_a_smoke_summary.json": {
+      "sha256": "5a147a4d854a21cba6a5515738a00c8686ef3700a91ede8c90f0b71ae84da745",
+      "bytes": 1761,
+      "phase": "A",
+      "description": "Phase A smoke-test summary."
+    },
+    "results/phase_b_debug/phase_b_summary.json": {
+      "sha256": "7f22382768c83e1e0b300c15e2b3c1c830008e99beaa739f887e80b3cb068fd9",
+      "bytes": 1040,
+      "phase": "B",
+      "description": "Phase B debug-pilot summary."
+    },
+    "results/phase_b_debug/phase_b_analysis.json": {
+      "sha256": "679091c1f891e85d20b65a1a8e0944924869c098283b90af454ad08a3c2b93af",
+      "bytes": 1105,
+      "phase": "B",
+      "description": "Phase B analysis and calibration summary."
+    },
+    "results/phase_b_debug/seed_selection_table.csv": {
+      "sha256": "136047b9b4b9320d65bdcf7ac35be61948aa80ee02bac7c85cd50ed208bf7d4f",
+      "bytes": 3189,
+      "phase": "B",
+      "description": "Phase B seed-selection table."
+    },
+    "results/phase_c_120_analysis/classification_matrix.csv": {
+      "sha256": "070a68d3ab1d9f834c3e9a67e2eba70a12cb38e7f93578a1b030c5ed78ac1051",
+      "bytes": 56321,
+      "phase": "C",
+      "description": "Phase C 120-grid discovery classification matrix."
+    },
+    "results/phase_c_120_analysis/statistics_summary.json": {
+      "sha256": "cdbb104aecda6c0f3cecbf11a610b5c7f57a019944a7bec3cabaa905e898a161",
+      "bytes": 2390,
+      "phase": "C",
+      "description": "Phase C discovery statistics summary."
+    },
+    "results/phase_c_120_analysis/sensitivity_summary.json": {
+      "sha256": "603f3db639f54c348f7de67afda8d1071c6290b533500e1d811c730613629f36",
+      "bytes": 2422,
+      "phase": "C",
+      "description": "Phase C sensitivity summary."
+    },
+    "results/phase_d/global_D1_D2_D3_D4/fdr_global_540_summary.json": {
+      "sha256": "483e3312b706186f9fd2065bc588246510154627394c93fbbafa24a08bef43ea",
+      "bytes": 1554,
+      "phase": "D",
+      "description": "Phase D global 540-cell FDR summary."
+    },
+    "results/phase_d/global_D1_D2_D3_D4/classification_matrix.csv": {
+      "sha256": "af4b81fbcd51f7cfff6f251e619e948690816e30ee5995ac33db22b02e8a7869",
+      "bytes": 285658,
+      "phase": "D",
+      "description": "Phase D independent-replication classification matrix."
+    },
+    "results/phase_d/global_D1_D2_D3_D4/instance_primary_endpoint.json": {
+      "sha256": "95fbe8abd5b067715234aac82c4c15b4de9547f548a8c8f5a4dcd2830a3e02d7",
+      "bytes": 5889,
+      "phase": "D",
+      "description": "Phase D instance-level primary endpoint."
+    },
+    "results/phase_d/global_D1_D2_D3_D4/instance_primary_endpoint.csv": {
+      "sha256": "4ec3e9062185bd129cedbf0c3508c8f455550a609fd1c9240a2e654a81ad93e7",
+      "bytes": 870,
+      "phase": "D",
+      "description": "Phase D instance-level endpoint table."
+    },
+    "results/release_checks/phase9_5_numerical_reproducibility.json": {
+      "sha256": "2c44b4b498d24c58bc5ab40c7f60f0f2e4c9e5d825c2f5fbaa6b444362d939ec",
+      "bytes": 16694,
+      "phase": "release",
+      "description": "Fast numerical reproducibility verification report."
+    },
+    "NUMERICAL_REPRODUCIBILITY_PHASE9_5.md": {
+      "sha256": "7714f64cfe54c57a5e0b9ef727dd46353d134d7aef24671f808bc5053b94ec90",
+      "bytes": 1597,
+      "phase": "release",
+      "description": "Numerical reproducibility subset documentation."
+    },
+    "config/config_official_pilot_v1.6.yaml": {
+      "sha256": "8a2f0481fbda44107f565dd975c5ac67701af9ec876241503dd608d0db70b9c4",
+      "bytes": 5644,
+      "phase": "release",
+      "description": "Official through-Phase-D configuration."
+    },
+    "config/seeds.yaml": {
+      "sha256": "5a05b25852b21c4f1330f35d67bef673dbb32ddc5a83be2bb437587da6d60d1e",
+      "bytes": 327,
+      "phase": "release",
+      "description": "Official seed registry input."
+    },
+    "config/phase_d_instances_v1.0.json": {
+      "sha256": "e8f9c5dc1769734309d91955404ff81c1961a1b03c3eba7915b6d11f2a208857",
+      "bytes": 60636,
+      "phase": "D",
+      "description": "Frozen generated Phase D instance definitions."
+    },
+    "scripts/verify_numerical_reproducibility_subset.py": {
+      "sha256": "cb74b784909ba1ecb27970246c7707880302ee698781e3e1474fdc8d5c6f5f9b",
+      "bytes": 25526,
+      "phase": "release",
+      "description": "Fast numerical reproducibility subset verifier."
+    }
+  }
+}

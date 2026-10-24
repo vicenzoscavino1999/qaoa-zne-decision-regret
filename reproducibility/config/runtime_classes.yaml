@@ -1,0 +1,97 @@
+version: 2
+status: measured_fast_targets_and_archived_official_rerun_costs
+measured_on: "2026-05-27"
+platform: "Windows 11 10.0.22621 / Python 3.12.4 / local .venv"
+
+runtime_classes:
+  check_env:
+    measured: true
+    value_seconds: 4.653
+    command: ".venv\\Scripts\\python.exe reproducibility\\check_env.py"
+    long_job: false
+
+  verify_reference:
+    measured: true
+    value_seconds: 0.443
+    command: ".venv\\Scripts\\python.exe reproducibility\\verify.py --reference-only"
+    files_checked: 17
+    long_job: false
+
+  numerical_subset:
+    measured: true
+    value_seconds: 2.606
+    command: ".venv\\Scripts\\python.exe scripts\\verify_numerical_reproducibility_subset.py"
+    warning_threshold_minutes: 5
+    block_threshold_minutes: 15
+    long_job: false
+
+  verify_fast:
+    measured: true
+    value_seconds: 2.624
+    command: ".venv\\Scripts\\python.exe reproducibility\\verify.py --fast"
+    expected_development_status: PASS_WITH_WARNINGS
+    long_job: false
+
+  docker_make_verify:
+    measured: true
+    value: "seconds after cached image build"
+    command: "docker run --rm zne-verify make verify"
+    expected_development_status: PASS_WITH_WARNINGS
+    note: "Warns because Docker MVP image excludes large data/results directories."
+    long_job: false
+
+  full_phase_c:
+    measured: true
+    value_wall_clock_hours: 10.211
+    value_core_hours_approx: 62.37
+    tasks_completed: 5403
+    shard_count: 8
+    measured_from: "logs/phase_c_120_official_shard_*_stdout.log"
+    measurement_window_utc:
+      start: "2026-05-12T22:31:24Z"
+      end: "2026-05-13T08:44:04Z"
+    note: "Core-hours approximate the sum of shard wall times, not CPU utilization."
+    command_documented_in: REPRODUCE_THROUGH_PHASE_D.md
+    long_job: true
+
+  full_phase_d:
+    measured: true
+    value_wall_clock_hours_serial_blocks: 50.455
+    value_core_hours_approx: 340.541
+    tasks_completed: 21612
+    shard_count_per_block: 8
+    measured_from: "results/phase_d_120_kernel_official/progress_D*_shard_*_of_008.json"
+    block_measurements:
+      D1:
+        wall_clock_hours: 5.298
+        core_hours_approx: 37.904
+        tasks_completed: 5403
+        start_utc: "2026-05-14T18:04:52Z"
+        end_utc: "2026-05-14T23:22:46Z"
+      D2:
+        wall_clock_hours: 15.939
+        core_hours_approx: 108.077
+        tasks_completed: 5403
+        start_utc: "2026-05-14T23:51:38Z"
+        end_utc: "2026-05-15T15:48:00Z"
+      D3:
+        wall_clock_hours: 11.383
+        core_hours_approx: 77.806
+        tasks_completed: 5403
+        start_utc: "2026-05-15T16:46:15Z"
+        end_utc: "2026-05-16T04:09:12Z"
+      D4:
+        wall_clock_hours: 17.835
+        core_hours_approx: 116.754
+        tasks_completed: 5403
+        start_utc: "2026-05-16T04:34:32Z"
+        end_utc: "2026-05-16T22:24:38Z"
+    note: "Core-hours approximate the sum of shard wall times, not CPU utilization."
+    command_documented_in: REPRODUCE_THROUGH_PHASE_D.md
+    long_job: true
+
+  hardware_real:
+    measured: false
+    estimate: "pending protocol"
+    scope_status: pending_execution_not_in_current_phase_d_release
+    long_job: true

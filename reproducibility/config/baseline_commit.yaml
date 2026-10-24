@@ -1,0 +1,49 @@
+version: 1
+status: pending_scope_freeze
+plan_file: REPRODUCIBILITY_UPGRADE_PLAN_v0.2.md
+plan_internal_revision: 9
+created_date: 2026-05-24
+
+baseline_commit: PENDING_UNTIL_CLEAN_SCOPE_COMMIT
+baseline_date: PENDING_UNTIL_CLEAN_SCOPE_COMMIT
+baseline_description: >
+  Phase A-D outputs plus Phase D auxiliary diagnostics. Real-hardware work and
+  one additional experiment remain pending scope decisions. Phase E and Phase F
+  are excluded from the current paper/release package.
+
+pip_freeze_sha256: sha256:57bace6419023e6c67b9361de1db8d36bcd126a2986d992e812ab1eec15b58fc
+os_snapshot: >
+  Windows 11 10.0.22621 / Python 3.12.4 / qiskit 1.4.5 /
+  qiskit-aer 0.15.1 / mitiq 1.0.0
+os_snapshot_source: ENVIRONMENT.md
+
+manifest_status: stale_until_regenerated
+repo_state_at_plan_version: uncommitted_dirty_snapshot
+current_branch_at_creation: codex/phase-d-release-cleanup
+
+scope_inclusions:
+  - phase_a
+  - phase_b
+  - phase_c
+  - phase_d
+  - phase_d_auxiliary_diagnostics
+  - manuscript_qst_package
+
+scope_exclusions:
+  - phase_e
+  - phase_f
+  - real_hardware_pending
+  - extra_experiment_pending
+
+release_actions_deferred:
+  - regenerate_release_manifest
+  - rebuild_zenodo_archives
+  - reserve_or_insert_doi
+  - run_long_phase_c_or_phase_d_official_reruns
+
+gate_notes:
+  phase_e_f_excluded: true
+  hardware_scope_pending: true
+  extra_experiment_scope_pending: true
+  long_runs_not_required: true
+  manifest_final_regeneration_deferred: true

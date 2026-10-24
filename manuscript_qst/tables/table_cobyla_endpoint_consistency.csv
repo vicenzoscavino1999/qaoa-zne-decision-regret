@@ -1,0 +1,13 @@
+decision,instance,median_d_R_opt,negative_count,order,positive_count,positive_fraction,run
+not_detected,H7,0.0007072921662123577,12,linear,13,0.52,random-start best-of-K
+not_detected,H7,0.0018880749992162982,10,linear,15,0.6,warm-start grid+COBYLA
+not_detected,H7,0.002364234435848464,11,quadratic,14,0.56,random-start best-of-K
+not_detected,H7,0.0133751233833393,3,quadratic,22,0.88,warm-start grid+COBYLA
+not_detected,H9,0.0032363787731091607,5,linear,20,0.8,random-start best-of-K
+not_detected,H9,0.0016953706754776372,12,linear,13,0.52,warm-start grid+COBYLA
+not_detected,H9,0.003120034183885979,5,quadratic,20,0.8,random-start best-of-K
+not_detected,H9,0.0041846095678949626,7,quadratic,18,0.72,warm-start grid+COBYLA
+not_detected,H11,0.00589243959725776,7,linear,18,0.72,random-start best-of-K
+not_detected,H11,-0.00038750926976392416,14,linear,11,0.44,warm-start grid+COBYLA
+not_detected,H11,0.019490898781849703,3,quadratic,22,0.88,random-start best-of-K
+not_detected,H11,-0.00043922017316267575,13,quadratic,12,0.48,warm-start grid+COBYLA

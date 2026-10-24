@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Reproducibility Verify Report",
+  "type": "object",
+  "required": [
+    "verify_version",
+    "timestamp_utc",
+    "mode",
+    "results",
+    "overall"
+  ],
+  "properties": {
+    "verify_version": {"type": "string"},
+    "timestamp_utc": {"type": "string"},
+    "mode": {"type": "string"},
+    "overall": {
+      "type": "string",
+      "enum": ["PASS", "PASS_WITH_WARNINGS", "FAIL"]
+    },
+    "results": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["status", "severity"],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["PASS", "WARN", "FAIL"]
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["BLOCK", "WARN", "INFO"]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
